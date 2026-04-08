@@ -1,4 +1,4 @@
--- AssumereSubito: lead da form pubblici (POC)
+-- Lavoro48h: lead da form pubblici (POC)
 -- Esegui da Supabase Dashboard → SQL → New query, oppure: supabase db push (CLI)
 -- (gen_random_uuid() è disponibile su Postgres recenti in Supabase)
 

@@ -1,12 +1,21 @@
+import { PremiumPageShell } from "../components/PremiumPageShell";
+
 export function Termini() {
   return (
-    <div className="mx-auto max-w-3xl px-4 py-14 sm:px-6 sm:py-20">
-      <h1 className="text-3xl font-extrabold text-slate-900">Termini di utilizzo</h1>
-      <p className="mt-6 text-slate-700">
-        Testo placeholder. Qui andranno condizioni d&apos;uso della piattaforma, responsabilità di aziende e
-        candidati, regole su anonimato e rivelazione dati dopo il match, modalità di pagamento pay-per-hire e
-        eventuale abbonamento premium.
+    <PremiumPageShell
+      eyebrow="Legale"
+      title="Termini di utilizzo"
+      subtitle="Condizioni d'uso della piattaforma e accesso ai servizi."
+    >
+      <p className="text-[#152435]/90">
+        Le condizioni d&apos;uso della piattaforma disciplinano l&apos;accesso ai servizi, le responsabilità di aziende e
+        candidati, le regole su anonimato e comunicazione dei dati dopo il match, nonché le modalità di pagamento
+        (pay-per-hire e abbonamento dove previsti).
       </p>
-    </div>
+      <p className="mt-4 text-[#152435]/90">
+        Il testo completo sarà pubblicato in questa pagina e reso disponibile al momento dell&apos;accettazione in fase
+        di registrazione.
+      </p>
+    </PremiumPageShell>
   );
 }

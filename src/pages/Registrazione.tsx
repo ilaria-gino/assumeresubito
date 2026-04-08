@@ -1,6 +1,8 @@
 import { useEffect, useState } from "react";
 import { useLocation } from "react-router-dom";
+import { BRAND } from "../config/brand";
 import { getSupabase, isSupabaseConfigured } from "../lib/supabase";
+import { PremiumPageShell } from "../components/PremiumPageShell";
 
 type FormStatus = "idle" | "loading" | "success" | "error";
 
@@ -20,30 +22,25 @@ export function Registrazione() {
   const configured = isSupabaseConfigured();
 
   return (
-    <div className="mx-auto max-w-6xl px-4 py-14 sm:px-6 sm:py-20">
-      <h1 className="text-center text-3xl font-extrabold text-slate-900 sm:text-4xl">Registrazione</h1>
-      <p className="mx-auto mt-4 max-w-2xl text-center text-slate-600">
-        Scegli il tuo percorso. Con Supabase configurato i dati vengono salvati nel database del progetto.
-      </p>
-
+    <PremiumPageShell
+      eyebrow="Accesso"
+      title="Registrazione"
+      subtitle={`Accesso al servizio ${BRAND.name} (${BRAND.domain}). Scegli il percorso. I dati sono trattati secondo l'informativa privacy e la cookie policy.`}
+      maxWidth="wide"
+    >
       {!configured && (
-        <div
-          className="mx-auto mt-8 max-w-2xl rounded-2xl border border-amber-200 bg-amber-50 px-4 py-3 text-center text-sm text-amber-950"
-          role="status"
-        >
-          <strong>Supabase non configurato.</strong> Copia <code className="rounded bg-amber-100 px-1">.env.example</code> in{" "}
-          <code className="rounded bg-amber-100 px-1">.env</code> e incolla la chiave <em>anon</em> da Dashboard → Settings →
-          API.
-        </div>
+        <p className="mx-auto mb-10 max-w-2xl text-center text-sm text-[#6b7a8d]" role="status">
+          Invio modulo temporaneamente non disponibile. Per urgenze usa la pagina Contatti.
+        </p>
       )}
 
-      <div className="mt-14 grid gap-10 lg:grid-cols-2">
+      <div className="grid gap-10 lg:grid-cols-2">
         <section
           id="azienda"
-          className="scroll-mt-24 rounded-3xl border border-slate-200 bg-white p-8 shadow-sm"
+          className="scroll-mt-24 rounded-3xl border border-[#e1dbd1] bg-white p-8 shadow-sm"
         >
-          <h2 className="text-xl font-bold text-slate-900">Sono un&apos;azienda</h2>
-          <p className="mt-2 text-sm text-slate-600">Passo 1: dati azienda. Poi inserisci la posizione aperta.</p>
+          <h2 className="text-xl font-bold text-[#152435]">Sono un&apos;azienda</h2>
+          <p className="mt-2 text-sm text-[#6b7a8d]">Passo 1: dati azienda. Poi inserisci la posizione aperta.</p>
           <form
             className="mt-6 space-y-4"
             onSubmit={async (e) => {
@@ -58,7 +55,7 @@ export function Registrazione() {
               const sb = getSupabase();
               if (!sb) {
                 setAzStatus("error");
-                setAzMessage("Configura il file .env con URL e chiave anon di Supabase.");
+                setAzMessage("Servizio non disponibile. Riprova più tardi o contattaci.");
                 return;
               }
 
@@ -73,7 +70,7 @@ export function Registrazione() {
 
               if (error) {
                 setAzStatus("error");
-                setAzMessage(error.message || "Errore durante il salvataggio. Controlla che la tabella esista e le policy RLS siano applicate.");
+                setAzMessage(error.message || "Impossibile completare l'invio. Riprova o contattaci.");
                 return;
               }
 
@@ -86,7 +83,7 @@ export function Registrazione() {
               <p
                 className={`rounded-xl px-4 py-3 text-sm font-medium ${
                   azStatus === "success"
-                    ? "bg-teal-50 text-teal-900"
+                    ? "bg-emerald-50 text-emerald-950"
                     : azStatus === "error"
                       ? "bg-red-50 text-red-900"
                       : "bg-slate-100 text-slate-700"
@@ -158,7 +155,7 @@ export function Registrazione() {
             <button
               type="submit"
               disabled={azStatus === "loading"}
-              className="w-full rounded-xl bg-teal-600 py-3 font-bold text-white hover:bg-teal-700 disabled:opacity-60"
+              className="w-full rounded-xl bg-[#FF6B35] py-3 font-bold text-[#0A0F1C] transition hover:bg-[#FF8F5E] disabled:opacity-60"
             >
               {azStatus === "loading" ? "Invio…" : "Invia richiesta"}
             </button>
@@ -167,11 +164,11 @@ export function Registrazione() {
 
         <section
           id="candidato"
-          className="scroll-mt-24 rounded-3xl border border-teal-100 bg-teal-50/40 p-8 shadow-sm"
+          className="scroll-mt-24 rounded-3xl border border-[#FF6B35]/20 bg-[#fff7ed]/60 p-8 shadow-sm"
         >
           <h2 className="text-xl font-bold text-slate-900">Cerco lavoro</h2>
           <p className="mt-2 text-sm text-slate-600">
-            2–3 minuti al massimo. Poi avatar automatico in base al ruolo (nella versione completa).
+            2–3 minuti. Avatar coerente con il ruolo dopo la compilazione.
           </p>
           <form
             className="mt-6 space-y-4"
@@ -194,7 +191,7 @@ export function Registrazione() {
               const sb = getSupabase();
               if (!sb) {
                 setCdStatus("error");
-                setCdMessage("Configura il file .env con URL e chiave anon di Supabase.");
+                setCdMessage("Servizio non disponibile. Riprova più tardi o contattaci.");
                 return;
               }
 
@@ -214,7 +211,7 @@ export function Registrazione() {
 
               if (error) {
                 setCdStatus("error");
-                setCdMessage(error.message || "Errore durante il salvataggio. Controlla che la tabella esista e le policy RLS siano applicate.");
+                setCdMessage(error.message || "Impossibile completare l'invio. Riprova o contattaci.");
                 return;
               }
 
@@ -227,7 +224,7 @@ export function Registrazione() {
               <p
                 className={`rounded-xl px-4 py-3 text-sm font-medium ${
                   cdStatus === "success"
-                    ? "bg-teal-100 text-teal-950"
+                    ? "bg-emerald-50 text-emerald-950"
                     : cdStatus === "error"
                       ? "bg-red-50 text-red-900"
                       : "bg-slate-100 text-slate-700"
@@ -349,13 +346,13 @@ export function Registrazione() {
             <button
               type="submit"
               disabled={cdStatus === "loading"}
-              className="w-full rounded-xl bg-slate-900 py-3 font-bold text-white hover:bg-slate-800 disabled:opacity-60"
+              className="w-full rounded-xl bg-[#152435] py-3 font-bold text-white transition hover:bg-[#2C4A6E] disabled:opacity-60"
             >
               {cdStatus === "loading" ? "Invio…" : "Invia profilo"}
             </button>
           </form>
         </section>
       </div>
-    </div>
+    </PremiumPageShell>
   );
 }

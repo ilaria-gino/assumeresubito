@@ -1,16 +1,45 @@
 @import "tailwindcss";
 
 @theme {
-  --font-sans: ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial,
+  --font-sans: "Montserrat", ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial,
     "Noto Sans", sans-serif;
-  --color-brand-50: #f0fdfa;
-  --color-brand-100: #ccfbf1;
-  --color-brand-500: #14b8a6;
-  --color-brand-600: #0d9488;
-  --color-brand-700: #0f766e;
-  --color-brand-900: #134e4a;
-  --color-ink: #0f172a;
-  --color-muted: #64748b;
+  --color-brand-50: #fff7ed;
+  --color-brand-100: #ffedd5;
+  --color-brand-500: #fb923c;
+  --color-brand-600: #ea580c;
+  --color-brand-700: #c2410c;
+  --color-brand-900: #7c2d12;
+  --color-ink: #152435;
+  --color-muted: #6b7a8d;
+  --font-luxury-display: "Cormorant Garamond", Georgia, "Times New Roman", serif;
+  --font-luxury-sans: "Montserrat", ui-sans-serif, system-ui, sans-serif;
+  --color-luxury-ink: #152435;
+  --color-luxury-paper: #f7f5f1;
+  --color-luxury-line: #e1dbd1;
+  --color-luxury-gold: #ff6b35;
+  --color-luxury-gold-light: #ff8f5e;
+  --color-premium-blu: #2c4a6e;
+  --color-premium-blu-mid: #3a5f8c;
+  --color-premium-oro: #ff6b35;
+  --color-premium-oro-hover: #ff8f5e;
+  --color-premium-paper: #f7f5f1;
+  --color-premium-ink: #152435;
+  --nav-h: 4.5rem;
+}
+
+/* Layout editoriale blog / FAQ */
+.font-luxury-display {
+  font-family: var(--font-luxury-display);
+}
+
+.font-luxury-sans {
+  font-family: var(--font-luxury-sans);
+}
+
+.luxury-page {
+  font-family: var(--font-luxury-sans);
+  color: var(--color-luxury-ink);
+  background: linear-gradient(180deg, var(--color-luxury-paper) 0%, #ece8e0 100%);
 }
 
 html {
@@ -21,12 +50,47 @@ body {
   margin: 0;
   min-height: 100vh;
   font-family: var(--font-sans);
-  color: var(--color-ink);
-  background: #f8fafc;
+  color: var(--color-premium-ink);
+  background: var(--color-premium-paper);
   -webkit-font-smoothing: antialiased;
 }
 
 :focus-visible {
-  outline: 2px solid var(--color-brand-600);
+  outline: 2px solid var(--color-premium-blu);
   outline-offset: 2px;
+}
+
+/* Link testo coerenti col design premium */
+.premium-link {
+  font-weight: 600;
+  color: var(--color-premium-blu);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  transition: color 0.15s ease;
+}
+
+.premium-link:hover {
+  color: var(--color-premium-oro);
+}
+
+@keyframes marquee {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+.animate-marquee {
+  animation: marquee 80s linear infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .animate-marquee {
+    animation: none;
+    flex-wrap: wrap;
+    justify-content: center;
+    white-space: normal;
+  }
 }

@@ -2,7 +2,7 @@ import { useId } from "react";
 import type { SectorContent } from "../data/sectors";
 
 const gradients: Record<SectorContent["avatarHint"], [string, string]> = {
-  suit: ["#0f766e", "#115e59"],
+  suit: ["#2C4A6E", "#1e3a5f"],
   chef: ["#c2410c", "#ea580c"],
   warehouse: ["#1e40af", "#2563eb"],
   hardhat: ["#ca8a04", "#eab308"],

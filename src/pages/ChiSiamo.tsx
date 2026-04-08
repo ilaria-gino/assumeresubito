@@ -1,26 +1,40 @@
 import { Link } from "react-router-dom";
+import { BRAND } from "../config/brand";
+import { PremiumPageShell } from "../components/PremiumPageShell";
 
 export function ChiSiamo() {
   return (
-    <div className="mx-auto max-w-3xl px-4 py-14 sm:px-6 sm:py-20">
-      <h1 className="text-3xl font-extrabold text-slate-900 sm:text-4xl">Chi siamo</h1>
-      <p className="mt-6 text-lg text-slate-700">
-        AssumereSubito.it nasce per un problema concreto: le aziende perdono tempo con CV che non servono e i
-        candidati non vengono visti al momento giusto. La piattaforma mette in contatto aziende e persone in modo
-        veloce, con filtri chiari e profili inizialmente anonimi (iniziali + avatar per ruolo).
+    <PremiumPageShell
+      eyebrow="Chi siamo"
+      title="Il servizio Lavoro48h"
+      subtitle={`${BRAND.name} struttura l'incontro tra organizzazioni e candidati, con percorsi distinti e attenzione ai settori di riferimento.`}
+    >
+      <p className="text-lg leading-relaxed text-[#152435]/90">
+        <strong className="font-semibold text-[#152435]">{BRAND.name}</strong> ({BRAND.domain}) è un servizio digitale
+        finalizzato a strutturare l&apos;incontro tra organizzazioni che cercano personale e persone che cercano
+        occupazione, con percorsi distinti per ciascun profilo e con attenzione ai settori economici di riferimento.
       </p>
-      <p className="mt-4 text-lg text-slate-700">
-        Non siamo un altro portale generico: siamo orientati ai risultati, ai settori e alla velocità — con urgenza
-        reale (es. contatto entro 48 ore) e pagamento solo in caso di assunzione.
+      <p className="mt-4 text-lg leading-relaxed text-[#152435]/90">
+        Il modello prevede una prima fase con informazioni proporzionate e, ove applicabile, profili presentati in forma
+        non completamente identificativa, per orientare la selezione su competenze e disponibilità. I tempi di risposta
+        sono definiti nel rispetto delle possibilità operative delle parti e, dove previsto dal servizio, con
+        riferimento a finestre orientate alle quarantotto ore.
       </p>
-      <ul className="mt-8 list-inside list-disc space-y-2 text-slate-700">
-        <li>Diretti, concreti, zero fuffa HR</li>
-        <li>Verticali per immobiliare, ristorazione, logistica, edilizia, uffici, commercio</li>
-        <li>Candidati gratis · Aziende pagano solo se assumono</li>
+      <p className="mt-4 text-lg leading-relaxed text-[#152435]/90">
+        Le condizioni economiche per le aziende sono descritte in trasparenza nella sezione{" "}
+        <Link to="/prezzi" className="premium-link">
+          Prezzi
+        </Link>
+        ; l&apos;iscrizione dei candidati al profilo base non comporta corrispettivo.
+      </p>
+      <ul className="mt-8 list-inside list-disc space-y-2 text-[#152435]/90">
+        <li>Verticali per ambiti professionali (immobiliare, ristorazione, logistica, edilizia, uffici, commercio)</li>
+        <li>Trattamento dei dati secondo normativa privacy e documentazione accessibile dal sito</li>
+        <li>Recapiti ufficiali nella pagina Contatti per commerciale e assistenza</li>
       </ul>
-      <Link to="/contatti" className="mt-10 inline-block font-bold text-teal-700 underline">
-        Contattaci
+      <Link to="/contatti" className="premium-link mt-10 inline-block font-semibold">
+        Contatti
       </Link>
-    </div>
+    </PremiumPageShell>
   );
 }

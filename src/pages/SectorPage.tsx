@@ -1,6 +1,7 @@
 import { Link, useParams } from "react-router-dom";
 import { getSector } from "../data/sectors";
 import { RoleAvatar } from "../components/RoleAvatar";
+import { btnPrimarySm } from "../components/ui/ButtonStyles";
 
 const demoCandidates = [
   { initials: "M.R.", exp: "5 anni", stato: "Disponibile subito", top: true, hours: 32 },
@@ -15,9 +16,9 @@ export function SectorPage() {
 
   if (!sector) {
     return (
-      <div className="mx-auto max-w-lg px-4 py-20 text-center">
-        <h1 className="text-2xl font-bold">Settore non trovato</h1>
-        <Link to="/" className="mt-4 inline-block text-teal-700 underline">
+      <div className="mx-auto max-w-lg bg-[#f7f5f1] px-4 py-20 text-center">
+        <h1 className="font-luxury-display text-2xl font-semibold text-[#152435]">Settore non trovato</h1>
+        <Link to="/" className="premium-link mt-4 inline-block">
           Torna alla home
         </Link>
       </div>
@@ -26,23 +27,24 @@ export function SectorPage() {
 
   return (
     <>
-      <section className="bg-gradient-to-b from-teal-50 to-white px-4 py-14 sm:px-6 sm:py-20">
-        <div className="mx-auto max-w-6xl">
-          <p className="text-sm font-semibold text-teal-700">{sector.title}</p>
-          <h1 className="mt-2 text-3xl font-extrabold tracking-tight text-slate-900 sm:text-4xl">
+      <section className="relative overflow-hidden border-b border-[#e1dbd1] bg-gradient-to-br from-[#152435] via-[#1e3a5f] to-[#0f172a] px-4 py-14 sm:px-6 sm:py-20">
+        <div className="pointer-events-none absolute -right-24 -top-24 h-72 w-72 rounded-full bg-[#FF6B35]/15 blur-3xl" aria-hidden />
+        <div className="relative mx-auto max-w-6xl">
+          <p className="text-[0.65rem] font-bold uppercase tracking-[0.22em] text-[#8AB4CE]">{sector.title}</p>
+          <h1 className="font-luxury-display mt-3 text-3xl font-semibold tracking-tight text-white sm:text-4xl md:text-[2.75rem]">
             {sector.heroTitle}
           </h1>
-          <p className="mt-4 max-w-2xl text-lg text-slate-600">{sector.heroSubtitle}</p>
+          <p className="mt-4 max-w-2xl text-lg text-white/75">{sector.heroSubtitle}</p>
           <div className="mt-8 flex flex-wrap gap-3">
             <Link
               to="/registrazione#azienda"
-              className="inline-flex rounded-xl bg-teal-600 px-6 py-3 font-bold text-white shadow-md hover:bg-teal-700"
+              className={`${btnPrimarySm} px-6 py-3 text-base shadow-lg`}
             >
               {sector.cta}
             </Link>
             <Link
               to="/registrazione#candidato"
-              className="inline-flex rounded-xl border border-slate-200 bg-white px-6 py-3 font-semibold text-slate-800 hover:bg-slate-50"
+              className="inline-flex rounded-xl border border-white/25 bg-white/10 px-6 py-3 font-semibold text-white backdrop-blur-sm transition hover:bg-white/20"
             >
               Registrati come candidato
             </Link>
@@ -50,13 +52,13 @@ export function SectorPage() {
         </div>
       </section>
 
-      <section className="grid gap-0 border-y border-slate-100 bg-white lg:grid-cols-2">
-        <div className="border-b border-slate-100 p-8 lg:border-b-0 lg:border-r lg:p-12">
-          <h2 className="text-lg font-bold text-red-900">Problema</h2>
-          <ul className="mt-4 space-y-3 text-slate-700">
+      <section className="grid gap-0 border-y border-[#e1dbd1] bg-white lg:grid-cols-2">
+        <div className="border-b border-[#e1dbd1] p-8 lg:border-b-0 lg:border-r lg:p-12">
+          <h2 className="text-lg font-bold text-[#991b1b]">Problema</h2>
+          <ul className="mt-4 space-y-3 text-[#152435]/90">
             {sector.problems.map((p) => (
               <li key={p} className="flex gap-2">
-                <span className="text-red-500" aria-hidden>
+                <span className="text-red-400" aria-hidden>
                   •
                 </span>
                 {p}
@@ -65,11 +67,11 @@ export function SectorPage() {
           </ul>
         </div>
         <div className="p-8 lg:p-12">
-          <h2 className="text-lg font-bold text-teal-900">Soluzione</h2>
-          <ul className="mt-4 space-y-3 text-slate-700">
+          <h2 className="text-lg font-bold text-[#2C4A6E]">Soluzione</h2>
+          <ul className="mt-4 space-y-3 text-[#152435]/90">
             {sector.solutions.map((p) => (
               <li key={p} className="flex gap-2">
-                <span className="text-teal-500" aria-hidden>
+                <span className="text-[#FF6B35]" aria-hidden>
                   ✓
                 </span>
                 {p}
@@ -79,16 +81,14 @@ export function SectorPage() {
         </div>
       </section>
 
-      <section className="bg-slate-50 px-4 py-14 sm:px-6">
+      <section className="bg-[#f7f5f1] px-4 py-14 sm:px-6">
         <div className="mx-auto max-w-6xl">
           <div className="flex flex-col justify-between gap-4 sm:flex-row sm:items-end">
             <div>
-              <h2 className="text-2xl font-bold text-slate-900">Candidati disponibili (esempio)</h2>
-              <p className="mt-1 text-slate-600">
-                Avatar e iniziali — dati dimostrativi. Dopo il lancio vedrai i profili reali filtrati.
-              </p>
+              <h2 className="font-luxury-display text-2xl font-semibold text-[#152435]">Candidati in evidenza</h2>
+              <p className="mt-1 text-[#6b7a8d]">Iniziali, stato e disponibilità come in piattaforma.</p>
             </div>
-            <p className="rounded-lg bg-amber-100 px-3 py-2 text-sm font-medium text-amber-900">
+            <p className="rounded-lg bg-[#FF6B35]/15 px-3 py-2 text-sm font-medium text-[#9a3412] ring-1 ring-[#FF6B35]/30">
               Timer 48h: contatta in tempo
             </p>
           </div>
@@ -97,26 +97,26 @@ export function SectorPage() {
             {demoCandidates.map((c) => (
               <article
                 key={c.initials}
-                className="flex gap-4 rounded-2xl border border-slate-200 bg-white p-5 shadow-sm"
+                className="flex gap-4 rounded-2xl border border-[#e1dbd1] bg-white p-5 shadow-sm"
               >
                 <RoleAvatar hint={sector.avatarHint} initials={c.initials} size="md" />
                 <div className="min-w-0 flex-1">
                   <div className="flex flex-wrap items-center gap-2">
-                    <span className="font-mono font-bold text-slate-900">{c.initials}</span>
+                    <span className="font-mono font-bold text-[#152435]">{c.initials}</span>
                     {c.top && (
-                      <span className="rounded-full bg-amber-100 px-2 py-0.5 text-xs font-bold text-amber-900">
+                      <span className="rounded-full bg-[#FF6B35]/15 px-2 py-0.5 text-xs font-bold text-[#9a3412]">
                         Top candidato
                       </span>
                     )}
                   </div>
-                  <p className="mt-1 text-sm text-slate-600">Esperienza: {c.exp}</p>
-                  <p className="text-sm font-medium text-teal-800">{c.stato}</p>
-                  <p className="mt-2 text-xs font-semibold text-slate-500">
+                  <p className="mt-1 text-sm text-[#6b7a8d]">Esperienza: {c.exp}</p>
+                  <p className="text-sm font-medium text-[#2C4A6E]">{c.stato}</p>
+                  <p className="mt-2 text-xs font-semibold text-[#6b7a8d]">
                     Hai {c.hours} ore per contattare questo candidato
                   </p>
                   <button
                     type="button"
-                    className="mt-3 rounded-lg bg-teal-600 px-4 py-2 text-sm font-bold text-white hover:bg-teal-700"
+                    className="mt-3 rounded-lg bg-[#FF6B35] px-4 py-2 text-sm font-bold text-[#0A0F1C] transition hover:bg-[#FF8F5E]"
                   >
                     Contatta ora
                   </button>
@@ -125,21 +125,22 @@ export function SectorPage() {
             ))}
           </div>
 
-          <p className="mt-8 text-center text-sm text-slate-500">
+          <p className="mt-8 text-center text-sm text-[#6b7a8d]">
             Filtri: esperienza · disponibilità · automunito / patente · full-time / part-time — nella dashboard
             completa.
           </p>
         </div>
       </section>
 
-      <section className="px-4 py-12 sm:px-6">
+      <section className="border-t border-[#e1dbd1] bg-white px-4 py-12 sm:px-6">
         <div className="mx-auto max-w-3xl text-center">
-          <h2 className="text-xl font-bold text-slate-900">Non sei su LinkedIn o Indeed</h2>
-          <p className="mt-2 text-slate-600">
-            Sei sul modo più veloce per assumere senza perdere tempo.{" "}
-            <Link to="/prezzi" className="font-semibold text-teal-700 underline">
-              Vedi i prezzi
+          <h2 className="font-luxury-display text-xl font-semibold text-[#152435]">Un percorso dedicato al settore</h2>
+          <p className="mt-2 text-[#6b7a8d]">
+            Messaggi e filtri sono calibrati sul vertical di riferimento. Per le condizioni economiche:{" "}
+            <Link to="/prezzi" className="premium-link">
+              Prezzi
             </Link>
+            .
           </p>
         </div>
       </section>

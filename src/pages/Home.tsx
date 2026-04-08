@@ -1,87 +1,206 @@
 import { Link } from "react-router-dom";
+import { BRAND } from "../config/brand";
 import { SECTORS } from "../data/sectors";
 import { RoleAvatar } from "../components/RoleAvatar";
+import { exampleCandidates, heroEmployer, heroWorker } from "../data/freeMedia";
+import { ExplainerSection } from "../components/ExplainerSection";
+import { TestimonialsMarquee } from "../components/TestimonialsMarquee";
+import { btnDark, btnPrimary, btnSecondary } from "../components/ui/ButtonStyles";
+
+const HERO_BG =
+  "https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=1920&q=85&auto=format&fit=crop";
 
 export function Home() {
   return (
     <>
-      <section className="relative overflow-hidden bg-gradient-to-b from-teal-50 to-white px-4 py-16 sm:px-6 sm:py-24">
-        <div className="mx-auto max-w-6xl">
+      {/* Hero full-bleed */}
+      <section className="relative flex min-h-[calc(100vh-var(--nav-h))] flex-col justify-center overflow-hidden">
+        <div className="absolute inset-0 z-0">
+          <img
+            src={HERO_BG}
+            alt=""
+            className="h-full w-full object-cover object-center"
+            width={1920}
+            height={1080}
+            loading="eager"
+          />
+          <div
+            className="absolute inset-0 bg-gradient-to-b from-[#0f172a]/55 via-[#152435]/40 to-[#0a1628]/92"
+            aria-hidden
+          />
+          <div
+            className="pointer-events-none absolute inset-0 opacity-[0.04] mix-blend-overlay"
+            style={{
+              backgroundImage: `url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")`,
+            }}
+            aria-hidden
+          />
+        </div>
+
+        <div className="relative z-10 mx-auto w-full max-w-6xl px-4 pb-20 pt-10 sm:px-6 sm:pb-24 sm:pt-14">
           <div className="mx-auto max-w-3xl text-center">
-            <p className="text-sm font-semibold uppercase tracking-wide text-teal-700">
-              AssumereSubito.it
-            </p>
-            <h1 className="mt-3 text-3xl font-extrabold tracking-tight text-slate-900 sm:text-4xl lg:text-5xl">
-              Assumi personale qualificato in meno di 48 ore
+            <p className="text-[0.65rem] font-bold uppercase tracking-[0.35em] text-[#FF8F5E]">{BRAND.domain}</p>
+            <h1 className="font-luxury-display mt-5 text-4xl font-semibold leading-[1.08] tracking-tight text-white sm:text-5xl md:text-[3.25rem]">
+              Selezione tra{" "}
+              <em className="not-italic text-[#FF8F5E]">imprese</em> e <em className="not-italic text-white/95">candidati</em>
+              , con verticali e tempi definiti.
             </h1>
-            <p className="mt-4 text-lg text-slate-600 sm:text-xl">
-              Niente CV inutili. Solo candidati pronti, già filtrati e disponibili.
+            <p className="mx-auto mt-6 max-w-2xl text-base leading-relaxed text-white/85 sm:text-lg">
+              {BRAND.name} mette in relazione domanda e offerta con profili a dettaglio progressivo, filtri per competenza
+              e area geografica, e percorsi di contatto disciplinati — con riferimento alle quarantotto ore ove applicabile.
             </p>
             <div className="mt-10 flex flex-col items-stretch justify-center gap-3 sm:flex-row sm:items-center">
-              <Link
-                to="/registrazione#azienda"
-                className="inline-flex items-center justify-center rounded-xl bg-teal-600 px-8 py-4 text-base font-bold text-white shadow-lg shadow-teal-600/25 transition hover:bg-teal-700"
-              >
+              <Link to="/registrazione#azienda" className={btnPrimary}>
                 Sono un&apos;azienda
               </Link>
               <Link
                 to="/registrazione#candidato"
-                className="inline-flex items-center justify-center rounded-xl border-2 border-slate-200 bg-white px-8 py-4 text-base font-bold text-slate-800 transition hover:border-teal-300 hover:bg-teal-50/50"
+                className={`${btnSecondary} !border-white/25 !bg-white/10 !from-white/10 !to-white/5 !text-white !shadow-none hover:!border-white/40 hover:!bg-white/15`}
               >
                 Cerco lavoro
               </Link>
             </div>
-            <p className="mt-6 text-sm text-slate-500">Registrazione candidati gratuita · Paghi solo se assumi</p>
           </div>
 
-          <div className="mt-16 flex flex-wrap items-center justify-center gap-4">
-            {SECTORS.slice(0, 4).map((s, i) => (
-              <RoleAvatar
-                key={s.slug}
-                hint={s.avatarHint}
-                initials={["M.R.", "L.B.", "G.T.", "A.F."][i] ?? "?.?"}
-                size="lg"
-                className="ring-4 ring-white shadow-xl"
+          <div className="mx-auto mt-16 grid max-w-5xl gap-4 sm:grid-cols-2">
+            <figure className="group relative overflow-hidden rounded-2xl border border-white/15 bg-white/10 shadow-[0_24px_60px_rgba(0,0,0,0.35)] backdrop-blur-sm">
+              <img
+                src={heroEmployer}
+                alt="Imprenditore o manager che organizza il team in azienda"
+                width={400}
+                height={500}
+                className="h-52 w-full object-cover object-top transition duration-500 group-hover:scale-[1.03] sm:h-56"
+                loading="eager"
+                decoding="async"
               />
-            ))}
+              <figcaption className="border-t border-white/10 bg-[#0f172a]/80 px-4 py-3 text-left text-sm text-white/90">
+                <span className="font-bold text-white">Lato azienda</span>
+                <span className="mt-0.5 block text-white/70">Ricerche e candidature in linea con ruolo e zona.</span>
+              </figcaption>
+            </figure>
+            <figure className="group relative overflow-hidden rounded-2xl border border-white/15 bg-white/10 shadow-[0_24px_60px_rgba(0,0,0,0.35)] backdrop-blur-sm sm:mt-6">
+              <div className="relative">
+                <img
+                  src={heroWorker}
+                  alt="Lavoratore con percorso professionale chiaro"
+                  width={400}
+                  height={500}
+                  className="h-52 w-full object-cover transition duration-500 group-hover:scale-[1.03] sm:h-56"
+                  loading="eager"
+                  decoding="async"
+                />
+                <div className="absolute bottom-3 right-3 rounded-lg bg-[#0f172a]/90 px-3 py-2 text-xs font-bold text-[#FF8F5E] ring-1 ring-[#FF6B35]/40">
+                  Profilo &amp; disponibilità
+                </div>
+              </div>
+              <figcaption className="border-t border-white/10 bg-[#0f172a]/80 px-4 py-3 text-left text-sm text-white/90">
+                <span className="font-bold text-white">Lato candidato</span>
+                <span className="mt-0.5 block text-white/70">Scheda competenze e visibilità controllata.</span>
+              </figcaption>
+            </figure>
           </div>
+
+          <dl className="mx-auto mt-12 grid max-w-3xl gap-3 text-sm sm:grid-cols-2 sm:text-left">
+            <div className="rounded-xl border border-white/15 bg-white/10 px-4 py-3 text-white/90 backdrop-blur-sm">
+              <dt className="font-semibold text-white">Candidati</dt>
+              <dd className="mt-1 text-white/75">Iscrizione e creazione del profilo senza costi.</dd>
+            </div>
+            <div className="rounded-xl border border-white/15 bg-white/10 px-4 py-3 text-white/90 backdrop-blur-sm">
+              <dt className="font-semibold text-white">Aziende</dt>
+              <dd className="mt-1 text-white/75">
+                Modelli economici trasparenti: dettagli in{" "}
+                <Link to="/prezzi" className="font-semibold text-[#FF8F5E] underline underline-offset-2">
+                  Prezzi
+                </Link>
+                .
+              </dd>
+            </div>
+          </dl>
         </div>
       </section>
 
-      <section className="border-y border-slate-100 bg-white px-4 py-16 sm:px-6">
+      {/* Anonimato + card esempio */}
+      <section className="border-y border-[#e1dbd1] bg-[#f7f5f1] px-4 py-16 sm:px-6">
         <div className="mx-auto max-w-6xl">
-          <h2 className="text-center text-2xl font-bold text-slate-900 sm:text-3xl">
-            Stai perdendo tempo con candidati che non rispondono?
+          <p className="text-center text-[0.65rem] font-bold uppercase tracking-[0.25em] text-[#3A5F8C]">Prima fase</p>
+          <h2 className="font-luxury-display mt-3 text-center text-3xl font-semibold text-[#152435] sm:text-4xl">
+            Anonimato controllato
           </h2>
-          <ul className="mx-auto mt-8 grid max-w-3xl gap-4 text-slate-700 sm:grid-cols-3">
-            {["Ricevi CV inutili?", "Risposte lente o assenti?", "Hai urgenza ma nessuno è davvero disponibile?"].map(
-              (t) => (
-                <li
-                  key={t}
-                  className="rounded-2xl border border-red-100 bg-red-50/80 px-4 py-5 text-center text-sm font-medium text-red-900"
-                >
-                  {t}
-                </li>
-              )
-            )}
+          <p className="mx-auto mt-4 max-w-3xl text-center text-[#6b7a8d] sm:text-base">
+            Le prime informazioni non includono l&apos;identità completa: iniziali, ruolo e rappresentazione visiva. Si
+            privilegiano competenza e disponibilità, con tutela della riservatezza fino alle fasi previste.
+          </p>
+          <ul className="mt-10 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
+            {exampleCandidates.map((c) => (
+              <li key={c.initials}>
+                <article className="group relative overflow-hidden rounded-2xl border border-[#e1dbd1] bg-white shadow-md transition duration-300 hover:-translate-y-1 hover:shadow-xl">
+                  <div className="relative aspect-[4/5] overflow-hidden">
+                    <img
+                      src={c.src}
+                      alt={c.alt}
+                      width={480}
+                      height={600}
+                      className="h-full w-full object-cover transition duration-500 group-hover:scale-[1.04]"
+                      loading="lazy"
+                      decoding="async"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-[#0f172a]/90 via-[#152435]/25 to-transparent" />
+                    <div className="absolute bottom-0 left-0 right-0 p-4 text-white">
+                      <p className="font-mono text-lg font-bold tracking-wider">{c.initials}</p>
+                      <p className="text-sm text-[#FFCCBC]">{c.role}</p>
+                    </div>
+                  </div>
+                </article>
+              </li>
+            ))}
           </ul>
         </div>
       </section>
 
-      <section className="bg-slate-50 px-4 py-16 sm:px-6">
+      <ExplainerSection />
+
+      <section className="border-y border-[#e1dbd1] bg-white px-4 py-16 sm:px-6">
         <div className="mx-auto max-w-6xl">
-          <h2 className="text-center text-2xl font-bold text-slate-900 sm:text-3xl">Con AssumereSubito</h2>
-          <ul className="mx-auto mt-10 grid gap-6 sm:grid-cols-3">
+          <p className="text-center text-[0.65rem] font-bold uppercase tracking-[0.25em] text-[#3A5F8C]">Selezione</p>
+          <h2 className="font-luxury-display mt-3 text-center text-3xl font-semibold text-[#152435] sm:text-4xl">
+            Esigenze ricorrenti
+          </h2>
+          <p className="mx-auto mt-3 max-w-2xl text-center text-[#6b7a8d]">
+            Molte organizzazioni segnalano criticità analoghe nella ricerca di profili coerenti con ruolo e zona.
+          </p>
+          <ul className="mx-auto mt-8 grid max-w-3xl gap-4 text-[#152435] sm:grid-cols-3">
             {[
-              "Ricevi solo candidati filtrati",
-              "Vedi profili anonimi (meno perdite di tempo)",
-              "Contatti entro 48 ore i profili migliori",
+              "Volume di curriculum non allineati al fabbisogno",
+              "Tempi di risposta incoerenti con le scadenze operative",
+              "Difficoltà a verificare disponibilità reale in fase iniziale",
             ].map((t) => (
               <li
                 key={t}
-                className="rounded-2xl border border-teal-100 bg-white p-6 text-center shadow-sm"
+                className="rounded-2xl border border-[#e1dbd1] bg-[#f7f5f1] px-4 py-5 text-center text-sm font-medium leading-snug"
               >
-                <span className="text-lg font-semibold text-teal-800">{t}</span>
+                {t}
+              </li>
+            ))}
+          </ul>
+        </div>
+      </section>
+
+      <section className="bg-[#ece7df]/80 px-4 py-16 sm:px-6">
+        <div className="mx-auto max-w-6xl">
+          <h2 className="font-luxury-display text-center text-3xl font-semibold text-[#152435] sm:text-4xl">
+            Cosa offre il servizio
+          </h2>
+          <ul className="mx-auto mt-10 grid gap-6 sm:grid-cols-3">
+            {[
+              "Proposte di candidature coerenti con settore e requisiti indicati",
+              "Prima fase con informazioni proporzionate per ridurre attriti nella selezione",
+              "Percorsi di contatto con tempi definiti, incluso orientamento a risposta entro 48 ore ove applicabile",
+            ].map((t) => (
+              <li
+                key={t}
+                className="rounded-2xl border border-[#2C4A6E]/15 bg-white p-6 text-center shadow-sm transition hover:shadow-md"
+              >
+                <span className="text-base font-semibold leading-snug text-[#2C4A6E]">{t}</span>
               </li>
             ))}
           </ul>
@@ -90,90 +209,144 @@ export function Home() {
 
       <section className="px-4 py-16 sm:px-6">
         <div className="mx-auto max-w-6xl">
-          <h2 className="text-center text-2xl font-bold text-slate-900 sm:text-3xl">Come funziona</h2>
-          <div className="mt-12 grid gap-10 lg:grid-cols-2">
-            <div className="rounded-3xl border border-slate-200 bg-white p-8 shadow-sm">
-              <p className="text-sm font-bold uppercase tracking-wide text-teal-600">Per aziende</p>
-              <ol className="mt-6 space-y-4 text-slate-700">
-                <li className="flex gap-3">
-                  <span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-teal-100 font-bold text-teal-800">
-                    1
-                  </span>
-                  <span>Pubblica la ricerca</span>
-                </li>
-                <li className="flex gap-3">
-                  <span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-teal-100 font-bold text-teal-800">
-                    2
-                  </span>
-                  <span>Ricevi candidati filtrati</span>
-                </li>
-                <li className="flex gap-3">
-                  <span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-teal-100 font-bold text-teal-800">
-                    3
-                  </span>
-                  <span>Contatta entro 48 ore</span>
-                </li>
-                <li className="flex gap-3">
-                  <span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-teal-600 font-bold text-white">
-                    ✓
-                  </span>
-                  <span className="font-semibold text-slate-900">Assumi — paghi solo se assumi</span>
-                </li>
-              </ol>
-            </div>
-            <div className="rounded-3xl border border-slate-200 bg-white p-8 shadow-sm">
-              <p className="text-sm font-bold uppercase tracking-wide text-slate-600">Per candidati</p>
-              <ol className="mt-6 space-y-4 text-slate-700">
-                <li className="flex gap-3">
-                  <span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-slate-100 font-bold text-slate-800">
-                    1
-                  </span>
-                  <span>Registrazione gratuita</span>
-                </li>
-                <li className="flex gap-3">
-                  <span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-slate-100 font-bold text-slate-800">
-                    2
-                  </span>
-                  <span>Compili il profilo (2–3 minuti)</span>
-                </li>
-                <li className="flex gap-3">
-                  <span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-slate-100 font-bold text-slate-800">
-                    3
-                  </span>
-                  <span>Sei proposto alle aziende</span>
-                </li>
-                <li className="flex gap-3">
-                  <span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-slate-800 font-bold text-white">
-                    ✓
-                  </span>
-                  <span className="font-semibold text-slate-900">Ricevi richieste di colloquio</span>
-                </li>
-              </ol>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <section className="border-t border-slate-100 bg-white px-4 py-16 sm:px-6">
-        <div className="mx-auto max-w-6xl text-center">
-          <h2 className="text-2xl font-bold text-slate-900 sm:text-3xl">Non è un portale di lavoro classico</h2>
-          <p className="mx-auto mt-4 max-w-2xl text-lg text-slate-600">
-            È un sistema che ti porta persone pronte. Niente linguaggio HR complicato: solo risultati.
+          <h2 className="font-luxury-display text-center text-3xl font-semibold text-[#152435] sm:text-4xl">
+            Come funziona
+          </h2>
+          <p className="mx-auto mt-4 max-w-3xl text-center text-[#6b7a8d]">
+            <strong className="text-[#152435]">Trasparenza:</strong> l&apos;iscrizione per i candidati è sempre gratuita.
+            Per le <strong className="text-[#152435]">aziende</strong> ci sono tre logiche: ingresso con funzioni di base,
+            oppure <strong className="text-[#2C4A6E]">pay per hire</strong> (contributo legato all&apos;assunzione), oppure{" "}
+            <strong className="text-[#2C4A6E]">abbonamento</strong> per servizi premium. Dettagli in{" "}
+            <Link to="/prezzi" className="premium-link">
+              Prezzi
+            </Link>
+            .
           </p>
-          <div className="mt-10 rounded-3xl bg-gradient-to-br from-teal-600 to-teal-800 px-6 py-12 text-white">
-            <h3 className="text-xl font-bold">Anonimato che aiuta</h3>
-            <p className="mx-auto mt-3 max-w-xl text-teal-100">
-              I profili mostrano solo iniziali e un avatar realistico per ruolo. Più curiosità, più contatti, meno
-              pregiudizi.
-            </p>
+
+          <div className="mt-12 grid gap-10 lg:grid-cols-2">
+            <div className="rounded-3xl border border-[#e1dbd1] bg-white p-8 shadow-sm">
+              <p className="text-sm font-bold uppercase tracking-wide text-[#2C4A6E]">Per aziende (imprenditori)</p>
+              <ol className="mt-6 space-y-4 text-[#152435]/90">
+                <li className="flex gap-3">
+                  <span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-[#2C4A6E]/10 font-bold text-[#2C4A6E]">
+                    1
+                  </span>
+                  <span>
+                    Ti registri e accetti <strong>privacy</strong> e <strong>condizioni</strong> del servizio (base legale
+                    per usare la piattaforma).
+                  </span>
+                </li>
+                <li className="flex gap-3">
+                  <span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-[#2C4A6E]/10 font-bold text-[#2C4A6E]">
+                    2
+                  </span>
+                  <span>
+                    Scegli il piano: <strong>Free</strong> (con limiti), <strong>pay per hire</strong> o{" "}
+                    <strong>abbonamento</strong>. Contratto e condizioni commerciali ti vengono inviati per email o PEC
+                    prima dell&apos;attivazione completa del servizio.
+                  </span>
+                </li>
+                <li className="flex gap-3">
+                  <span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-[#2C4A6E]/10 font-bold text-[#2C4A6E]">
+                    3
+                  </span>
+                  <span>Pubblichi la ricerca e ricevi candidati filtrati per settore.</span>
+                </li>
+                <li className="flex gap-3">
+                  <span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-[#2C4A6E]/10 font-bold text-[#2C4A6E]">
+                    4
+                  </span>
+                  <span>Contatti entro 48 ore; con pay per hire l&apos;onere economico si collega all&apos;assunzione.</span>
+                </li>
+                <li className="flex gap-3">
+                  <span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-[#FF6B35] font-bold text-[#0A0F1C]">
+                    ✓
+                  </span>
+                  <span className="font-semibold text-[#152435]">
+                    Assumi secondo il piano scelto — niente ambiguità su chi paga cosa.
+                  </span>
+                </li>
+              </ol>
+            </div>
+            <div className="rounded-3xl border border-[#e1dbd1] bg-white p-8 shadow-sm">
+              <p className="text-sm font-bold uppercase tracking-wide text-[#6b7a8d]">Per candidati (lavoratori)</p>
+              <ol className="mt-6 space-y-4 text-[#152435]/90">
+                <li className="flex gap-3">
+                  <span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-[#ece7df] font-bold text-[#152435]">
+                    1
+                  </span>
+                  <span>
+                    <strong>Registrazione gratuita</strong> — non paghi per iscriverti né per il profilo base.
+                  </span>
+                </li>
+                <li className="flex gap-3">
+                  <span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-[#ece7df] font-bold text-[#152435]">
+                    2
+                  </span>
+                  <span>
+                    Compili <strong>privacy e consensi</strong> per il trattamento dei dati e per la comunicazione alle
+                    aziende in linea con l&apos;informativa.
+                  </span>
+                </li>
+                <li className="flex gap-3">
+                  <span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-[#ece7df] font-bold text-[#152435]">
+                    3
+                  </span>
+                  <span>Profilo e avatar (2–3 minuti); sei proposto in modo anonimo con iniziali dove previsto.</span>
+                </li>
+                <li className="flex gap-3">
+                  <span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-[#152435] font-bold text-white">
+                    ✓
+                  </span>
+                  <span className="font-semibold text-[#152435]">Ricevi richieste di colloquio quando c&apos;è match.</span>
+                </li>
+              </ol>
+            </div>
           </div>
         </div>
       </section>
 
-      <section className="bg-slate-50 px-4 py-16 sm:px-6">
+      <section className="border-t border-[#e1dbd1] bg-white px-4 py-16 sm:px-6">
+        <div className="mx-auto max-w-6xl text-center">
+          <h2 className="font-luxury-display text-3xl font-semibold text-[#152435] sm:text-4xl">
+            Differenza rispetto ai portali generici
+          </h2>
+          <p className="mx-auto mt-4 max-w-2xl text-lg text-[#6b7a8d]">
+            Il servizio è organizzato per <strong className="font-semibold text-[#152435]">verticali di settore</strong>{" "}
+            e per <strong className="font-semibold text-[#152435]">percorsi di contatto chiari</strong>, con obiettivo di
+            ridurre tempo perso su profili non allineati al ruolo o alla zona.
+          </p>
+          <div className="mt-10 rounded-3xl bg-gradient-to-br from-[#2C4A6E] via-[#1e3a5f] to-[#0f172a] px-6 py-12 text-white shadow-[0_24px_60px_rgba(21,36,53,0.35)]">
+            <h3 className="text-xl font-bold">Perché l&apos;anonimato iniziale</h3>
+            <p className="mx-auto mt-4 max-w-2xl text-left text-sm leading-relaxed text-white/80 sm:text-base">
+              <strong className="text-white">Per le aziende</strong> consente di valutare esperienza, disponibilità e
+              coerenza con la ricerca senza elementi identificativi completi nelle prime fasi.{" "}
+              <strong className="text-white">Per i candidati</strong> le informazioni sulle opportunità sono presentate
+              in modo proporzionato (ad esempio area geografica e tipo di mansione), così da informare senza esporre dati
+              non necessari a chi offre lavoro. Il passaggio successivo a contatti più approfonditi segue le regole del
+              servizio e della normativa sulla privacy.
+            </p>
+            <div className="mt-8 flex flex-wrap justify-center gap-4">
+              {SECTORS.slice(0, 4).map((s, i) => (
+                <RoleAvatar
+                  key={s.slug}
+                  hint={s.avatarHint}
+                  initials={["M.R.", "L.B.", "G.T.", "A.F."][i] ?? "?.?"}
+                  size="lg"
+                  className="ring-4 ring-white/25 shadow-xl"
+                />
+              ))}
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section className="bg-[#f7f5f1] px-4 py-16 sm:px-6">
         <div className="mx-auto max-w-6xl">
-          <h2 className="text-center text-2xl font-bold text-slate-900 sm:text-3xl">Scegli il tuo settore</h2>
-          <p className="mx-auto mt-3 max-w-2xl text-center text-slate-600">
+          <h2 className="font-luxury-display text-center text-3xl font-semibold text-[#152435] sm:text-4xl">
+            Scegli il tuo settore
+          </h2>
+          <p className="mx-auto mt-3 max-w-2xl text-center text-[#6b7a8d]">
             Pagine dedicate con messaggi e filtri pensati per il tuo mondo.
           </p>
           <ul className="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
@@ -181,12 +354,12 @@ export function Home() {
               <li key={s.slug}>
                 <Link
                   to={`/settori/${s.slug}`}
-                  className="flex items-center gap-4 rounded-2xl border border-slate-200 bg-white p-5 shadow-sm transition hover:border-teal-300 hover:shadow-md"
+                  className="flex items-center gap-4 rounded-2xl border border-[#e1dbd1] bg-white p-5 shadow-sm transition hover:-translate-y-0.5 hover:border-[#FF6B35]/40 hover:shadow-lg"
                 >
                   <RoleAvatar hint={s.avatarHint} initials="••" size="sm" />
                   <div>
-                    <p className="font-bold text-slate-900">{s.title}</p>
-                    <p className="text-sm text-slate-500">{s.roleLabel}</p>
+                    <p className="font-bold text-[#152435]">{s.title}</p>
+                    <p className="text-sm text-[#6b7a8d]">{s.roleLabel}</p>
                   </div>
                 </Link>
               </li>
@@ -195,15 +368,16 @@ export function Home() {
         </div>
       </section>
 
+      <TestimonialsMarquee />
+
       <section className="px-4 py-16 sm:px-6">
-        <div className="mx-auto max-w-3xl rounded-3xl bg-slate-900 px-6 py-12 text-center text-white sm:px-12">
-          <h2 className="text-2xl font-bold sm:text-3xl">Vuoi assumere subito?</h2>
-          <p className="mt-3 text-slate-300">Registrati gratis e vedi come funziona in pochi minuti.</p>
-          <Link
-            to="/registrazione"
-            className="mt-8 inline-flex rounded-xl bg-teal-500 px-8 py-4 font-bold text-white hover:bg-teal-400"
-          >
-            Registrati gratis
+        <div className="mx-auto max-w-3xl rounded-3xl border border-[#2C4A6E]/20 bg-gradient-to-b from-[#152435] to-[#0a1628] px-6 py-12 text-center text-white shadow-[0_24px_80px_rgba(15,23,42,0.35)] sm:px-12">
+          <h2 className="font-luxury-display text-3xl font-semibold sm:text-4xl">Accesso al servizio</h2>
+          <p className="mt-3 text-white/70">
+            Registrazione senza costi per i candidati; per le imprese, attivazione secondo le condizioni pubblicate.
+          </p>
+          <Link to="/registrazione" className={`${btnDark} mt-8 border border-white/10`}>
+            Vai alla registrazione
           </Link>
         </div>
       </section>

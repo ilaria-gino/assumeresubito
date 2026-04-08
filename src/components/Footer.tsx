@@ -1,67 +1,89 @@
 import { Link } from "react-router-dom";
+import { BRAND } from "../config/brand";
+import { BrandWordmark } from "./BrandLogo";
+
+const footLink = "text-sm text-white/65 transition-colors hover:text-[#FF8F5E]";
 
 export function Footer() {
   return (
-    <footer className="border-t border-slate-200 bg-slate-50">
-      <div className="mx-auto max-w-6xl px-4 py-12 sm:px-6">
-        <div className="grid gap-10 sm:grid-cols-2 lg:grid-cols-4">
+    <footer className="border-t border-white/10 bg-gradient-to-b from-[#0a1628] via-[#0f2138] to-[#0a1628] text-white">
+      <div className="mx-auto max-w-6xl px-4 py-14 sm:px-6">
+        <div className="grid gap-12 sm:grid-cols-2 lg:grid-cols-4">
           <div>
-            <p className="font-bold text-teal-800">AssumereSubito.it</p>
-            <p className="mt-2 text-sm text-slate-600">
-              Il modo più veloce per assumere senza perdere tempo. Paghi solo se assumi.
+            <p className="font-luxury-display text-xl font-semibold tracking-tight text-white">
+              <BrandWordmark size="sm" variant="light" showDomain />
             </p>
+            <p className="mt-4 text-sm leading-relaxed text-white/60">{BRAND.shortDescription}</p>
           </div>
           <div>
-            <p className="text-sm font-semibold text-slate-900">Piattaforma</p>
-            <ul className="mt-3 space-y-2 text-sm text-slate-600">
+            <p className="text-[0.65rem] font-bold uppercase tracking-[0.2em] text-[#8AB4CE]">Piattaforma</p>
+            <ul className="mt-4 space-y-2.5">
               <li>
-                <Link to="/prezzi" className="hover:text-teal-700">
+                <Link to="/prezzi" className={footLink}>
                   Prezzi
                 </Link>
               </li>
               <li>
-                <Link to="/chi-siamo" className="hover:text-teal-700">
+                <Link to="/chi-siamo" className={footLink}>
                   Chi siamo
                 </Link>
               </li>
               <li>
-                <Link to="/registrazione" className="hover:text-teal-700">
-                  Registrati
+                <Link to="/registrazione" className={footLink}>
+                  Registrazione
+                </Link>
+              </li>
+              <li>
+                <Link to="/blog" className={footLink}>
+                  Blog
+                </Link>
+              </li>
+              <li>
+                <Link to="/faq" className={footLink}>
+                  FAQ
                 </Link>
               </li>
             </ul>
           </div>
           <div>
-            <p className="text-sm font-semibold text-slate-900">Legale</p>
-            <ul className="mt-3 space-y-2 text-sm text-slate-600">
+            <p className="text-[0.65rem] font-bold uppercase tracking-[0.2em] text-[#8AB4CE]">Legale</p>
+            <ul className="mt-4 space-y-2.5">
               <li>
-                <Link to="/privacy" className="hover:text-teal-700">
+                <Link to="/privacy" className={footLink}>
                   Privacy
                 </Link>
               </li>
               <li>
-                <Link to="/termini" className="hover:text-teal-700">
+                <Link to="/cookie-policy" className={footLink}>
+                  Cookie
+                </Link>
+              </li>
+              <li>
+                <Link to="/termini" className={footLink}>
                   Termini
                 </Link>
               </li>
               <li>
-                <Link to="/contatti" className="hover:text-teal-700">
+                <Link to="/contatti" className={footLink}>
                   Contatti
                 </Link>
               </li>
             </ul>
           </div>
           <div>
-            <p className="text-sm font-semibold text-slate-900">Slogan</p>
-            <ul className="mt-3 space-y-1 text-sm text-slate-600">
-              <li>Paghi solo se assumi</li>
-              <li>Candidati pronti in 48 ore</li>
-              <li>Stop CV inutili</li>
+            <p className="text-[0.65rem] font-bold uppercase tracking-[0.2em] text-[#8AB4CE]">Servizio</p>
+            <ul className="mt-4 space-y-2 text-sm text-white/60">
+              <li>Iscrizione candidati gratuita</li>
+              <li>Contributi aziendali legati al modello scelto</li>
+              <li>Verticali per settore e tempi di risposta definiti</li>
             </ul>
           </div>
         </div>
-        <p className="mt-10 border-t border-slate-200 pt-8 text-center text-xs text-slate-500">
-          © {new Date().getFullYear()} AssumereSubito.it — Demo front-end locale, senza servizi esterni a pagamento.
+        <p className="mt-10 text-center text-[11px] text-white/35">
+          Contenuti multimediali utilizzati secondo licenza dei fornitori.
+        </p>
+        <p className="mt-6 border-t border-white/10 pt-8 text-center text-xs text-white/45">
+          © {new Date().getFullYear()} {BRAND.domain}
         </p>
       </div>
     </footer>

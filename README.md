@@ -1,6 +1,6 @@
-# AssumereSubito.it
+# Lavoro48h (lavoro48h.it)
 
-Front-end marketing + registrazioni collegate a **Supabase**. Repository GitHub: [ilaria-gino/assumeresubito](https://github.com/ilaria-gino/assumeresubito). Brief prodotto: `skill.md` (vedi anche [ginocapon/assumere-subito](https://github.com/ginocapon/assumere-subito)).
+Front-end marketing + registrazioni collegate a **Supabase**. Repository GitHub: [ilaria-gino/assumeresubito](https://github.com/ilaria-gino/assumeresubito). Brief prodotto: `skill.md` (storico repo: [ginocapon/assumere-subito](https://github.com/ginocapon/assumere-subito)).
 
 ## Stack
 
