@@ -46,8 +46,11 @@ export function Home() {
               , con verticali e tempi definiti.
             </h1>
             <p className="mx-auto mt-6 max-w-2xl text-base leading-relaxed text-white/85 sm:text-lg">
-              {BRAND.name} mette in relazione domanda e offerta con profili a dettaglio progressivo, filtri per competenza
-              e area geografica, e percorsi di contatto disciplinati — con riferimento alle quarantotto ore ove applicabile.
+              Una <strong className="font-semibold text-white">bacheca on-line</strong> (come un marketplace di annunci),
+              non un&apos;agenzia: mettiamo in contatto domanda e offerta con profili a dettaglio progressivo, filtri per
+              competenza e zona — tempi orientati alle 48 ore ove applicabile. Le imprese usano la piattaforma con
+              abbonamento <strong className="font-semibold text-white">Basic</strong> o{" "}
+              <strong className="font-semibold text-white">Full</strong>.
             </p>
             <div className="mt-10 flex flex-col items-stretch justify-center gap-3 sm:flex-row sm:items-center">
               <Link to="/registrazione#azienda" className={btnPrimary}>
@@ -106,9 +109,10 @@ export function Home() {
               <dd className="mt-1 text-white/75">Iscrizione e creazione del profilo senza costi.</dd>
             </div>
             <div className="rounded-xl border border-white/15 bg-white/10 px-4 py-3 text-white/90 backdrop-blur-sm">
-              <dt className="font-semibold text-white">Aziende</dt>
+              <dt className="font-semibold text-white">Imprese</dt>
               <dd className="mt-1 text-white/75">
-                Modelli economici trasparenti: dettagli in{" "}
+                Solo abbonamenti <strong className="text-white/90">Basic</strong> o{" "}
+                <strong className="text-white/90">Full</strong> — nessun piano gratuito. Dettagli in{" "}
                 <Link to="/prezzi" className="font-semibold text-[#FF8F5E] underline underline-offset-2">
                   Prezzi
                 </Link>
@@ -214,9 +218,9 @@ export function Home() {
           </h2>
           <p className="mx-auto mt-4 max-w-3xl text-center text-[#6b7a8d]">
             <strong className="text-[#152435]">Trasparenza:</strong> l&apos;iscrizione per i candidati è sempre gratuita.
-            Per le <strong className="text-[#152435]">aziende</strong> l&apos;accesso alla piattaforma avviene tramite{" "}
-            <strong className="text-[#2C4A6E]">abbonamento</strong> (Piano Base o Piano Top): paghi per uso del servizio
-            digitale, strumenti e limiti definiti in contratto — non per singola assunzione. Dettagli in{" "}
+            Le <strong className="text-[#152435]">imprese</strong> accedono solo tramite{" "}
+            <strong className="text-[#2C4A6E]">abbonamento Basic o Full</strong>: paghi per uso dello strumento digitale
+            (bacheca annunci), non per singola assunzione. Dettagli in{" "}
             <Link to="/prezzi" className="premium-link">
               Prezzi
             </Link>
@@ -241,10 +245,9 @@ export function Home() {
                     2
                   </span>
                   <span>
-                    Scegli l&apos;<strong>abbonamento</strong> (<strong>Piano Base</strong> o{" "}
-                    <strong>Piano Top</strong>) in base a quanti profili completi ti servono e alle funzioni. Contratto e
-                    condizioni commerciali ti vengono inviati per email o PEC prima dell&apos;attivazione completa del
-                    servizio.
+                    Scegli l&apos;<strong>abbonamento Basic o Full</strong> in base a volumi e funzioni. Non è previsto
+                    accesso gratuito per le imprese. Contratto e condizioni ti vengono inviati per email o PEC prima
+                    dell&apos;attivazione.
                   </span>
                 </li>
                 <li className="flex gap-3">
@@ -317,9 +320,9 @@ export function Home() {
             Differenza rispetto ai portali generici
           </h2>
           <p className="mx-auto mt-4 max-w-2xl text-lg text-[#6b7a8d]">
-            Il servizio è organizzato per <strong className="font-semibold text-[#152435]">verticali di settore</strong>{" "}
-            e per <strong className="font-semibold text-[#152435]">percorsi di contatto chiari</strong>, con obiettivo di
-            ridurre tempo perso su profili non allineati al ruolo o alla zona.
+            Offriamo una <strong className="font-semibold text-[#152435]">bacheca strutturata</strong>, non un servizio di
+            agenzia: verticali di settore e percorsi di contatto chiari, per ridurre tempo perso su profili non allineati al
+            ruolo o alla zona.
           </p>
           <div className="mt-10 rounded-3xl bg-gradient-to-br from-[#2C4A6E] via-[#1e3a5f] to-[#0f172a] px-6 py-12 text-white shadow-[0_24px_60px_rgba(21,36,53,0.35)]">
             <h3 className="text-xl font-bold">Perché l&apos;anonimato iniziale</h3>

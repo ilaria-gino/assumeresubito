@@ -10,7 +10,7 @@ export const BRAND = {
   email: "info@lavoro48h.it",
   /** Descrizione breve per meta e footer */
   shortDescription:
-    "Piattaforma di incontro tra domanda e offerta di lavoro, con verticali di settore, tempi definiti e modelli economici trasparenti.",
+    "Bacheca digitale tra domanda e offerta di lavoro (stile marketplace annunci), verticali di settore e abbonamenti Basic/Full per le imprese — non agenzia per il lavoro.",
 } as const;
 
 export function mailtoContact(subject?: string) {

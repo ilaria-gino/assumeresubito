@@ -10,9 +10,11 @@ export function ChiSiamo() {
       subtitle={`${BRAND.name} struttura l'incontro tra organizzazioni e candidati, con percorsi distinti e attenzione ai settori di riferimento.`}
     >
       <p className="text-lg leading-relaxed text-[#152435]/90">
-        <strong className="font-semibold text-[#152435]">{BRAND.name}</strong> ({BRAND.domain}) è un servizio digitale
-        finalizzato a strutturare l&apos;incontro tra organizzazioni che cercano personale e persone che cercano
-        occupazione, con percorsi distinti per ciascun profilo e con attenzione ai settori economici di riferimento.
+        <strong className="font-semibold text-[#152435]">{BRAND.name}</strong> ({BRAND.domain}) è una{" "}
+        <strong>bacheca digitale</strong> per annunci e profili di lavoro, in logica assimilabile a un{" "}
+        <strong>marketplace on-line</strong> (come i grandi portali di annunci): mette in relazione domanda e offerta con
+        strumenti di filtro e livelli di dettaglio progressivi.{" "}
+        <strong>Non è un&apos;agenzia per il lavoro</strong> e non svolge attività di intermediazione o collocamento.
       </p>
       <p className="mt-4 text-lg leading-relaxed text-[#152435]/90">
         Il modello prevede una prima fase con informazioni proporzionate e, ove applicabile, profili presentati in forma
@@ -21,11 +23,11 @@ export function ChiSiamo() {
         riferimento a finestre orientate alle quarantotto ore.
       </p>
       <p className="mt-4 text-lg leading-relaxed text-[#152435]/90">
-        Le condizioni economiche per le aziende sono descritte in trasparenza nella sezione{" "}
+        Le imprese accedono solo tramite abbonamento (<strong>Basic</strong> o <strong>Full</strong>), come descritto in{" "}
         <Link to="/prezzi" className="premium-link">
           Prezzi
         </Link>
-        ; l&apos;iscrizione dei candidati al profilo base non comporta corrispettivo.
+        ; i candidati non pagano per il profilo base.
       </p>
       <ul className="mt-8 list-inside list-disc space-y-2 text-[#152435]/90">
         <li>Verticali per ambiti professionali (immobiliare, ristorazione, logistica, edilizia, uffici, commercio)</li>

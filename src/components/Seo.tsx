@@ -13,7 +13,7 @@ const ROUTES: Record<string, { title: string; description: string }> = {
   "/prezzi": {
     title: `Prezzi e condizioni | ${BASE}`,
     description:
-      "Piani Gratuito (candidati), Piano Base e Piano Top (aziende, abbonamento). Importi e clausole in contratto. Dettagli in pagina.",
+      "Candidati gratis. Imprese: solo abbonamenti Basic o Full (bacheca annunci, non agenzia). Importi in contratto. Dettagli in pagina.",
   },
   "/registrazione": {
     title: `Registrazione azienda o candidato | ${BASE}`,
@@ -23,12 +23,12 @@ const ROUTES: Record<string, { title: string; description: string }> = {
   "/chi-siamo": {
     title: `Chi siamo | ${BASE}`,
     description:
-      "Missione e ambito del servizio Lavoro48h: incontro strutturato tra domanda e offerta di lavoro, con focus su settori e tempi definiti.",
+      "Lavoro48h: bacheca digitale tipo marketplace, non agenzia; verticali di settore; imprese Basic/Full, candidati gratis.",
   },
   "/privacy": {
     title: `Privacy Policy (GDPR) | ${BASE}`,
     description:
-      "Privacy Policy: titolare, dati raccolti, finalità, conservazione, diritti, reclami. Cookie nella Cookie Policy.",
+      "GDPR: titolare, natura marketplace (non agenzia), finalità, abbonamenti Basic/Full, diritti artt. 15-22, cookie.",
   },
   "/cookie-policy": {
     title: `Cookie Policy | ${BASE}`,
@@ -38,7 +38,7 @@ const ROUTES: Record<string, { title: string; description: string }> = {
   "/termini": {
     title: `Termini e condizioni di utilizzo | ${BASE}`,
     description:
-      "Termini del portale lavoro48h.it: oggetto del servizio, ruolo della piattaforma, responsabilità, legge italiana.",
+      "Termini: bacheca annunci, abbonamenti Basic/Full per imprese, nessun ruolo da agenzia, responsabilità, legge italiana.",
   },
   "/contatti": {
     title: `Contatti | ${BASE}`,
