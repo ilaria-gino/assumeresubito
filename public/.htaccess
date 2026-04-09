@@ -1,0 +1,16 @@
+# Copiato in dist/ da Vite. Apache (cPanel / Serverplan).
+# 1) Dominio canonico: reindirizza la versione senza www verso https://www.lavoro48h.it
+# 2) SPA: tutte le route React vanno servite da index.html
+
+<IfModule mod_rewrite.c>
+  RewriteEngine On
+  RewriteBase /
+
+  RewriteCond %{HTTP_HOST} ^lavoro48h\.it$ [NC]
+  RewriteRule ^(.*)$ https://www.lavoro48h.it/$1 [L,R=301]
+
+  RewriteRule ^index\.html$ - [L]
+  RewriteCond %{REQUEST_FILENAME} !-f
+  RewriteCond %{REQUEST_FILENAME} !-d
+  RewriteRule . /index.html [L]
+</IfModule>
