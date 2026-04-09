@@ -13,7 +13,7 @@ const ROUTES: Record<string, { title: string; description: string }> = {
   "/prezzi": {
     title: `Prezzi e condizioni | ${BASE}`,
     description:
-      "Piani Gratuito, pay per hire e Premium. Iscrizione candidati gratuita; contributi aziendali definiti per contratto. Dettagli in pagina.",
+      "Piani Gratuito (candidati), Piano Base e Piano Top (aziende, abbonamento). Importi e clausole in contratto. Dettagli in pagina.",
   },
   "/registrazione": {
     title: `Registrazione azienda o candidato | ${BASE}`,
@@ -26,9 +26,9 @@ const ROUTES: Record<string, { title: string; description: string }> = {
       "Missione e ambito del servizio Lavoro48h: incontro strutturato tra domanda e offerta di lavoro, con focus su settori e tempi definiti.",
   },
   "/privacy": {
-    title: `Informativa privacy (GDPR) | ${BASE}`,
+    title: `Privacy Policy (GDPR) | ${BASE}`,
     description:
-      "Informativa privacy ai sensi degli artt. 13-14 GDPR: titolare, finalità, diritti, conservazione, cookie e contatti.",
+      "Privacy Policy: titolare, dati raccolti, finalità, conservazione, diritti, reclami. Cookie nella Cookie Policy.",
   },
   "/cookie-policy": {
     title: `Cookie Policy | ${BASE}`,
@@ -36,9 +36,9 @@ const ROUTES: Record<string, { title: string; description: string }> = {
       "Informativa su cookie e tecnologie simili: tipologie, consenso, base giuridica, gestione preferenze e diritti.",
   },
   "/termini": {
-    title: `Termini di utilizzo | ${BASE}`,
+    title: `Termini e condizioni di utilizzo | ${BASE}`,
     description:
-      "Condizioni d'uso della piattaforma, responsabilità di aziende e candidati, regole su anonimato e comunicazione dei dati dopo il match.",
+      "Termini del portale lavoro48h.it: oggetto del servizio, ruolo della piattaforma, responsabilità, legge italiana.",
   },
   "/contatti": {
     title: `Contatti | ${BASE}`,

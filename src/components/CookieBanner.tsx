@@ -29,7 +29,7 @@ export function CookieBanner() {
             non richiedono consenso. Per statistiche, preferenze e contenuti personalizzati serve il tuo consenso, come
             da GDPR e linee guida italiane. Leggi l&apos;{" "}
             <Link to="/privacy" className="premium-link">
-              informativa privacy
+              Privacy Policy
             </Link>{" "}
             e la{" "}
             <Link to="/cookie-policy" className="premium-link">

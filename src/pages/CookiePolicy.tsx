@@ -21,7 +21,7 @@ export function CookiePolicy() {
       <p>
         Il titolare è individuato nell&apos;{" "}
         <Link to="/privacy" className="premium-link">
-          informativa privacy
+          Privacy Policy
         </Link>{" "}
         e nei recapiti della pagina{" "}
         <Link to="/contatti" className="premium-link">
@@ -112,7 +112,7 @@ export function CookiePolicy() {
       <h2 className="mt-10 text-xl font-bold text-[#152435]">6. Come gestire o revocare il consenso</h2>
       <p>
         Puoi modificare le tue scelte dalle impostazioni del browser o contattando il titolare ai recapiti indicati
-        nell&apos;informativa privacy.
+        nella Privacy Policy.
       </p>
       <p>
         I browser consentono di disabilitare i cookie: consulta la guida del tuo browser (Chrome, Firefox, Safari,
@@ -131,7 +131,7 @@ export function CookiePolicy() {
         Per i diritti dell&apos;interessato (accesso, rettifica, cancellazione, limitazione, portabilità, opposizione,
         reclamo al Garante) vedi l&apos;{" "}
         <Link to="/privacy" className="premium-link">
-          informativa privacy
+          Privacy Policy
         </Link>
         .
       </p>

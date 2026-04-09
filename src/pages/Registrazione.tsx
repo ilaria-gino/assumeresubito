@@ -1,8 +1,11 @@
 import { useEffect, useState } from "react";
-import { useLocation } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import { BRAND } from "../config/brand";
 import { getSupabase, isSupabaseConfigured } from "../lib/supabase";
 import { PremiumPageShell } from "../components/PremiumPageShell";
+
+const legalBox =
+  "space-y-3 rounded-xl border border-slate-200 bg-slate-50/90 p-4 text-sm text-slate-800 [&_a]:underline [&_a]:underline-offset-2";
 
 type FormStatus = "idle" | "loading" | "success" | "error";
 
@@ -25,7 +28,7 @@ export function Registrazione() {
     <PremiumPageShell
       eyebrow="Accesso"
       title="Registrazione"
-      subtitle={`Accesso al servizio ${BRAND.name} (${BRAND.domain}). Scegli il percorso. I dati sono trattati secondo l'informativa privacy e la cookie policy.`}
+      subtitle={`Accesso al servizio ${BRAND.name} (${BRAND.domain}). Scegli il percorso. I dati sono trattati secondo la Privacy Policy e la Cookie Policy.`}
       maxWidth="wide"
     >
       {!configured && (
@@ -47,6 +50,21 @@ export function Registrazione() {
               e.preventDefault();
               const form = e.currentTarget;
               const fd = new FormData(form);
+              const consents = [
+                "az_corretti",
+                "az_termini",
+                "az_privacy",
+                "az_selezione",
+                "az_verifiche",
+              ] as const;
+              for (const name of consents) {
+                if (fd.get(name) !== "on") {
+                  setAzStatus("error");
+                  setAzMessage("Per proseguire devi accettare tutte le dichiarazioni obbligatorie in calce al modulo.");
+                  return;
+                }
+              }
+
               const company_name = String(fd.get("nome") ?? "").trim();
               const sector = String(fd.get("settore") ?? "").trim();
               const region = String(fd.get("zona") ?? "").trim();
@@ -152,6 +170,41 @@ export function Registrazione() {
                 className="mt-1 w-full rounded-xl border border-slate-200 px-4 py-3 text-slate-900 disabled:opacity-60"
               />
             </div>
+            <fieldset className={legalBox} disabled={azStatus === "loading"}>
+              <legend className="mb-2 text-sm font-semibold text-slate-900">Dichiarazioni obbligatorie</legend>
+              <label className="flex cursor-pointer items-start gap-2">
+                <input type="checkbox" name="az_corretti" className="mt-1 shrink-0" required />
+                <span>Dichiaro che i dati aziendali inseriti sono corretti</span>
+              </label>
+              <label className="flex cursor-pointer items-start gap-2">
+                <input type="checkbox" name="az_termini" className="mt-1 shrink-0" required />
+                <span>
+                  Ho letto e accetto i{" "}
+                  <Link to="/termini" target="_blank" rel="noreferrer">
+                    termini di utilizzo
+                  </Link>
+                </span>
+              </label>
+              <label className="flex cursor-pointer items-start gap-2">
+                <input type="checkbox" name="az_privacy" className="mt-1 shrink-0" required />
+                <span>
+                  Ho letto la{" "}
+                  <Link to="/privacy" target="_blank" rel="noreferrer">
+                    Privacy Policy
+                  </Link>
+                </span>
+              </label>
+              <label className="flex cursor-pointer items-start gap-2">
+                <input type="checkbox" name="az_selezione" className="mt-1 shrink-0" required />
+                <span>Mi impegno a utilizzare i dati dei candidati esclusivamente per finalità di selezione</span>
+              </label>
+              <label className="flex cursor-pointer items-start gap-2">
+                <input type="checkbox" name="az_verifiche" className="mt-1 shrink-0" required />
+                <span>
+                  Mi assumo la responsabilità delle verifiche sui candidati e delle eventuali assunzioni
+                </span>
+              </label>
+            </fieldset>
             <button
               type="submit"
               disabled={azStatus === "loading"}
@@ -176,6 +229,21 @@ export function Registrazione() {
               e.preventDefault();
               const form = e.currentTarget;
               const fd = new FormData(form);
+              const cdConsents = [
+                "cd_veritieri",
+                "cd_privacy",
+                "cd_trattamento",
+                "cd_anon",
+                "cd_comunicazione",
+              ] as const;
+              for (const name of cdConsents) {
+                if (fd.get(name) !== "on") {
+                  setCdStatus("error");
+                  setCdMessage("Per proseguire devi accettare tutte le dichiarazioni obbligatorie in calce al modulo.");
+                  return;
+                }
+              }
+
               const first_name = String(fd.get("nome") ?? "").trim();
               const last_name = String(fd.get("cognome") ?? "").trim();
               const age = Number(fd.get("eta"));
@@ -343,6 +411,36 @@ export function Registrazione() {
                 className="mt-1 w-full rounded-xl border border-slate-200 px-4 py-3 text-slate-900 disabled:opacity-60"
               />
             </div>
+            <fieldset className={legalBox} disabled={cdStatus === "loading"}>
+              <legend className="mb-2 text-sm font-semibold text-slate-900">Dichiarazioni obbligatorie</legend>
+              <label className="flex cursor-pointer items-start gap-2">
+                <input type="checkbox" name="cd_veritieri" className="mt-1 shrink-0" required />
+                <span>Dichiaro che i dati inseriti sono veritieri</span>
+              </label>
+              <label className="flex cursor-pointer items-start gap-2">
+                <input type="checkbox" name="cd_privacy" className="mt-1 shrink-0" required />
+                <span>
+                  Ho letto e accetto la{" "}
+                  <Link to="/privacy" target="_blank" rel="noreferrer">
+                    Privacy Policy
+                  </Link>
+                </span>
+              </label>
+              <label className="flex cursor-pointer items-start gap-2">
+                <input type="checkbox" name="cd_trattamento" className="mt-1 shrink-0" required />
+                <span>Acconsento al trattamento dei miei dati personali per finalità di inserimento nella piattaforma</span>
+              </label>
+              <label className="flex cursor-pointer items-start gap-2">
+                <input type="checkbox" name="cd_anon" className="mt-1 shrink-0" required />
+                <span>Acconsento alla visualizzazione del mio profilo in forma anonimizzata</span>
+              </label>
+              <label className="flex cursor-pointer items-start gap-2">
+                <input type="checkbox" name="cd_comunicazione" className="mt-1 shrink-0" required />
+                <span>
+                  Acconsento alla comunicazione dei miei dati alle aziende registrate secondo le modalità del servizio
+                </span>
+              </label>
+            </fieldset>
             <button
               type="submit"
               disabled={cdStatus === "loading"}

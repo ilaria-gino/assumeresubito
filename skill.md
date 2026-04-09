@@ -1,6 +1,6 @@
 # Lavoro48h (lavoro48h.it) — Brief prodotto (sintesi)
 
-Marchio e dominio pubblico: **Lavoro48h** / **lavoro48h.it**. Fonte concettuale: servizio di incontro tra domanda e offerta di lavoro con **verticali di settore**, **profili a livelli progressivi**, tempi di risposta **orientati alle 48 ore** ove applicabile. I candidati si registrano senza costi per il profilo base; le aziende scelgono il **modello economico** (es. pay per hire o altri piani) secondo condizioni contrattuali.
+Marchio e dominio pubblico: **Lavoro48h** / **lavoro48h.it**. Fonte concettuale: servizio di incontro tra domanda e offerta di lavoro con **verticali di settore**, **profili a livelli progressivi**, tempi di risposta **orientati alle 48 ore** ove applicabile. I candidati si registrano senza costi per il profilo base; le aziende accedono tramite **abbonamento** (Piano Base / Piano Top), con limiti e funzioni definiti in contratto — corrispettivo per uso della piattaforma, non legato all’assunzione.
 
 ## Concept
 
@@ -20,9 +20,9 @@ Immobiliare, ristorazione, logistica, edilizia, uffici/amministrazione, commerci
 
 ## Prezzi (messaggio)
 
-- Gratis: registrazione e accesso base.  
-- **Pay per hire:** paghi solo se assumi (1 mensilità o % RAL).  
-- Premium: più visibilità, priorità, filtri/consulenza (opzionale).
+- Gratis: registrazione candidati; per aziende prova/accesso base con limiti ove previsto.  
+- **Piano Base (abbonamento annuale):** accesso alla piattaforma con limite annuo su profili a dati completi (es. fino a 5).  
+- **Piano Top:** abbonamento con accesso esteso, priorità, filtri avanzati; opzionale consulenza HR.
 
 ## Tono
 
@@ -32,7 +32,7 @@ Istituzionale e chiaro; orientato al servizio e alla trasparenza delle condizion
 
 Servizio **non generico**: verticali di settore, processi definiti, condizioni economiche pubblicate per le aziende.
 
-Messaggi ricorrenti: *iscrizione candidati gratuita* · *contributi aziendali secondo piano scelto* · *tempi di risposta definiti*.
+Messaggi ricorrenti: *iscrizione candidati gratuita* · *abbonamenti aziendali (Base / Top)* · *tempi di risposta definiti*.
 
 ---
 

@@ -214,9 +214,9 @@ export function Home() {
           </h2>
           <p className="mx-auto mt-4 max-w-3xl text-center text-[#6b7a8d]">
             <strong className="text-[#152435]">Trasparenza:</strong> l&apos;iscrizione per i candidati è sempre gratuita.
-            Per le <strong className="text-[#152435]">aziende</strong> ci sono tre logiche: ingresso con funzioni di base,
-            oppure <strong className="text-[#2C4A6E]">pay per hire</strong> (contributo legato all&apos;assunzione), oppure{" "}
-            <strong className="text-[#2C4A6E]">abbonamento</strong> per servizi premium. Dettagli in{" "}
+            Per le <strong className="text-[#152435]">aziende</strong> l&apos;accesso alla piattaforma avviene tramite{" "}
+            <strong className="text-[#2C4A6E]">abbonamento</strong> (Piano Base o Piano Top): paghi per uso del servizio
+            digitale, strumenti e limiti definiti in contratto — non per singola assunzione. Dettagli in{" "}
             <Link to="/prezzi" className="premium-link">
               Prezzi
             </Link>
@@ -241,9 +241,10 @@ export function Home() {
                     2
                   </span>
                   <span>
-                    Scegli il piano: <strong>Free</strong> (con limiti), <strong>pay per hire</strong> o{" "}
-                    <strong>abbonamento</strong>. Contratto e condizioni commerciali ti vengono inviati per email o PEC
-                    prima dell&apos;attivazione completa del servizio.
+                    Scegli l&apos;<strong>abbonamento</strong> (<strong>Piano Base</strong> o{" "}
+                    <strong>Piano Top</strong>) in base a quanti profili completi ti servono e alle funzioni. Contratto e
+                    condizioni commerciali ti vengono inviati per email o PEC prima dell&apos;attivazione completa del
+                    servizio.
                   </span>
                 </li>
                 <li className="flex gap-3">
@@ -256,14 +257,18 @@ export function Home() {
                   <span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-[#2C4A6E]/10 font-bold text-[#2C4A6E]">
                     4
                   </span>
-                  <span>Contatti entro 48 ore; con pay per hire l&apos;onere economico si collega all&apos;assunzione.</span>
+                  <span>
+                    Contatti entro 48 ore ove applicabile; l&apos;onere economico per l&apos;azienda è quello
+                    dell&apos;abbonamento scelto, non legato al fatto che tu assuma o meno.
+                  </span>
                 </li>
                 <li className="flex gap-3">
                   <span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-[#FF6B35] font-bold text-[#0A0F1C]">
                     ✓
                   </span>
                   <span className="font-semibold text-[#152435]">
-                    Assumi secondo il piano scelto — niente ambiguità su chi paga cosa.
+                    Il rapporto di lavoro resta tra te e il candidato; la piattaforma fornisce accesso e strumenti secondo
+                    il piano.
                   </span>
                 </li>
               </ol>
