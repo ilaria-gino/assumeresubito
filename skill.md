@@ -1,6 +1,6 @@
 # Lavoro48h (lavoro48h.it) — Brief prodotto (sintesi)
 
-Marchio e dominio pubblico: **Lavoro48h** / **lavoro48h.it**. Posizionamento: **bacheca digitale / marketplace di annunci** di lavoro (analogia portali tipo Subito per annunci), **non** agenzia per il lavoro né intermediazione. Verticali di settore, profili a livelli progressivi, tempi orientati alle **48 ore** ove applicabile. Candidati: iscrizione gratuita. Imprese: **solo abbonamenti Basic o Full** (nessun piano gratuito); corrispettivo per uso piattaforma, non per assunzione.
+Marchio e dominio pubblico: **Lavoro48h** / **lavoro48h.it**. Posizionamento: **bacheca digitale / marketplace di annunci** di lavoro (analogia portali tipo Subito per annunci), **non** agenzia per il lavoro né intermediazione. Verticali di settore, profili a livelli progressivi, tempi orientati alle **48 ore** ove applicabile. Candidati: iscrizione gratuita. Imprese: **Starter** (mensile, 1 sblocco/mese non cumulabile), **Basic** (690 €/anno indicativo, 5 sblocchi/anno), **Full** (1.890 €/anno indicativo, illimitato fair use). Nessun piano gratuito per imprese; corrispettivo per uso piattaforma.
 
 ## Concept
 
@@ -15,14 +15,15 @@ Immobiliare, ristorazione, logistica, edilizia, uffici/amministrazione, commerci
 ## Copy hero (homepage)
 
 - **Titolo:** Selezione strutturata tra imprese e candidati, per verticali e tempi definiti.  
-- **Sottotitolo:** Bacheca on-line / marketplace annunci, non agenzia; Basic/Full per imprese.  
+- **Sottotitolo:** Bacheca on-line / marketplace annunci, non agenzia; Starter / Basic / Full per imprese.  
 - **CTA:** Sono un’azienda · Cerco lavoro  
 
 ## Prezzi (messaggio)
 
 - Candidati: sempre gratis.  
-- **Basic (abbonamento annuale):** accesso con tetto annuo su sblocco profili completi (soglia in contratto).  
-- **Full:** accesso esteso, priorità, filtri avanzati; opzionale supporto HR.
+- **Starter (mensile):** 1 sblocco profilo completo al mese, non cumulabile (es. 99 €/mese + IVA indicativo).  
+- **Basic (annuale):** 5 sblocchi nell’anno (es. 690 €/anno + IVA indicativo), supporto email.  
+- **Full (annuale):** sblocchi illimitati (fair use), priorità; HR opzionale (es. 1.890 €/anno + IVA indicativo).
 
 ## Tono
 
@@ -32,7 +33,7 @@ Istituzionale e chiaro; marketplace annunci, non collocamento; evitare promesse 
 
 Servizio **non generico**: verticali, processi definiti; **non** agenzia; privacy e termini coerenti con ruolo di piattaforma digitale.
 
-Messaggi ricorrenti: *candidati gratuiti* · *imprese solo Basic/Full* · *tempi di risposta definiti* · *non siamo un’agenzia*.
+Messaggi ricorrenti: *candidati gratuiti* · *Starter / Basic / Full con sblocchi espliciti* · *tempi di risposta definiti* · *non siamo un’agenzia*.
 
 ---
 

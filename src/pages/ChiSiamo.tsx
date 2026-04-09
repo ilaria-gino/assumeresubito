@@ -23,7 +23,8 @@ export function ChiSiamo() {
         riferimento a finestre orientate alle quarantotto ore.
       </p>
       <p className="mt-4 text-lg leading-relaxed text-[#152435]/90">
-        Le imprese accedono solo tramite abbonamento (<strong>Basic</strong> o <strong>Full</strong>), come descritto in{" "}
+        Le imprese accedono tramite abbonamento (<strong>Starter</strong>, <strong>Basic</strong> o{" "}
+        <strong>Full</strong>), come descritto in{" "}
         <Link to="/prezzi" className="premium-link">
           Prezzi
         </Link>

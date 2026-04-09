@@ -13,7 +13,7 @@ const ROUTES: Record<string, { title: string; description: string }> = {
   "/prezzi": {
     title: `Prezzi e condizioni | ${BASE}`,
     description:
-      "Candidati gratis. Imprese: solo abbonamenti Basic o Full (bacheca annunci, non agenzia). Importi in contratto. Dettagli in pagina.",
+      "Starter 99€/mese, Basic 690€/anno, Full 1890€/anno (indicativi +IVA). Sblocchi profilo espliciti. Candidati gratis.",
   },
   "/registrazione": {
     title: `Registrazione azienda o candidato | ${BASE}`,
@@ -28,7 +28,7 @@ const ROUTES: Record<string, { title: string; description: string }> = {
   "/privacy": {
     title: `Privacy Policy (GDPR) | ${BASE}`,
     description:
-      "GDPR: titolare, natura marketplace (non agenzia), finalità, abbonamenti Basic/Full, diritti artt. 15-22, cookie.",
+      "GDPR: titolare, natura marketplace (non agenzia), abbonamenti Starter/Basic/Full, diritti artt. 15-22, cookie.",
   },
   "/cookie-policy": {
     title: `Cookie Policy | ${BASE}`,

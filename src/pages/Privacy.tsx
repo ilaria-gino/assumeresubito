@@ -67,8 +67,8 @@ export function Privacy() {
             <li>consentire la registrazione e la gestione degli account (candidati e imprese);</li>
             <li>pubblicare e rendere consultabili i profili secondo le regole di anonimizzazione del servizio;</li>
             <li>
-              gestire gli <strong>abbonamenti aziendali</strong> (piani <strong>Basic</strong> e <strong>Full</strong>),
-              i pagamenti e gli obblighi contrattuali connessi;
+              gestire gli <strong>abbonamenti aziendali</strong> (piani <strong>Starter</strong>,{" "}
+              <strong>Basic</strong> e <strong>Full</strong>), i pagamenti e gli obblighi contrattuali connessi;
             </li>
             <li>comunicazioni strumentali al servizio (es. conferme, aggiornamenti tecnici);</li>
             <li>adempimenti di legge, contabili e fiscali ove applicabili;</li>
@@ -90,9 +90,9 @@ export function Privacy() {
           <p>
             I profili dei candidati sono resi visibili in prima istanza in forma <strong>non direttamente identificativa</strong>
             , secondo le modalità tecniche del servizio. L’accesso ai dati completi da parte delle imprese è subordinato
-            alla sottoscrizione di un <strong>abbonamento</strong> (piani <strong>Basic</strong> o <strong>Full</strong>),
-            con <strong>limiti e funzionalità</strong> definiti nel contratto: il corrispettivo attiene all’uso della
-            piattaforma, non all’assunzione o a esiti di selezione.
+            alla sottoscrizione di un <strong>abbonamento</strong> (piani <strong>Starter</strong>,{" "}
+            <strong>Basic</strong> o <strong>Full</strong>), con <strong>limiti e funzionalità</strong> definiti nel
+            contratto: il corrispettivo attiene all’uso della piattaforma, non all’assunzione o a esiti di selezione.
           </p>
         </section>
 

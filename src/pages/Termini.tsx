@@ -26,7 +26,8 @@ export function Termini() {
             <li>ai candidati di pubblicare richieste di lavoro e profili;</li>
             <li>
               alle imprese di consultare profili in forma anonimizzata e, previo <strong>abbonamento</strong> (piani{" "}
-              <strong>Basic</strong> o <strong>Full</strong>), di accedere ai dati nei limiti contrattuali.
+              <strong>Starter</strong>, <strong>Basic</strong> o <strong>Full</strong>), di accedere ai dati nei limiti
+              contrattuali.
             </li>
           </ul>
           <p>
@@ -45,7 +46,7 @@ export function Termini() {
           <h2 className={h2}>3. Modalità di funzionamento</h2>
           <ul className="list-inside list-disc space-y-2 pl-1">
             <li>I profili dei candidati sono inizialmente anonimizzati.</li>
-            <li>Le imprese accedono ai dati completi tramite abbonamento (Basic o Full), secondo contratto.</li>
+            <li>Le imprese accedono ai dati completi tramite abbonamento (Starter, Basic o Full), secondo contratto.</li>
             <li>Il contatto e ogni eventuale rapporto tra le parti avvengono in autonomia.</li>
           </ul>
         </section>

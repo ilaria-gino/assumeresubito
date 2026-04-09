@@ -49,7 +49,8 @@ export function Home() {
               Una <strong className="font-semibold text-white">bacheca on-line</strong> (come un marketplace di annunci),
               non un&apos;agenzia: mettiamo in contatto domanda e offerta con profili a dettaglio progressivo, filtri per
               competenza e zona — tempi orientati alle 48 ore ove applicabile. Le imprese usano la piattaforma con
-              abbonamento <strong className="font-semibold text-white">Basic</strong> o{" "}
+              abbonamento <strong className="font-semibold text-white">Starter</strong>,{" "}
+              <strong className="font-semibold text-white">Basic</strong> o{" "}
               <strong className="font-semibold text-white">Full</strong>.
             </p>
             <div className="mt-10 flex flex-col items-stretch justify-center gap-3 sm:flex-row sm:items-center">
@@ -111,8 +112,9 @@ export function Home() {
             <div className="rounded-xl border border-white/15 bg-white/10 px-4 py-3 text-white/90 backdrop-blur-sm">
               <dt className="font-semibold text-white">Imprese</dt>
               <dd className="mt-1 text-white/75">
-                Solo abbonamenti <strong className="text-white/90">Basic</strong> o{" "}
-                <strong className="text-white/90">Full</strong> — nessun piano gratuito. Dettagli in{" "}
+                Tre formule: <strong className="text-white/90">Starter</strong> (mensile),{" "}
+                <strong className="text-white/90">Basic</strong> e <strong className="text-white/90">Full</strong> (annuali)
+                — nessun accesso gratuito per le imprese. Dettagli in{" "}
                 <Link to="/prezzi" className="font-semibold text-[#FF8F5E] underline underline-offset-2">
                   Prezzi
                 </Link>
@@ -219,8 +221,8 @@ export function Home() {
           <p className="mx-auto mt-4 max-w-3xl text-center text-[#6b7a8d]">
             <strong className="text-[#152435]">Trasparenza:</strong> l&apos;iscrizione per i candidati è sempre gratuita.
             Le <strong className="text-[#152435]">imprese</strong> accedono solo tramite{" "}
-            <strong className="text-[#2C4A6E]">abbonamento Basic o Full</strong>: paghi per uso dello strumento digitale
-            (bacheca annunci), non per singola assunzione. Dettagli in{" "}
+            <strong className="text-[#2C4A6E]">Starter, Basic o Full</strong>: paghi per uso dello strumento digitale
+            (bacheca annunci), con limiti chiari sugli sblocchi profilo. Dettagli in{" "}
             <Link to="/prezzi" className="premium-link">
               Prezzi
             </Link>
@@ -245,9 +247,9 @@ export function Home() {
                     2
                   </span>
                   <span>
-                    Scegli l&apos;<strong>abbonamento Basic o Full</strong> in base a volumi e funzioni. Non è previsto
-                    accesso gratuito per le imprese. Contratto e condizioni ti vengono inviati per email o PEC prima
-                    dell&apos;attivazione.
+                    Scegli tra <strong>Starter</strong> (mensile, 1 sblocco/mese), <strong>Basic</strong> (annuale, 5
+                    sblocchi/anno) o <strong>Full</strong> (annuale, illimitato nel contratto). Nessun accesso gratuito
+                    per le imprese. Contratto e condizioni per email o PEC prima dell&apos;attivazione.
                   </span>
                 </li>
                 <li className="flex gap-3">
