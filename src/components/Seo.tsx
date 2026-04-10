@@ -8,22 +8,22 @@ const BASE = BRAND.domain;
 const ROUTES: Record<string, { title: string; description: string }> = {
   "/": {
     title: `${BRAND.name} | Selezione tra aziende e candidati, verticali di settore`,
-    description: `${BRAND.shortDescription} Anonimato iniziale, filtri per competenza e area, tempi di risposta orientati alle 48 ore ove applicabile. Modelli economici in trasparenza.`,
+    description: `${BRAND.shortDescription} Ricerca su tutta Italia (regione, città; i candidati dichiarano i km di spostamento). Starter, Basic e Full (piano top): contatto da candidato solo con Full se in contratto. Candidati gratis.`,
   },
   "/prezzi": {
     title: `Prezzi e condizioni | ${BASE}`,
     description:
-      "Starter 99€/mese, Basic 690€/anno, Full 1890€/anno (indicativi +IVA). Sblocchi profilo espliciti. Candidati gratis.",
+      "Starter, Basic, Full (piano top): sblocchi profilo espliciti. Solo Full può includere contatto candidato→impresa se abilitato. Candidati gratis. Importi indicativi +IVA.",
   },
   "/registrazione": {
     title: `Registrazione azienda o candidato | ${BASE}`,
     description:
-      "Accesso al servizio per imprese e per persone in cerca di occupazione. Dati trattati secondo privacy e cookie policy.",
+      "Form per tutta Italia: regione e città (capoluoghi di provincia), per i candidati anche raggio km di spostamento. Privacy e cookie policy.",
   },
   "/chi-siamo": {
     title: `Chi siamo | ${BASE}`,
     description:
-      "Lavoro48h: bacheca digitale tipo marketplace, non agenzia; verticali di settore; imprese Basic/Full, candidati gratis.",
+      "Bacheca digitale su tutta Italia (regione, città, raggio km per i candidati), non agenzia; verticali e abbonamenti imprese; contatto da candidato solo con Full (top) se in contratto.",
   },
   "/privacy": {
     title: `Privacy Policy (GDPR) | ${BASE}`,
@@ -38,7 +38,7 @@ const ROUTES: Record<string, { title: string; description: string }> = {
   "/termini": {
     title: `Termini e condizioni di utilizzo | ${BASE}`,
     description:
-      "Termini: bacheca annunci, abbonamenti Basic/Full per imprese, nessun ruolo da agenzia, responsabilità, legge italiana.",
+      "Termini: bacheca annunci; Starter/Basic/Full; iniziativa contatto da candidato solo con Full (top) se abilitato; non agenzia; legge italiana.",
   },
   "/contatti": {
     title: `Contatti | ${BASE}`,
@@ -52,7 +52,12 @@ const ROUTES: Record<string, { title: string; description: string }> = {
   "/faq": {
     title: `FAQ | Imprese e candidati | ${BASE}`,
     description:
-      "Oltre cinquanta domande frequenti divise tra imprese/HR e lavoratori: selezione, privacy, colloqui, contratti e diritti. Risposte divulgative.",
+      "FAQ imprese e lavoratori: selezione, privacy, piani Starter/Basic/Full, contatto da candidato solo con Full (top) se abilitato, sblocchi profilo, retribuzioni orientative. Risposte divulgative.",
+  },
+  "/retribuzioni-orientative": {
+    title: `Retribuzioni orientative di mercato | ${BASE}`,
+    description:
+      "Bande indicative lordo mensile per ruoli operativi (edilizia, termoidraulica, elettrico), esempi su più aree italiane: confronto di mercato, non CCNL né consulenza.",
   },
 };
 

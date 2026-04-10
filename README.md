@@ -30,10 +30,36 @@ Non committare `.env` (è in `.gitignore`). Non usare la **service_role** nel fr
 
 ## Database Supabase
 
-1. Apri il progetto su [Supabase Dashboard](https://supabase.com/dashboard).
-2. **SQL Editor** → incolla ed esegui il file `supabase/migrations/20260121000000_initial_leads.sql`.
+Le migration sono in `supabase/migrations/`. Eseguile **in ordine** sullo stesso progetto indicato in `.env`.
 
-Crea le tabelle `company_leads` e `candidate_leads` con RLS: solo **INSERT** per il ruolo `anon` (chiave pubblica), nessuna lettura anonima.
+| File | Contenuto |
+|------|-----------|
+| `20260121000000_initial_leads.sql` | Tabelle `company_leads`, `candidate_leads` + RLS (solo **INSERT** per `anon`) |
+| `20260205120000_candidate_trade_skills.sql` | Colonna `trade_skills` (jsonb) su `candidate_leads` |
+| `20260206120000_location_city_travel_km.sql` | Colonne `city` su entrambe le lead; `travel_radius_km` su `candidate_leads` |
+
+### Opzione A — Dashboard (senza CLI)
+
+1. [Supabase Dashboard](https://supabase.com/dashboard) → progetto → **SQL Editor** → **New query**.
+2. Incolla il contenuto del primo file, **Run**; ripeti per gli altri due nell’ordine della tabella.
+
+### Opzione B — Supabase CLI
+
+```bash
+# una tantum: installazione (macOS)
+brew install supabase/tap/supabase
+
+# dalla cartella del progetto (dove c’è supabase/migrations/)
+supabase login
+supabase link --project-ref TUO_PROJECT_REF   # ref in Dashboard → Settings → General → Reference ID
+
+# applica tutte le migration pendenti al progetto collegato
+supabase db push
+```
+
+`TUO_PROJECT_REF` è la stringa tipo `abcdefghijklmnop` nell’URL del progetto (`https://supabase.com/dashboard/project/abcdefghijklmnop`).
+
+Crea le tabelle con RLS: solo **INSERT** per il ruolo **anon** (chiave pubblica), nessuna lettura anonima.
 
 ## Comandi
 
@@ -66,7 +92,7 @@ Se il repository remoto non è vuoto, segui le istruzioni GitHub per il primo pu
 | `/registrazione` | Form → Supabase (se `.env`)  |
 | `/prezzi`, …     | Pagine istituzionali         |
 
-Slug settori: `immobiliare`, `ristorazione`, `logistica`, `edilizia`, `uffici`, `commercio`.
+Slug settori: `immobiliare`, `ristorazione`, `logistica`, `edilizia`, `termoidraulica`, `impianti-elettrici`, `uffici`, `commercio`.
 
 ## Cosa fare se l’insert fallisce
 

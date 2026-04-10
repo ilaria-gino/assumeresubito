@@ -43,6 +43,11 @@ export function Footer() {
                   FAQ
                 </Link>
               </li>
+              <li>
+                <Link to="/retribuzioni-orientative" className={footLink}>
+                  Retribuzioni orientative
+                </Link>
+              </li>
             </ul>
           </div>
           <div>
@@ -75,6 +80,7 @@ export function Footer() {
             <ul className="mt-4 space-y-2 text-sm text-white/60">
               <li>Iscrizione candidati gratuita</li>
               <li>Contributi aziendali legati al modello scelto</li>
+              <li>Contatto iniziato dal candidato solo con piano Full (top), se abilitato</li>
               <li>Verticali per settore e tempi di risposta definiti</li>
             </ul>
           </div>

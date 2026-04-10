@@ -26,6 +26,14 @@ export function Prezzi() {
           accedere ai <strong>dati completi</strong> del candidato (es. contatto e informazioni identificative) secondo il
           flusso del servizio. Ogni piano fissa <strong>quanti sblocchi</strong> puoi usare nel periodo indicato.
         </p>
+        <p className="mt-4 font-bold text-[#152435]">Chi può contattare per primo?</p>
+        <p className="mt-2">
+          Con <strong>Starter</strong> e <strong>Basic</strong> l&apos;iniziativa del contatto resta in capo
+          all&apos;<strong>impresa</strong> dopo lo sblocco. Con il piano <strong>Full (top)</strong> puoi ottenere
+          l&apos;<strong>abilitazione</strong> (come da contratto) alla funzione con cui i <strong>candidati</strong>{" "}
+          possono manifestare interesse o contattare la tua impresa: è un <strong>vantaggio distintivo</strong> del piano
+          top, da comunicare chiaramente al team commerciale e nei materiali contrattuali.
+        </p>
       </div>
 
       <div className="mt-12 grid gap-8 lg:grid-cols-3">
@@ -48,6 +56,10 @@ export function Prezzi() {
               somma al mese dopo (così il limite resta chiaro).
             </li>
             <li>Ideale per provare il servizio o per un fabbisogno saltuario.</li>
+            <li>
+              <strong>Contatto da candidato verso l&apos;impresa:</strong> non incluso (solo l&apos;impresa può avviare il
+              contatto dopo sblocco).
+            </li>
             <li>Rinnovo mensile; dettagli e recesso in contratto.</li>
           </ul>
           <Link to="/registrazione#azienda" className={`${btnSecondary} mt-8 w-full justify-center text-center`}>
@@ -77,6 +89,9 @@ export function Prezzi() {
               nel contratto).
             </li>
             <li>Supporto via email.</li>
+            <li>
+              <strong>Contatto da candidato verso l&apos;impresa:</strong> non incluso (stessa logica dello Starter).
+            </li>
             <li>Corrispettivo per uso della piattaforma, non legato all&apos;assunzione.</li>
           </ul>
           <Link to="/registrazione#azienda" className={`${btnPrimary} mt-8 w-full justify-center text-center`}>
@@ -85,7 +100,7 @@ export function Prezzi() {
         </div>
 
         <div className="flex flex-col rounded-3xl border border-[#e1dbd1] bg-white p-8 shadow-sm">
-          <p className="text-sm font-bold uppercase tracking-wide text-[#6b7a8d]">Full</p>
+          <p className="text-sm font-bold uppercase tracking-wide text-[#6b7a8d]">Full — piano top</p>
           <p className="mt-1 text-xs font-semibold uppercase tracking-wide text-[#6b7a8d]">Annuale · massima libertà</p>
           <p className="mt-3 font-luxury-display text-3xl font-semibold text-[#152435]">
             1.890 €<span className="text-lg font-semibold text-[#6b7a8d]">/anno</span>
@@ -99,13 +114,17 @@ export function Prezzi() {
             <p className="mt-1 text-[0.65rem] text-white/70">Nel rispetto del contratto e di un uso lecito (fair use)</p>
           </div>
           <ul className="mt-6 flex-1 space-y-3 text-sm text-[#152435]/90">
+            <li>
+              <strong>Vantaggio top:</strong> possibilità (da abilitare in contratto) che i candidati possano{" "}
+              <strong>manifestare interesse o contattare la tua impresa</strong> — non disponibile su Starter/Basic.
+            </li>
             <li>Priorità in evidenza, filtri avanzati e strumenti operativi estesi.</li>
             <li>
               Opzionale: <strong>supporto HR</strong> — da concordare a parte.
             </li>
           </ul>
           <a
-            href={mailtoContact("Piano Full")}
+            href={mailtoContact("Piano Full (top)")}
             className="mt-8 flex w-full items-center justify-center rounded-2xl border-2 border-[#2C4A6E]/25 bg-white py-3 text-center text-sm font-bold text-[#2C4A6E] shadow-[0_4px_0_#e1dbd1] transition hover:-translate-y-0.5 hover:bg-[#f7f5f1] sm:text-base"
           >
             Richiedi Full
@@ -122,7 +141,8 @@ export function Prezzi() {
             <tr className="border-b border-[#e1dbd1] bg-[#f7f5f1] text-[#152435]">
               <th className="px-4 py-3 font-semibold">Formula</th>
               <th className="px-4 py-3 font-semibold">Prezzo indicativo</th>
-              <th className="px-4 py-3 font-semibold">Sblocchi profilo completo</th>
+              <th className="px-4 py-3 font-semibold">Sblocchi / anno o mese</th>
+              <th className="px-4 py-3 font-semibold">Candidato → impresa</th>
             </tr>
           </thead>
           <tbody className="text-[#152435]/90">
@@ -130,16 +150,19 @@ export function Prezzi() {
               <td className="px-4 py-3 font-medium">Starter</td>
               <td className="px-4 py-3">99 €/mese + IVA</td>
               <td className="px-4 py-3">1 al mese (non cumulabile)</td>
+              <td className="px-4 py-3">No</td>
             </tr>
             <tr className="border-b border-[#e1dbd1]">
               <td className="px-4 py-3 font-medium">Basic</td>
               <td className="px-4 py-3">690 €/anno + IVA</td>
               <td className="px-4 py-3">5 nell&apos;anno contrattuale</td>
+              <td className="px-4 py-3">No</td>
             </tr>
             <tr>
-              <td className="px-4 py-3 font-medium">Full</td>
+              <td className="px-4 py-3 font-medium">Full (top)</td>
               <td className="px-4 py-3">1.890 €/anno + IVA</td>
               <td className="px-4 py-3">Illimitati (fair use)</td>
+              <td className="px-4 py-3">Sì, se abilitato in contratto</td>
             </tr>
           </tbody>
         </table>

@@ -159,6 +159,24 @@ export const FAQ_EMPRESA: FaqItem[] = [
     answer:
       "Definire settore, profilo, tempi di risposta e coerenza con quanto pubblicato su prezzi e termini.",
   },
+  {
+    id: "e27",
+    question: "Sul piano Full (top) cosa significa che il candidato può contattare la mia impresa?",
+    answer:
+      "È una funzione aggiuntiva rispetto a Starter e Basic: solo con il piano Full (top), se abilitata nel contratto, i candidati possono manifestare interesse o contattarvi secondo le modalità del servizio. Va comunicata chiaramente al vostro team come vantaggio del piano top.",
+  },
+  {
+    id: "e28",
+    question: "Ho sbloccato un profilo e il candidato non risponde o non è idoneo: lo sblocco si recupera?",
+    answer:
+      "Di regola lo sblocco è consumato quando avete accesso ai dati completi, perché remunera l’uso dello strumento e non l’esito del colloquio o l’assunzione. Eventuali eccezioni commerciali vanno definite nel contratto; non sono automatiche.",
+  },
+  {
+    id: "e29",
+    question: "Categorie protette, NASpI o sgravi fiscali in assunzione: cosa c’entra la piattaforma?",
+    answer:
+      "Lavoro48h è una bacheca digitale, non svolge consulenza fiscale o del lavoro. Agevolazioni e requisiti dipendono da norme vigenti e dalla vostra situazione: rivolgetevi a professionisti abilitati e usate fonti istituzionali. Potete trovare orientamento generico in FAQ e blog, senza valore vincolante.",
+  },
 ];
 
 export const FAQ_LAVORATORE: FaqItem[] = [
@@ -317,5 +335,23 @@ export const FAQ_LAVORATORE: FaqItem[] = [
     question: "Come usare un servizio di matching verticale come candidato?",
     answer:
       "Profilo veritiero, disponibilità, zona e competenze aggiornate; risposte rapide alle richieste.",
+  },
+  {
+    id: "l27",
+    question: "Posso contattare io un’azienda dalla piattaforma?",
+    answer:
+      "Di norma l’iniziativa è dell’impresa dopo lo sblocco del profilo. Solo se l’azienda ha il piano Full (top) e la funzione è attiva (come da contratto tra voi e il servizio), può essere possibile manifestare interesse o contattarla. Controllate la pagina Prezzi e le comunicazioni ufficiali.",
+  },
+  {
+    id: "l28",
+    question: "Perché mi chiedono competenze specifiche (muratura, cartongesso, termoidraulica…)?",
+    answer:
+      "Nei mestieri operativi il titolo generico non basta: così le imprese filtrano meglio e voi ricevete contatti più pertinenti. Compilate con onestà.",
+  },
+  {
+    id: "l29",
+    question: "Dove vedo una fascia di stipendi di mercato per la mia zona?",
+    answer:
+      "Nella pagina Retribuzioni orientative trovate bande indicative (non CCNL) con esempi su più aree italiane. Usatele solo come confronto generico; la retribuzione si definisce in offerta e contratto.",
   },
 ];

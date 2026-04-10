@@ -13,6 +13,7 @@ import { BlogIndex } from "./pages/BlogIndex";
 import { BlogPost } from "./pages/BlogPost";
 import { Faq } from "./pages/Faq";
 import { NotFound } from "./pages/NotFound";
+import { RetribuzioniOrientative } from "./pages/RetribuzioniOrientative";
 
 export default function App() {
   return (
@@ -30,6 +31,7 @@ export default function App() {
         <Route path="blog" element={<BlogIndex />} />
         <Route path="blog/:slug" element={<BlogPost />} />
         <Route path="faq" element={<Faq />} />
+        <Route path="retribuzioni-orientative" element={<RetribuzioniOrientative />} />
         <Route path="*" element={<NotFound />} />
       </Route>
     </Routes>

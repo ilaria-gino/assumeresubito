@@ -44,11 +44,14 @@ export function Privacy() {
           <ul className="list-inside list-disc space-y-2 pl-1">
             <li>
               <strong>Candidati:</strong> dati identificativi, di contatto, professionali (es. competenze, esperienze,
-              preferenze di settore e zona), eventuali dati inseriti volontariamente nel profilo.
+              preferenze di settore), <strong>regione e città di riferimento</strong> in Italia,{" "}
+              <strong>raggio di spostamento dichiarato in chilometri</strong> per finalità di compatibilità con sedi o
+              cantieri, eventuali altri dati inseriti volontariamente nel profilo.
             </li>
             <li>
               <strong>Imprese / richiedenti personale:</strong> dati identificativi e di contatto del referente o della
-              società, dati necessari alla registrazione e alla gestione dell’abbonamento.
+              società, <strong>regione e città di riferimento dell’attività</strong> o della ricerca, dati necessari alla
+              registrazione e alla gestione dell’abbonamento.
             </li>
             <li>
               <strong>Dati di navigazione e tecnici:</strong> log, indirizzo IP, cookie e identificativi secondo la{" "}
@@ -71,6 +74,11 @@ export function Privacy() {
               <strong>Basic</strong> e <strong>Full</strong>), i pagamenti e gli obblighi contrattuali connessi;
             </li>
             <li>comunicazioni strumentali al servizio (es. conferme, aggiornamenti tecnici);</li>
+            <li>
+              gestire flussi differenziati di contatto tra candidati e imprese in base al piano (es. iniziativa
+              dell&apos;impresa con Starter/Basic; possibilità aggiuntive con <strong>Full (piano top)</strong> se
+              contrattualmente abilitate);
+            </li>
             <li>adempimenti di legge, contabili e fiscali ove applicabili;</li>
             <li>tutela del servizio e prevenzione di abusi (es. sicurezza informatica), nel rispetto del principio di proporzionalità.</li>
           </ul>

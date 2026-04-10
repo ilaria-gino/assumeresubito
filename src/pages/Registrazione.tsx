@@ -3,6 +3,9 @@ import { Link, useLocation } from "react-router-dom";
 import { BRAND } from "../config/brand";
 import { getSupabase, isSupabaseConfigured } from "../lib/supabase";
 import { PremiumPageShell } from "../components/PremiumPageShell";
+import { tradeSkillGroupsForSector } from "../data/candidateTradeSkills";
+import { TRAVEL_RADIUS_OPTIONS } from "../data/italyGeo";
+import { RegionCitySelects } from "../components/RegionCitySelects";
 
 const legalBox =
   "space-y-3 rounded-xl border border-slate-200 bg-slate-50/90 p-4 text-sm text-slate-800 [&_a]:underline [&_a]:underline-offset-2";
@@ -15,6 +18,12 @@ export function Registrazione() {
   const [azMessage, setAzMessage] = useState("");
   const [cdStatus, setCdStatus] = useState<FormStatus>("idle");
   const [cdMessage, setCdMessage] = useState("");
+  const [cdSector, setCdSector] = useState("");
+  const [azRegion, setAzRegion] = useState("");
+  const [azCity, setAzCity] = useState("");
+  const [cdRegion, setCdRegion] = useState("");
+  const [cdCity, setCdCity] = useState("");
+  const [cdTravelKm, setCdTravelKm] = useState("");
 
   useEffect(() => {
     if (hash === "#azienda" || hash === "#candidato") {
@@ -67,8 +76,14 @@ export function Registrazione() {
 
               const company_name = String(fd.get("nome") ?? "").trim();
               const sector = String(fd.get("settore") ?? "").trim();
-              const region = String(fd.get("zona") ?? "").trim();
               const email = String(fd.get("email") ?? "").trim();
+              if (!azRegion.trim() || !azCity.trim()) {
+                setAzStatus("error");
+                setAzMessage("Seleziona regione e città di riferimento per l’attività.");
+                return;
+              }
+              const region = azRegion.trim();
+              const city = azCity.trim();
 
               const sb = getSupabase();
               if (!sb) {
@@ -83,6 +98,7 @@ export function Registrazione() {
                 company_name,
                 sector,
                 region,
+                city,
                 email,
               });
 
@@ -95,6 +111,8 @@ export function Registrazione() {
               setAzStatus("success");
               setAzMessage("Richiesta registrata. Ti contatteremo al più presto.");
               form.reset();
+              setAzRegion("");
+              setAzCity("");
             }}
           >
             {azStatus !== "idle" && (
@@ -140,23 +158,23 @@ export function Registrazione() {
                 <option>Ristorazione</option>
                 <option>Logistica</option>
                 <option>Edilizia</option>
+                <option>Termoidraulica / impianti idraulici</option>
+                <option>Impianti elettrici</option>
                 <option>Uffici / amministrazione</option>
                 <option>Commercio</option>
               </select>
             </div>
-            <div>
-              <label className="block text-sm font-medium text-slate-700" htmlFor="az-zona">
-                Provincia o regione
-              </label>
-              <input
-                id="az-zona"
-                name="zona"
-                required
-                disabled={azStatus === "loading"}
-                className="mt-1 w-full rounded-xl border border-slate-200 px-4 py-3 text-slate-900 disabled:opacity-60"
-                placeholder="Es. Milano"
-              />
-            </div>
+            <RegionCitySelects
+              regionId="az-region"
+              cityId="az-city"
+              regionName={azRegion}
+              cityName={azCity}
+              disabled={azStatus === "loading"}
+              onRegionChange={setAzRegion}
+              onCityChange={setAzCity}
+              regionLabel="Regione (Italia)"
+              cityLabel="Città di riferimento"
+            />
             <div>
               <label className="block text-sm font-medium text-slate-700" htmlFor="az-email">
                 Email
@@ -221,7 +239,14 @@ export function Registrazione() {
         >
           <h2 className="text-xl font-bold text-slate-900">Cerco lavoro</h2>
           <p className="mt-2 text-sm text-slate-600">
-            2–3 minuti. Avatar coerente con il ruolo dopo la compilazione.
+            2–3 minuti. Per edilizia e impianti puoi indicare{" "}
+            <strong className="font-medium text-slate-800">competenze specifiche</strong> (es. cartongesso,
+            termoidraulica): aiuta le imprese a capire subito se sei in linea. Il contatto diretto da parte tua verso
+            l&apos;azienda è previsto solo per imprese con piano <strong>Full (top)</strong>, come da{" "}
+            <Link to="/prezzi" className="font-semibold text-[#2C4A6E] underline underline-offset-2">
+              Prezzi
+            </Link>{" "}
+            e contratto.
           </p>
           <form
             className="mt-6 space-y-4"
@@ -247,7 +272,19 @@ export function Registrazione() {
               const first_name = String(fd.get("nome") ?? "").trim();
               const last_name = String(fd.get("cognome") ?? "").trim();
               const age = Number(fd.get("eta"));
-              const region = String(fd.get("zona") ?? "").trim();
+              if (!cdRegion.trim() || !cdCity.trim()) {
+                setCdStatus("error");
+                setCdMessage("Seleziona regione e città di residenza o di riferimento.");
+                return;
+              }
+              const travelRadiusRaw = cdTravelKm === "" ? NaN : Number(cdTravelKm);
+              if (!Number.isFinite(travelRadiusRaw)) {
+                setCdStatus("error");
+                setCdMessage("Indica quanti chilometri sei disposto a spostarti per lavoro.");
+                return;
+              }
+              const region = cdRegion.trim();
+              const city = cdCity.trim();
               const sector = String(fd.get("settore") ?? "").trim();
               const expRaw = fd.get("esperienza");
               const experience_years =
@@ -255,6 +292,7 @@ export function Registrazione() {
               const has_car = fd.get("automunito") === "on";
               const has_license = fd.get("patente") === "on";
               const email = String(fd.get("email") ?? "").trim();
+              const trade_skills = fd.getAll("trade_skill").map(String);
 
               const sb = getSupabase();
               if (!sb) {
@@ -270,11 +308,14 @@ export function Registrazione() {
                 last_name,
                 age,
                 region,
+                city,
+                travel_radius_km: travelRadiusRaw,
                 sector,
                 experience_years: Number.isFinite(experience_years as number) ? experience_years : null,
                 has_car,
                 has_license,
                 email,
+                trade_skills,
               });
 
               if (error) {
@@ -286,6 +327,10 @@ export function Registrazione() {
               setCdStatus("success");
               setCdMessage("Profilo inviato. Riceverai aggiornamenti via email.");
               form.reset();
+              setCdSector("");
+              setCdRegion("");
+              setCdCity("");
+              setCdTravelKm("");
             }}
           >
             {cdStatus !== "idle" && (
@@ -343,17 +388,40 @@ export function Registrazione() {
                 className="mt-1 w-full rounded-xl border border-slate-200 px-4 py-3 text-slate-900 disabled:opacity-60"
               />
             </div>
+            <RegionCitySelects
+              regionId="cd-region"
+              cityId="cd-city"
+              regionName={cdRegion}
+              cityName={cdCity}
+              disabled={cdStatus === "loading"}
+              onRegionChange={setCdRegion}
+              onCityChange={setCdCity}
+              regionLabel="Regione (Italia)"
+              cityLabel="Città di residenza o di riferimento"
+            />
             <div>
-              <label className="block text-sm font-medium text-slate-700" htmlFor="cd-zona">
-                Provincia / regione
+              <label className="block text-sm font-medium text-slate-700" htmlFor="cd-travel-km">
+                Quanti km sei disposto a spostarti per lavoro?
               </label>
-              <input
-                id="cd-zona"
-                name="zona"
+              <select
+                id="cd-travel-km"
                 required
+                value={cdTravelKm}
+                onChange={(e) => setCdTravelKm(e.target.value)}
                 disabled={cdStatus === "loading"}
                 className="mt-1 w-full rounded-xl border border-slate-200 px-4 py-3 text-slate-900 disabled:opacity-60"
-              />
+              >
+                <option value="">Scegli…</option>
+                {TRAVEL_RADIUS_OPTIONS.map((o) => (
+                  <option key={o.value} value={String(o.value)}>
+                    {o.label}
+                  </option>
+                ))}
+              </select>
+              <p className="mt-1 text-xs text-slate-600">
+                Le imprese usano questo dato per capire se la sede o il cantiere possono essere compatibili con la tua
+                disponibilità (non è un impegno contrattuale).
+              </p>
             </div>
             <div>
               <label className="block text-sm font-medium text-slate-700" htmlFor="cd-settore">
@@ -363,6 +431,8 @@ export function Registrazione() {
                 id="cd-settore"
                 name="settore"
                 required
+                value={cdSector}
+                onChange={(e) => setCdSector(e.target.value)}
                 disabled={cdStatus === "loading"}
                 className="mt-1 w-full rounded-xl border border-slate-200 px-4 py-3 text-slate-900 disabled:opacity-60"
               >
@@ -371,10 +441,42 @@ export function Registrazione() {
                 <option>Ristorazione</option>
                 <option>Logistica</option>
                 <option>Edilizia</option>
+                <option>Termoidraulica / impianti idraulici</option>
+                <option>Impianti elettrici</option>
                 <option>Uffici / amministrazione</option>
                 <option>Commercio</option>
               </select>
             </div>
+            {tradeSkillGroupsForSector(cdSector).length > 0 && (
+              <fieldset
+                className="space-y-4 rounded-xl border border-[#FF6B35]/25 bg-[#fff7ed]/40 p-4"
+                disabled={cdStatus === "loading"}
+              >
+                <legend className="text-sm font-semibold text-[#152435]">
+                  Competenze che ti rappresentano (seleziona tutte le pertinenti)
+                </legend>
+                <p className="text-xs text-slate-600">
+                  Così le aziende capiscono se cerchi davvero il loro tipo di lavoro (muratura vs cartongesso, civile vs
+                  climatizzazione, ecc.).
+                </p>
+                {tradeSkillGroupsForSector(cdSector).map((group) => (
+                  <div key={group.label}>
+                    <p className="text-xs font-bold uppercase tracking-wide text-[#6b7a8d]">{group.label}</p>
+                    <div className="mt-2 flex flex-wrap gap-2">
+                      {group.skills.map((s) => (
+                        <label
+                          key={s.id}
+                          className="inline-flex cursor-pointer items-center gap-2 rounded-lg border border-slate-200 bg-white px-3 py-2 text-sm text-slate-800 shadow-sm"
+                        >
+                          <input type="checkbox" name="trade_skill" value={s.id} className="rounded border-slate-300" />
+                          {s.label}
+                        </label>
+                      ))}
+                    </div>
+                  </div>
+                ))}
+              </fieldset>
+            )}
             <div>
               <label className="block text-sm font-medium text-slate-700" htmlFor="cd-exp">
                 Anni di esperienza

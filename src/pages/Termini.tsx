@@ -49,6 +49,13 @@ export function Termini() {
             <li>Le imprese accedono ai dati completi tramite abbonamento (Starter, Basic o Full), secondo contratto.</li>
             <li>Il contatto e ogni eventuale rapporto tra le parti avvengono in autonomia.</li>
           </ul>
+          <p className="mt-4">
+            Con i piani <strong>Starter</strong> e <strong>Basic</strong>, l&apos;avvio del contatto diretto tra le parti,
+            dopo le fasi previste dal servizio, è in capo all&apos;<strong>impresa</strong> (es. dopo sblocco profilo).
+            Con il piano <strong>Full (piano top)</strong>, l&apos;impresa può ottenere — ove previsto e abilitato nel
+            contratto — la funzione che consente ai <strong>candidati</strong> di manifestare interesse o contattare
+            l&apos;impresa, secondo le modalità tecniche e legali concordate.
+          </p>
         </section>
 
         <section className={section}>

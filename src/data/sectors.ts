@@ -3,6 +3,8 @@ export type SectorSlug =
   | "ristorazione"
   | "logistica"
   | "edilizia"
+  | "termoidraulica"
+  | "impianti-elettrici"
   | "uffici"
   | "commercio";
 
@@ -59,10 +61,39 @@ export const SECTORS: SectorContent[] = [
     title: "Edilizia",
     roleLabel: "operaio, muratore, manovale",
     heroTitle: "Assumi operai e tecnici in meno di 48 ore",
-    heroSubtitle: "Cantiere che riparte: ti servono persone abituate al campo.",
+    heroSubtitle:
+      "Cantiere che riparte: ti servono persone abituate al campo. Su tutto il territorio nazionale la vicinanza al cantiere conta: meglio specificare ristrutturazioni, nuove costruzioni, rifiniture o cartongesso così trovi il muratore giusto, non un generico.",
     problems: ["Candidati senza esperienza in cantiere", "Sicurezza e abitudine al lavoro fisico", "Urgenze su commessa"],
-    solutions: ["Esperienza anni evidenziata", "Disponibilità e zona", "Profili coerenti col ruolo"],
+    solutions: [
+      "Tag competenze (finiture, cartongesso, ristrutturazioni…)",
+      "Zona e disponibilità",
+      "Profili coerenti col ruolo",
+    ],
     cta: "Trova operai disponibili",
+    avatarHint: "hardhat",
+  },
+  {
+    slug: "termoidraulica",
+    title: "Termoidraulica / impianti idraulici",
+    roleLabel: "idraulico, termoidraulico",
+    heroTitle: "Assumi termoidraulici e idraulici in meno di 48 ore",
+    heroSubtitle:
+      "Impianti civili, climatizzazione, centrali termiche: le figure si differenziano molto. Con competenze esplicite riduci colloqui con profili non allineati. La prossimità tra sede commessa e candidato resta decisiva ovunque in Italia.",
+    problems: ["Specializzazioni diverse sotto lo stesso nome", "Urgenze su commessa", "Verifica competenze reali"],
+    solutions: ["Tag su tipi di impianto e materiali", "Zona operativa chiara", "Match su esperienza dichiarata"],
+    cta: "Trova installatori disponibili",
+    avatarHint: "hardhat",
+  },
+  {
+    slug: "impianti-elettrici",
+    title: "Impianti elettrici",
+    roleLabel: "elettricista, cablatore",
+    heroTitle: "Assumi elettricisti in meno di 48 ore",
+    heroSubtitle:
+      "Civile, quadri, domotica o fotovoltaico: chiarisci il fabbisogno e filtra i profili. Mercato teso: la prossimità geografica conta.",
+    problems: ["Requisiti tecnici eterogenei", "Carenza di manodopera qualificata", "Commesse con scadenze strette"],
+    solutions: ["Competenze granulari nel profilo", "Disponibilità e raggio d’azione", "Contatto rapido dopo sblocco"],
+    cta: "Trova elettricisti disponibili",
     avatarHint: "hardhat",
   },
   {

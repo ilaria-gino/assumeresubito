@@ -5,7 +5,7 @@ export const TESTIMONIALS: { quote: string; author: string; role: string }[] = [
   { quote: "Interfaccia semplice anche per chi non è esperto di HR.", author: "Edilizia — Roma", role: "Impresa edile" },
   { quote: "Abbiamo coperto turni urgenti senza stress.", author: "Ristorazione — Napoli", role: "Catena quick service" },
   { quote: "Buon rapporto qualità-tempo per la selezione.", author: "Commercio — Bologna", role: "Retail" },
-  { quote: "I profili anonimi all’inizio ci hanno aiutato a concentrarci sulle competenze.", author: "Uffici — Padova", role: "PMI servizi" },
+  { quote: "I profili anonimi all’inizio ci hanno aiutato a concentrarci sulle competenze.", author: "Uffici — PMI Italia", role: "Servizi" },
   { quote: "Processo veloce e linee guida chiare per il team.", author: "Logistica — Verona", role: "Magazzino" },
   { quote: "Utile per chi ha urgenza operativa.", author: "Ristorazione — Firenze", role: "Hotel" },
   { quote: "Meno giri di parole, più colloqui utili.", author: "Immobiliare — Genova", role: "Network" },

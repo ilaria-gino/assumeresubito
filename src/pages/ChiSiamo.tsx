@@ -28,10 +28,20 @@ export function ChiSiamo() {
         <Link to="/prezzi" className="premium-link">
           Prezzi
         </Link>
-        ; i candidati non pagano per il profilo base.
+        ; i candidati non pagano per il profilo base. Con <strong>Starter</strong> e <strong>Basic</strong> l’iniziativa di
+        contatto dopo lo sblocco resta in capo all’impresa; il piano <strong>Full</strong> (top) può includere, se abilitato
+        nel contratto, la possibilità per il candidato di manifestare interesse o contattare l’azienda — un vantaggio
+        commerciale da comunicare chiaramente al team che sottoscrive l’abbonamento.
       </p>
       <ul className="mt-8 list-inside list-disc space-y-2 text-[#152435]/90">
-        <li>Verticali per ambiti professionali (immobiliare, ristorazione, logistica, edilizia, uffici, commercio)</li>
+        <li>
+          Verticali per ambiti professionali (immobiliare, ristorazione, logistica, edilizia, termoidraulica, impianti
+          elettrici, uffici, commercio)
+        </li>
+        <li>
+          Ricerca geografica su <strong>tutta Italia</strong>: regione e città di riferimento; i candidati possono dichiarare
+          il raggio in chilometri che sono disposti a percorrere per lavoro
+        </li>
         <li>Trattamento dei dati secondo normativa privacy e documentazione accessibile dal sito</li>
         <li>Recapiti ufficiali nella pagina Contatti per commerciale e assistenza</li>
       </ul>

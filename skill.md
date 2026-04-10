@@ -10,7 +10,7 @@ Marchio e dominio pubblico: **Lavoro48h** / **lavoro48h.it**. Posizionamento: **
 
 ## Settori (landing dedicate)
 
-Immobiliare, ristorazione, logistica, edilizia, uffici/amministrazione, commercio.
+Immobiliare, ristorazione, logistica, edilizia, **termoidraulica**, **impianti elettrici**, uffici/amministrazione, commercio. Copy con competenze granulari (muratura, impianti, ecc.) dove serve. **Geografia:** tutta Italia in form (regione + città capoluogo); candidati indicano **raggio km** di spostamento. **Retribuzioni orientative:** bande indicative su pagina dedicata, mai sostitutive di CCNL o consulenza.
 
 ## Copy hero (homepage)
 
@@ -23,7 +23,7 @@ Immobiliare, ristorazione, logistica, edilizia, uffici/amministrazione, commerci
 - Candidati: sempre gratis.  
 - **Starter (mensile):** 1 sblocco profilo completo al mese, non cumulabile (es. 99 €/mese + IVA indicativo).  
 - **Basic (annuale):** 5 sblocchi nell’anno (es. 690 €/anno + IVA indicativo), supporto email.  
-- **Full (annuale):** sblocchi illimitati (fair use), priorità; HR opzionale (es. 1.890 €/anno + IVA indicativo).
+- **Full (annuale, piano top):** sblocchi illimitati (fair use), priorità; HR opzionale (es. 1.890 €/anno + IVA indicativo). **Solo Full** può abilitare (se previsto nel contratto) che il **candidato** manifesti interesse o contatti l’impresa; con Starter/Basic l’iniziativa dopo lo sblocco è dell’impresa. Va spiegato come vantaggio del piano top a chi sottoscrive Full.
 
 ## Tono
 
@@ -33,7 +33,7 @@ Istituzionale e chiaro; marketplace annunci, non collocamento; evitare promesse 
 
 Servizio **non generico**: verticali, processi definiti; **non** agenzia; privacy e termini coerenti con ruolo di piattaforma digitale.
 
-Messaggi ricorrenti: *candidati gratuiti* · *Starter / Basic / Full con sblocchi espliciti* · *tempi di risposta definiti* · *non siamo un’agenzia*.
+Messaggi ricorrenti: *candidati gratuiti* · *Starter / Basic / Full con sblocchi espliciti* · *contatto da candidato solo con Full (top) se in contratto* · *tempi di risposta definiti* · *non siamo un’agenzia*.
 
 ---
 

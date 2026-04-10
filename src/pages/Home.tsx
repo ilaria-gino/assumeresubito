@@ -48,7 +48,9 @@ export function Home() {
             <p className="mx-auto mt-6 max-w-2xl text-base leading-relaxed text-white/85 sm:text-lg">
               Una <strong className="font-semibold text-white">bacheca on-line</strong> (come un marketplace di annunci),
               non un&apos;agenzia: mettiamo in contatto domanda e offerta con profili a dettaglio progressivo, filtri per
-              competenza e zona — tempi orientati alle 48 ore ove applicabile. Le imprese usano la piattaforma con
+              competenza e <strong className="font-semibold text-white">area in Italia</strong> (regione e città) e, per i
+              candidati, <strong className="font-semibold text-white">raggio di spostamento in km</strong> — tempi orientati
+              alle 48 ore ove applicabile. Le imprese usano la piattaforma con
               abbonamento <strong className="font-semibold text-white">Starter</strong>,{" "}
               <strong className="font-semibold text-white">Basic</strong> o{" "}
               <strong className="font-semibold text-white">Full</strong>.
@@ -79,7 +81,9 @@ export function Home() {
               />
               <figcaption className="border-t border-white/10 bg-[#0f172a]/80 px-4 py-3 text-left text-sm text-white/90">
                 <span className="font-bold text-white">Lato azienda</span>
-                <span className="mt-0.5 block text-white/70">Ricerche e candidature in linea con ruolo e zona.</span>
+                <span className="mt-0.5 block text-white/70">
+                  Ricerche e candidature in linea con ruolo, zona e distanza dichiarata dal candidato.
+                </span>
               </figcaption>
             </figure>
             <figure className="group relative overflow-hidden rounded-2xl border border-white/15 bg-white/10 shadow-[0_24px_60px_rgba(0,0,0,0.35)] backdrop-blur-sm sm:mt-6">
@@ -99,7 +103,9 @@ export function Home() {
               </div>
               <figcaption className="border-t border-white/10 bg-[#0f172a]/80 px-4 py-3 text-left text-sm text-white/90">
                 <span className="font-bold text-white">Lato candidato</span>
-                <span className="mt-0.5 block text-white/70">Scheda competenze e visibilità controllata.</span>
+                <span className="mt-0.5 block text-white/70">
+                  Regione, città, km massimi per spostarsi: le imprese capiscono subito se c&apos;è compatibilità.
+                </span>
               </figcaption>
             </figure>
           </div>
@@ -112,9 +118,9 @@ export function Home() {
             <div className="rounded-xl border border-white/15 bg-white/10 px-4 py-3 text-white/90 backdrop-blur-sm">
               <dt className="font-semibold text-white">Imprese</dt>
               <dd className="mt-1 text-white/75">
-                Tre formule: <strong className="text-white/90">Starter</strong> (mensile),{" "}
-                <strong className="text-white/90">Basic</strong> e <strong className="text-white/90">Full</strong> (annuali)
-                — nessun accesso gratuito per le imprese. Dettagli in{" "}
+                Tre formule: <strong className="text-white/90">Starter</strong>,{" "}
+                <strong className="text-white/90">Basic</strong> e <strong className="text-white/90">Full (top)</strong> —
+                solo col Full i candidati possono contattarvi se abilitato in contratto. Dettagli in{" "}
                 <Link to="/prezzi" className="font-semibold text-[#FF8F5E] underline underline-offset-2">
                   Prezzi
                 </Link>
@@ -302,13 +308,23 @@ export function Home() {
                   <span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-[#ece7df] font-bold text-[#152435]">
                     3
                   </span>
-                  <span>Profilo e avatar (2–3 minuti); sei proposto in modo anonimo con iniziali dove previsto.</span>
+                  <span>
+                    Profilo, <strong>regione e città</strong> in Italia, <strong>quanti km sei disposto a spostarti</strong>{" "}
+                    per lavoro, avatar (2–3 minuti); sei proposto in modo anonimo con iniziali dove previsto.
+                  </span>
                 </li>
                 <li className="flex gap-3">
                   <span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-[#152435] font-bold text-white">
                     ✓
                   </span>
-                  <span className="font-semibold text-[#152435]">Ricevi richieste di colloquio quando c&apos;è match.</span>
+                  <span className="font-semibold text-[#152435]">
+                    Ricevi richieste quando c&apos;è match; il contatto diretto da te verso l&apos;impresa è previsto solo
+                    se l&apos;azienda ha il piano <strong>Full (top)</strong> e la funzione è attiva, come da{" "}
+                    <Link to="/prezzi" className="premium-link">
+                      Prezzi
+                    </Link>
+                    .
+                  </span>
                 </li>
               </ol>
             </div>
