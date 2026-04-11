@@ -39,6 +39,8 @@ Le migration sono in `supabase/migrations/`. Eseguile **in ordine** sullo stesso
 | `20260206120000_location_city_travel_km.sql` | Colonne `city` su entrambe le lead; `travel_radius_km` su `candidate_leads` |
 | `20260211180000_candidate_mode_country.sql` | `country`, `registration_mode` su `candidate_leads` (percorso gratis vs cerca aziende) |
 | `20260211190000_candidate_postal_code.sql` | `postal_code` (CAP / codice postale) su `candidate_leads` |
+| `20260411120000_seed_demo_leads.sql` | Colonne `is_seed`, `allow_unlock` su `company_leads` e `candidate_leads` + 8 righe seed imprese e 8 candidati (non esporre in produzione) |
+| `20260412110000_public_search_rpc.sql` | RPC `list_anonymous_candidates` / `list_anonymous_companies` (anonimo, esclude `is_seed`) per la pagina Candidati |
 
 ### Opzione A — Dashboard (senza CLI)
 

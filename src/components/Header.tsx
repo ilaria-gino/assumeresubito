@@ -59,6 +59,9 @@ export function Header() {
           <NavLink to="/" className={desktopLink} end>
             Home
           </NavLink>
+          <NavLink to="/candidati" className={desktopLink}>
+            Candidati
+          </NavLink>
           <div className="group relative">
             <button
               type="button"
@@ -127,6 +130,9 @@ export function Header() {
           <nav className="flex flex-col gap-1" aria-label="Mobile">
             <NavLink to="/" className={mobileLink} end onClick={() => setOpen(false)}>
               Home
+            </NavLink>
+            <NavLink to="/candidati" className={mobileLink} onClick={() => setOpen(false)}>
+              Candidati
             </NavLink>
             {SECTORS.map((s) => (
               <Link

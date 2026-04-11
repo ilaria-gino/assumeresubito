@@ -55,7 +55,7 @@ export function Home() {
               <strong className="font-semibold text-white">Basic</strong> o{" "}
               <strong className="font-semibold text-white">Full</strong>.
             </p>
-            <div className="mt-10 flex flex-col items-stretch justify-center gap-3 sm:flex-row sm:items-center">
+            <div className="mt-10 flex flex-col items-stretch justify-center gap-3 sm:flex-row sm:flex-wrap sm:items-center sm:justify-center">
               <Link to="/registrazione#azienda" className={btnPrimary}>
                 Sono un&apos;azienda
               </Link>
@@ -64,6 +64,12 @@ export function Home() {
                 className={`${btnSecondary} !border-white/25 !bg-white/10 !from-white/10 !to-white/5 !text-white !shadow-none hover:!border-white/40 hover:!bg-white/15`}
               >
                 Cerco lavoro
+              </Link>
+              <Link
+                to="/candidati"
+                className={`${btnSecondary} !border-[#FF8F5E]/50 !bg-[#FF6B35]/20 !from-[#FF6B35]/25 !to-[#FF6B35]/10 !text-white !shadow-none hover:!border-[#FF8F5E]/70 hover:!bg-[#FF6B35]/30`}
+              >
+                Cerca profili
               </Link>
             </div>
           </div>

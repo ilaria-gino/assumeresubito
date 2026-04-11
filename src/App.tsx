@@ -14,12 +14,14 @@ import { BlogPost } from "./pages/BlogPost";
 import { Faq } from "./pages/Faq";
 import { NotFound } from "./pages/NotFound";
 import { RetribuzioniOrientative } from "./pages/RetribuzioniOrientative";
+import { Candidati } from "./pages/Candidati";
 
 export default function App() {
   return (
     <Routes>
       <Route element={<Layout />}>
         <Route index element={<Home />} />
+        <Route path="candidati" element={<Candidati />} />
         <Route path="settori/:slug" element={<SectorPage />} />
         <Route path="prezzi" element={<Prezzi />} />
         <Route path="chi-siamo" element={<ChiSiamo />} />

@@ -7,6 +7,7 @@ import { tradeSkillGroupsForSector } from "../data/candidateTradeSkills";
 import { TRAVEL_RADIUS_OPTIONS } from "../data/italyGeo";
 import { CANDIDATE_COUNTRIES } from "../data/candidateCountries";
 import { RegionCitySelects } from "../components/RegionCitySelects";
+import { registerCandidateSession, registerCompanySession } from "../lib/searchSession";
 
 const legalBox =
   "space-y-3 rounded-xl border border-slate-200 bg-slate-50/90 p-4 text-sm text-slate-800 [&_a]:underline [&_a]:underline-offset-2";
@@ -115,6 +116,7 @@ export function Registrazione() {
 
               setAzStatus("success");
               setAzMessage("Richiesta registrata. Ti contatteremo al più presto.");
+              registerCompanySession();
               form.reset();
               setAzRegion("");
               setAzCity("");
@@ -380,6 +382,7 @@ export function Registrazione() {
                   ? "Richiesta registrata. Ti contatteremo all’indirizzo email indicato con le istruzioni per attivare il piano «Cerca aziende» e completare il pagamento (integrazione in arrivo)."
                   : "Profilo inviato. Riceverai aggiornamenti via email.",
               );
+              registerCandidateSession(registration_mode === "active_search" ? "active_search" : "contact_only");
               form.reset();
               setCdSector("");
               setCdRegion("");
