@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+import { MarketplaceNotice } from "../components/MarketplaceNotice";
 import { ITALIAN_REGIONS } from "../data/regions";
 
 export function ItaliaIndex() {
@@ -8,12 +9,13 @@ export function ItaliaIndex() {
         <div className="mx-auto max-w-6xl">
           <p className="text-[0.65rem] font-bold uppercase tracking-[0.22em] text-[#8AB4CE]">Italia</p>
           <h1 className="font-luxury-display mt-3 text-3xl font-semibold tracking-tight sm:text-4xl md:text-[2.75rem]">
-            Selezione e lavoro per regione
+            Lavoro e annunci per regione
           </h1>
           <p className="mt-4 max-w-3xl text-lg text-white/75">
-            Pagine di approfondimento geografico: come Lavoro48h supporta incontri tra imprese e candidati su tutta Italia,
-            con regione, città e chilometri di spostamento dichiarati. Non siamo un&apos;agenzia per il lavoro: bacheca
-            digitale strutturata.
+            Pagine geografiche: Lavoro48h <strong className="font-semibold text-white">non è un&apos;agenzia per il lavoro</strong> — è una{" "}
+            <strong className="font-semibold text-white">bacheca digitale</strong> che aiuta imprese e candidati a incontrarsi in
+            autonomia su tutta Italia (regione, città, km dichiarati), senza intermediazione o collocamento e senza vincoli tra
+            loro imposti dal sito.
           </p>
           <div className="mt-8 flex flex-wrap gap-3 text-sm">
             <Link
@@ -31,6 +33,9 @@ export function ItaliaIndex() {
             <Link to="/faq" className="rounded-xl border border-white/20 px-5 py-2.5 font-semibold hover:bg-white/10">
               FAQ
             </Link>
+          </div>
+          <div className="mt-6 max-w-2xl">
+            <MarketplaceNotice variant="darkHero" />
           </div>
         </div>
       </header>

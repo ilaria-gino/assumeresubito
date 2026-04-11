@@ -3,6 +3,7 @@ import { getSector } from "../data/sectors";
 import { getArticleBySlug } from "../data/blog/posts";
 import { RoleAvatar } from "../components/RoleAvatar";
 import { btnPrimarySm } from "../components/ui/ButtonStyles";
+import { MarketplaceNotice } from "../components/MarketplaceNotice";
 
 const demoCandidates = [
   { initials: "M.R.", exp: "5 anni", stato: "Disponibile subito", top: true, hours: 32 },
@@ -36,6 +37,11 @@ export function SectorPage() {
             {sector.heroTitle}
           </h1>
           <p className="mt-4 max-w-2xl text-lg text-white/75">{sector.heroSubtitle}</p>
+          <p className="mt-3 max-w-2xl rounded-lg border border-white/15 bg-white/5 px-3 py-2 text-sm text-white/85">
+            <strong className="font-semibold text-white">Lavoro48h non è un&apos;agenzia per il lavoro</strong>: bacheca
+            digitale tra utenti; incontro libero tra bisogni complementari. Selezione e assunzioni solo tra imprese e
+            candidati, senza obblighi imposti dal sito.
+          </p>
           <div className="mt-8 flex flex-wrap gap-3">
             <Link
               to="/registrazione/azienda"
@@ -140,7 +146,7 @@ export function SectorPage() {
           </h2>
           <p className="mt-2 text-center text-sm text-[#6b7a8d]">
             Due articoli del blog collegati a <strong className="font-semibold text-[#152435]">{sector.title}</strong>{" "}
-            — annunci, selezione e buone pratiche (contenuti informativi).
+            — annunci, processi in azienda e buone pratiche (contenuti informativi; non sostituiscono un&apos;agenzia).
           </p>
           <ul className="mt-8 space-y-3">
             {sector.relatedArticleSlugs.map((slug) => {
@@ -199,6 +205,9 @@ export function SectorPage() {
             </Link>
             .
           </p>
+          <div className="mx-auto mt-8 max-w-xl text-left">
+            <MarketplaceNotice />
+          </div>
         </div>
       </section>
     </>

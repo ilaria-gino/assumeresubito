@@ -13,9 +13,11 @@ export function ExplainerSection() {
           Ambito del servizio e differenza rispetto ai portali generici
         </h2>
         <p className="mx-auto mt-4 max-w-2xl text-[#cbd5e1]">
-          Organizzazione per verticali di settore, livelli di dettaglio progressivi sui profili, tempi di risposta
-          definiti (con riferimento alle quarantotto ore ove applicabile). Indirizzato a imprese e candidati che
-          richiedono un percorso strutturato. Per il contesto geografico:{" "}
+          <strong className="font-semibold text-white">Lavoro48h non è un&apos;agenzia per il lavoro</strong>: è uno
+          strumento digitale che facilita l&apos;incontro libero tra chi offre e chi cerca lavoro (bisogni complementari),
+          senza intermediazione o collocamento e senza che la piattaforma sia parte dei vostri contratti di lavoro.
+          Organizzazione per verticali, dettaglio progressivo sui profili, tempi di risposta definiti (quarantotto ore ove
+          applicabile). Per il contesto geografico:{" "}
           <Link to="/italia" className="font-semibold text-[#FFCCBC] underline decoration-[#FF6B35]/50 underline-offset-2">
             pagine per regione
           </Link>

@@ -7,6 +7,7 @@ import { ExplainerSection } from "../components/ExplainerSection";
 import { PostSignupJourney } from "../components/PostSignupJourney";
 import { AudienceFitSection, ToolsResourceStrip } from "../components/HomeSeoBlocks";
 import { TestimonialsMarquee } from "../components/TestimonialsMarquee";
+import { MarketplaceNotice } from "../components/MarketplaceNotice";
 import { btnDark, btnPrimary, btnSecondary } from "../components/ui/ButtonStyles";
 
 const HERO_BG =
@@ -44,15 +45,17 @@ export function Home() {
             <p className="text-[0.65rem] font-bold uppercase tracking-[0.35em] text-[#FF8F5E]">{BRAND.domain}</p>
             <h1 className="font-luxury-display mt-5 text-center">
               <span className="block text-[2rem] font-extrabold leading-[1.06] tracking-tight text-white sm:text-5xl md:text-[3.5rem] md:leading-[1.05]">
-                Selezione tra <em className="not-italic text-[#FF8F5E]">imprese</em> e{" "}
+                Incontro tra <em className="not-italic text-[#FF8F5E]">imprese</em> e{" "}
                 <em className="not-italic text-white">candidati</em>
               </span>
               <span className="mx-auto mt-4 block max-w-3xl text-lg font-bold leading-snug text-white sm:text-xl md:text-2xl">
-                <span className="text-[#FFCCBC]">Regioni, province e città</span> su tutta Italia —{" "}
-                <span className="text-white">verticali di settore</span> e{" "}
-                <span className="text-white/95">tempi definiti</span>
+                <span className="text-[#FFCCBC]">Bacheca digitale</span> —{" "}
+                <strong className="font-bold text-white">non un&apos;agenzia per il lavoro</strong>.{" "}
+                <span className="text-white">Regioni, province e città</span> su tutta Italia;{" "}
+                <span className="text-white">verticali di settore</span> e <span className="text-white/95">tempi definiti</span>
                 <span className="mt-2 block text-base font-semibold text-white/85 sm:text-lg">
-                  Risposta orientata alle 48 ore ove applicabile.
+                  Risposta orientata alle 48 ore ove applicabile. Nessun collocamento: imprese e candidati si incontrano in
+                  autonomia; contratti di lavoro solo tra loro.
                 </span>
               </span>
             </h1>
@@ -123,8 +126,11 @@ export function Home() {
             con profili a <strong className="font-bold text-white">dettaglio progressivo</strong>, filtri per competenza e{" "}
             <strong className="font-bold text-white">area in Italia</strong> (regione e città) e, per i candidati,{" "}
             <strong className="font-bold text-white">raggio di spostamento in km</strong> — tempi orientati alle{" "}
-            <strong className="font-bold text-white">48 ore</strong> ove applicabile. Le imprese usano la piattaforma con
-            abbonamento <strong className="font-bold text-[#FF8F5E]">Starter</strong>,{" "}
+            <strong className="font-bold text-white">48 ore</strong> ove applicabile. È uno{" "}
+            <strong className="font-bold text-white">strumento potente ma neutrale</strong>: mette in contatto bisogni
+            complementari (chi cerca personale e chi cerca lavoro) senza vincolare le parti tra loro né creare rapporti di
+            lavoro con {BRAND.name}. Le imprese usano la piattaforma con abbonamento{" "}
+            <strong className="font-bold text-[#FF8F5E]">Starter</strong>,{" "}
             <strong className="font-bold text-[#FF8F5E]">Basic</strong> o <strong className="font-bold text-[#FF8F5E]">Full</strong>
             .
           </p>
@@ -206,12 +212,13 @@ export function Home() {
 
       <section className="border-y border-[#e1dbd1] bg-white px-4 py-16 sm:px-6">
         <div className="mx-auto max-w-6xl">
-          <p className="text-center text-[0.65rem] font-bold uppercase tracking-[0.25em] text-[#3A5F8C]">Selezione</p>
+          <p className="text-center text-[0.65rem] font-bold uppercase tracking-[0.25em] text-[#3A5F8C]">Dal bisogno all&apos;incontro</p>
           <h2 className="font-luxury-display mt-3 text-center text-3xl font-semibold text-[#152435] sm:text-4xl">
             Esigenze ricorrenti
           </h2>
           <p className="mx-auto mt-3 max-w-2xl text-center text-[#6b7a8d]">
-            Molte organizzazioni segnalano criticità analoghe nella ricerca di profili coerenti con ruolo e zona.
+            Molte organizzazioni cercano profili coerenti con ruolo e zona: la piattaforma ordina l&apos;incontro iniziale;
+            valutazioni e assunzioni restano in capo alle imprese e ai candidati.
           </p>
           <ul className="mx-auto mt-8 grid max-w-3xl gap-4 text-[#152435] sm:grid-cols-3">
             {[
@@ -233,12 +240,12 @@ export function Home() {
       <section className="bg-[#ece7df]/80 px-4 py-16 sm:px-6">
         <div className="mx-auto max-w-6xl">
           <h2 className="font-luxury-display text-center text-3xl font-semibold text-[#152435] sm:text-4xl">
-            Cosa offre il servizio
+            Cosa offre la piattaforma
           </h2>
           <ul className="mx-auto mt-10 grid gap-6 sm:grid-cols-3">
             {[
-              "Proposte di candidature coerenti con settore e requisiti indicati",
-              "Prima fase con informazioni proporzionate per ridurre attriti nella selezione",
+              "Annunci e profili in bacheca coerenti con settore e requisiti dichiarati",
+              "Prima fase con informazioni proporzionate per ridurre attriti nella scelta in azienda",
               "Percorsi di contatto con tempi definiti, incluso orientamento a risposta entro 48 ore ove applicabile",
             ].map((t) => (
               <li
@@ -359,7 +366,8 @@ export function Home() {
                     ✓
                   </span>
                   <span className="font-semibold text-[#152435]">
-                    Con il percorso gratis ricevi richieste quando c&apos;è match. Il contatto diretto da te verso
+                    Con il percorso gratis ricevi richieste quando annuncio e profilo risultano coerenti secondo i filtri
+                    del servizio (corrispondenza tecnica, non valutazione da parte del sito). Il contatto diretto da te verso
                     l&apos;impresa senza piano candidato resta legato al <strong>Full (top)</strong> lato azienda se
                     abilitato. Con il piano <strong>Cerca aziende</strong> accedi alle funzioni di consultazione imprese
                     dopo pagamento.
@@ -439,7 +447,7 @@ export function Home() {
 
       <section className="px-4 py-16 sm:px-6">
         <div className="mx-auto max-w-3xl rounded-3xl border border-[#2C4A6E]/20 bg-gradient-to-b from-[#152435] to-[#0a1628] px-6 py-12 text-center text-white shadow-[0_24px_80px_rgba(15,23,42,0.35)] sm:px-12">
-          <h2 className="font-luxury-display text-3xl font-semibold sm:text-4xl">Accesso al servizio</h2>
+          <h2 className="font-luxury-display text-3xl font-semibold sm:text-4xl">Accesso alla piattaforma</h2>
           <p className="mt-3 text-white/70">
             Candidati: percorso base senza costi; opzione a pagamento per cercare aziende. Imprese: piani affiancati al
             modulo di iscrizione.
@@ -447,6 +455,12 @@ export function Home() {
           <Link to="/registrazione" className={`${btnDark} mt-8 border border-white/10`}>
             Vai alla registrazione
           </Link>
+        </div>
+      </section>
+
+      <section className="border-t border-[#e1dbd1] bg-[#faf8f5] px-4 py-10 sm:px-6" aria-label="Natura della piattaforma marketplace">
+        <div className="mx-auto max-w-2xl">
+          <MarketplaceNotice />
         </div>
       </section>
     </>

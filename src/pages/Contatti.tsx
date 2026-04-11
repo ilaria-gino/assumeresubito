@@ -6,7 +6,7 @@ export function Contatti() {
     <PremiumPageShell
       eyebrow="Assistenza"
       title="Contatti"
-      subtitle="Recapiti per informazioni commerciali, partnership e assistenza."
+      subtitle="Recapiti per informazioni commerciali, partnership e assistenza. Lavoro48h non è un'agenzia per il lavoro: per collocamento rivolgersi a soggetti autorizzati."
     >
       <p className="text-[#152435]/90">
         Per informazioni commerciali, partnership, assistenza o per la definizione del titolare del trattamento nei

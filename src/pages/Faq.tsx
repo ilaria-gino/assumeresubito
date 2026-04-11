@@ -2,6 +2,7 @@ import { useMemo } from "react";
 import { FAQ_EMPRESA, FAQ_LAVORATORE } from "../data/faqContent";
 import { buildFaqPageStructuredData } from "../data/faqPageJsonLd";
 import { Link } from "react-router-dom";
+import { MarketplaceNotice } from "../components/MarketplaceNotice";
 
 const FAQ_HERO_IMG =
   "https://images.unsplash.com/photo-1521737711867-e3b97375f902?w=1600&q=85&auto=format&fit=crop";
@@ -36,7 +37,8 @@ export function Faq() {
             <span className="font-semibold italic text-amber-100">candidati</span>
           </h1>
           <p className="mt-6 max-w-2xl text-sm leading-relaxed text-white/55">
-            Risposte divulgative ai dubbi più ricorrenti su selezione, privacy, colloqui e contratti. Non sostituiscono
+            Risposte divulgative: Lavoro48h non è un&apos;agenzia per il lavoro; le parti restano libere; contratti di lavoro
+            solo tra imprese e candidati. Anche su privacy, colloqui e buone pratiche in azienda. Non sostituiscono
             consulenza legale: per casi specifici rivolgersi a professionisti abilitati.
           </p>
           <div className="mt-8 flex flex-wrap gap-4 text-xs text-white/40">
@@ -64,10 +66,11 @@ export function Faq() {
           <div className="flex flex-col gap-4 sm:flex-row sm:items-end sm:justify-between">
             <div>
               <h2 id="faq-aziende" className="font-luxury-display text-3xl font-semibold text-[#152435]">
-                Imprese, HR e selezione
+                Imprese e processi in azienda
               </h2>
               <p className="mt-2 text-sm text-slate-600">
-                Processi, documentazione e buone pratiche per chi assume.
+                Documentazione e buone pratiche per chi ricerca personale (la selezione è vostra; la piattaforma è solo
+                bacheca digitale).
               </p>
             </div>
             <div className="hidden h-px w-32 bg-gradient-to-r from-amber-600/40 to-transparent sm:block" aria-hidden />
@@ -147,6 +150,10 @@ export function Faq() {
             ))}
           </div>
         </section>
+
+        <div className="mx-auto mt-14 max-w-2xl">
+          <MarketplaceNotice />
+        </div>
 
         <div className="mt-16 text-center">
           <Link

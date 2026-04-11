@@ -7,7 +7,7 @@ export const tempoIndeterminatoDeterminato: BlogArticle = {
   dateIso: "2026-04-04",
   readTimeMin: 20,
   excerpt:
-    "Quadro sintetico su tipologie contrattuali, finalità, durate, prove e obblighi formativi. Utile in fase di recruiting e negoziazione.",
+    "Quadro sintetico su tipologie contrattuali, finalità, durate, prove e obblighi formativi. Utile in fase di ricerca del personale e negoziazione.",
   intro:
     "La scelta della tipologia contrattuale influenza costi, flessibilità, obblighi formativi e percezione del candidato. Pur restando indispensabile il parere dei consulenti del lavoro per casi concreti, conoscere le differenze tra tempo indeterminato, tempo determinato e apprendistato aiuta imprenditori e lavoratori a dialogare con maggiore consapevolezza in fase di colloquio e negoziazione. L’articolo offre una lettura organica aggiornata al contesto 2026, con rimandi alle FAQ per i dubbi più ricorrenti.",
   sections: [
@@ -49,7 +49,7 @@ export const tempoIndeterminatoDeterminato: BlogArticle = {
     {
       heading: "Conclusioni",
       paragraphs: [
-        "La tipologia contrattuale va scelta in base a esigenze reali, sostenibilità economica e quadro normativo. In recruiting, dichiarare con onestà cosa si offre e in quali tempi costruisce fiducia. Per approfondimenti su retribuzione e annunci, vedi gli altri articoli del blog.",
+        "La tipologia contrattuale va scelta in base a esigenze reali, sostenibilità economica e quadro normativo. In fase di ricerca del personale e colloquio, dichiarare con onestà cosa si offre e in quali tempi costruisce fiducia. Per approfondimenti su retribuzione e annunci, vedi gli altri articoli del blog.",
       ],
     },
   ],

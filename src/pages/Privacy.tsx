@@ -12,6 +12,7 @@ export function Privacy() {
       eyebrow="Privacy"
       title="Privacy Policy"
       subtitle="Informativa sul trattamento dei dati personali ai sensi degli artt. 13 e 14 del Regolamento (UE) 2016/679 (GDPR)"
+      showMarketplaceFootnote={false}
     >
       <article className="prose-p:leading-relaxed">
         <section className={section}>
@@ -31,10 +32,19 @@ export function Privacy() {
             assimilabile a un <strong>marketplace o bacheca on-line</strong> (annunci di domanda e offerta di lavoro).
           </p>
           <p>
-            Il Titolare <strong>non svolge attività di agenzia per il lavoro</strong>, non seleziona o colloca
-            lavoratori, non propone abbinamenti vincolanti e non partecipa ai rapporti contrattuali tra candidati e
-            imprese. Il trattamento dei dati è funzionale esclusivamente all’<strong>uso dello strumento digitale</strong>{" "}
-            (pubblicazione, consultazione nei limiti previsti, gestione account e abbonamenti).
+            Il Titolare <strong>non è un&apos;agenzia per il lavoro</strong>: non svolge attività di intermediazione,
+            mediazione o collocamento dei lavoratori, non opera quale soggetto abilitato a tali finalità ai sensi della
+            normativa applicabile, <strong>non seleziona o colloca</strong> lavoratori, non propone abbinamenti
+            vincolanti e <strong>non partecipa</strong> ai rapporti contrattuali tra candidati e imprese.
+          </p>
+          <p>
+            Il trattamento dei dati è funzionale esclusivamente all’<strong>uso dello strumento digitale</strong> (bacheca /
+            marketplace di annunci: pubblicazione, consultazione nei limiti previsti, gestione account e abbonamenti), non
+            all&apos;esito di selezioni o assunzioni.
+          </p>
+          <p>
+            L&apos;iscrizione non instaura un rapporto di lavoro subordinato o di agenzia con il Titolare; le parti
+            utilizzano il servizio per incontrare in autonomia esigenze complementari, nei limiti dei Termini.
           </p>
         </section>
 

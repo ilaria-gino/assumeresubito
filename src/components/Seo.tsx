@@ -9,13 +9,13 @@ const BASE = BRAND.domain;
 
 const ROUTES: Record<string, { title: string; description: string }> = {
   "/": {
-    title: `${BRAND.name} | Selezione tra aziende e candidati, verticali di settore`,
-    description: `${BRAND.shortDescription} Ricerca su tutta Italia (regione, città; i candidati dichiarano i km di spostamento). Starter, Basic e Full (piano top): contatto da candidato solo con Full se in contratto. Candidati gratis.`,
+    title: `${BRAND.name} | Bacheca lavoro — non agenzia per il lavoro`,
+    description: `Strumento digitale per incontrare liberamente domanda e offerta (non agenzia né collocamento). Marketplace di annunci, verticali, Italia (regione, città, km). Piani imprese Starter, Basic, Full; candidato base gratis. Contratti di lavoro solo tra le parti.`,
   },
   "/registrazione": {
     title: `Registrazione | Scegli percorso | ${BASE}`,
     description:
-      "Hub iscrizione: candidato o impresa. Su ogni pagina modulo e condizioni economiche affiancate (niente pagina prezzi separata).",
+      "Hub iscrizione: candidato o impresa. Bacheca digitale tra utenti, non agenzia per il lavoro. Modulo e condizioni economiche affiancate.",
   },
   "/registrazione/azienda": {
     title: `Iscrizione imprese e piani Starter, Basic, Full | ${BASE}`,
@@ -25,12 +25,12 @@ const ROUTES: Record<string, { title: string; description: string }> = {
   "/registrazione/candidato": {
     title: `Iscrizione candidato | Gratis o Cerca aziende | ${BASE}`,
     description:
-      "Modulo candidato: percorso gratuito o piano a pagamento per consultare imprese. Prezzi nel riquadro accanto al form.",
+      "Non agenzia né collocamento: profilo e annunci in autonomia. Modulo gratuito o piano per consultare imprese; prezzi nel riquadro accanto.",
   },
   "/chi-siamo": {
     title: `Chi siamo | ${BASE}`,
     description:
-      "Bacheca digitale su tutta Italia (regione, città, raggio km per i candidati), non agenzia; verticali e abbonamenti imprese; contatto da candidato solo con Full (top) se in contratto.",
+      "Strumento digitale per incontrare domanda e offerta in libertà: bacheca su tutta Italia, non agenzia. Verticali; piani imprese; regole contatto in FAQ e Termini.",
   },
   "/privacy": {
     title: `Privacy Policy (GDPR) | ${BASE}`,
@@ -49,17 +49,17 @@ const ROUTES: Record<string, { title: string; description: string }> = {
   },
   "/contatti": {
     title: `Contatti | ${BASE}`,
-    description: `Recapiti per informazioni commerciali, partnership e assistenza: ${BRAND.email}.`,
+    description: `Recapiti per informazioni commerciali e assistenza: ${BRAND.email}. Lavoro48h non è un'agenzia per il lavoro.`,
   },
   "/blog": {
-    title: `Blog | Approfondimenti su lavoro e selezione | ${BASE}`,
+    title: `Blog | Lavoro, annunci e buone pratiche (non agenzia) | ${BASE}`,
     description:
-      "Articoli informativi su recruiting, contratti, colloqui e smart working. Contenuti utili, FAQ in chiusura, tono istituzionale.",
+      "Approfondimenti su annunci, colloqui, contratti e smart working per imprese e candidati. Lavoro48h resta bacheca digitale, non agenzia per il lavoro. FAQ in chiusura, tono istituzionale.",
   },
   "/faq": {
     title: `FAQ | Imprese e candidati | ${BASE}`,
     description:
-      "FAQ imprese e lavoratori: selezione, privacy, piani Starter/Basic/Full, contatto da candidato solo con Full (top) se abilitato, sblocchi profilo, retribuzioni orientative. Risposte divulgative.",
+      "FAQ: non agenzia per il lavoro, libertà tra le parti, privacy, piani Starter/Basic/Full, sblocchi profilo, retribuzioni orientative. Risposte divulgative.",
   },
   "/retribuzioni-orientative": {
     title: `Retribuzioni orientative di mercato | ${BASE}`,
@@ -69,12 +69,12 @@ const ROUTES: Record<string, { title: string; description: string }> = {
   "/candidati": {
     title: `Cerca profili candidati | ${BASE}`,
     description:
-      "Anteprima del flusso per imprese: profili per settore e area, anonimato iniziale ove previsto, tempi orientati alle 48 ore ove applicabile.",
+      "Bacheca digitale (non agenzia): anteprima ricerca imprese/candidati dopo registrazione. Profili per settore e area, anonimato ove previsto, 48 h ove applicabile.",
   },
   "/italia": {
-    title: `Lavoro e selezione per regione | Italia | ${BASE}`,
+    title: `Annunci e incontro domanda-offerta per regione | Italia | ${BASE}`,
     description:
-      "Venti approfondimenti geografici: contesto locale, verticali di settore, iscrizione imprese e candidati, FAQ e risorse. Bacheca strutturata, non agenzia.",
+      "Venti pagine geografiche: contesto locale, verticali, iscrizione imprese e candidati. Strumento di annunci tra utenti, non agenzia per il lavoro.",
   },
   "/risorse/checklist-annuncio": {
     title: `Checklist annuncio di lavoro | Risorse imprese | ${BASE}`,
@@ -91,7 +91,7 @@ function metaForPath(pathname: string) {
       const desc =
         region.intro.length > 158 ? `${region.intro.slice(0, 155).trim()}…` : region.intro;
       return {
-        title: `Lavoro e selezione in ${region.name} | ${BASE}`,
+        title: `Lavoro in ${region.name} | bacheca annunci, non agenzia | ${BASE}`,
         description: desc,
       };
     }
@@ -104,7 +104,7 @@ function metaForPath(pathname: string) {
       const desc =
         sector.heroSubtitle.length > 158 ? `${sector.heroSubtitle.slice(0, 155).trim()}…` : sector.heroSubtitle;
       return {
-        title: `${sector.title}: selezione e assunzioni | ${BASE}`,
+        title: `${sector.title}: annunci e profili | non agenzia | ${BASE}`,
         description: desc,
       };
     }

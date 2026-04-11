@@ -2,6 +2,7 @@ import { Link, useParams } from "react-router-dom";
 import { getRegion } from "../data/regions";
 import { SECTORS } from "../data/sectors";
 import { btnPrimarySm } from "../components/ui/ButtonStyles";
+import { MarketplaceNotice } from "../components/MarketplaceNotice";
 
 export function RegionPage() {
   const { slug } = useParams<{ slug: string }>();
@@ -33,8 +34,12 @@ export function RegionPage() {
             {region.name}
           </p>
           <h1 className="font-luxury-display mt-3 text-3xl font-semibold tracking-tight sm:text-4xl md:text-[2.75rem]">
-            Lavoro e selezione in {region.name}
+            Lavoro in {region.name}: annunci e incontro tra utenti
           </h1>
+          <p className="mt-3 max-w-3xl text-sm font-semibold text-[#8AB4CE]">
+            Lavoro48h è una bacheca digitale, non un&apos;agenzia per il lavoro: nessun collocamento; contratti di lavoro
+            solo tra imprese e candidati.
+          </p>
           <p className="mt-5 max-w-3xl text-lg leading-relaxed text-white/80">{region.intro}</p>
           <div className="mt-8 flex flex-wrap gap-3">
             <Link to="/registrazione/azienda" className={`${btnPrimarySm} px-6 py-3 text-base shadow-lg`}>
@@ -49,6 +54,9 @@ export function RegionPage() {
             <Link to="/candidati" className="inline-flex items-center rounded-xl border border-white/20 px-6 py-3 font-semibold hover:bg-white/10">
               Cerca profili
             </Link>
+          </div>
+          <div className="mt-6 max-w-2xl">
+            <MarketplaceNotice variant="darkHero" />
           </div>
         </div>
       </section>

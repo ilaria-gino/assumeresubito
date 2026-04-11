@@ -25,7 +25,7 @@ export const SETTORI_VERTICALI_ARTICLES: BlogArticle[] = [
     "10 aprile 2026",
     10,
     "Come scrivere ricerche credibili nel settore immobiliare: zona, tipologia di incarico, strumenti e tempi di risposta, con focus su annunci chiari e colloqui mirati.",
-    "Nel mercato immobiliare la credibilità dell’agenzia passa anche da come comunica le ricerche di personale: annunci vaghi attraggono candidature generiche, mentre richieste troppo restrittive possono escludere profili utili in fase di affiancamento. Questo contributo offre un quadro pratico per allineare annuncio, primo contatto e criteri di verifica iniziale, nel rispetto della privacy e senza promettere risultati non sostenibili.",
+    "Nel mercato immobiliare la credibilità dello studio o della rete immobiliare passa anche da come comunica le ricerche di personale: annunci vaghi attraggono candidature generiche, mentre richieste troppo restrittive possono escludere profili utili in fase di affiancamento. Questo contributo offre un quadro pratico per allineare annuncio, primo contatto e criteri di verifica iniziale, nel rispetto della privacy e senza promettere risultati non sostenibili (contenuto generico sul settore, non servizio di agenzia per il lavoro).",
     [
       {
         heading: "Cosa dichiarare subito: zona, ruolo e tipologia di attività",
@@ -50,7 +50,7 @@ export const SETTORI_VERTICALI_ARTICLES: BlogArticle[] = [
       {
         heading: "Conclusioni",
         paragraphs: [
-          "Un annuncio preciso e un primo contatto ordinato filtrano meglio le candidature e proteggono la reputazione dell’agenzia. Per domande trasversali su privacy e selezione, consultate le FAQ del sito.",
+          "Un annuncio preciso e un primo contatto ordinato filtrano meglio le candidature e proteggono la reputazione dello studio o della rete. Per domande trasversali su privacy e processi in azienda, consultate le FAQ del sito.",
         ],
       },
     ],
@@ -72,7 +72,7 @@ export const SETTORI_VERTICALI_ARTICLES: BlogArticle[] = [
       {
         heading: "Errori comuni",
         paragraphs: [
-          "Selezione solo su curriculum senza prova di risultati o referenze verificabili; eccessiva fretta che salta step di allineamento su strumenti e compliance; annunci che non riflettono la reale organizzazione del lavoro in agenzia.",
+          "Scelta solo su curriculum senza prova di risultati o referenze verificabili; eccessiva fretta che salta step di allineamento su strumenti e compliance; annunci che non riflettono la reale organizzazione del lavoro in studio immobiliare.",
         ],
       },
       {
@@ -90,7 +90,7 @@ export const SETTORI_VERTICALI_ARTICLES: BlogArticle[] = [
       {
         heading: "Conclusioni",
         paragraphs: [
-          "Un processo ordinato costa meno di un turnover continuo. Per approfondimenti su annunci, vedi l’articolo gemello sul vertical immobiliare e il blog generale sul recruiting.",
+          "Un processo ordinato costa meno di un turnover continuo. Per approfondimenti su annunci, vedi l’articolo gemello sul vertical immobiliare e il blog generale sulla ricerca di personale.",
         ],
       },
     ],
@@ -107,7 +107,7 @@ export const SETTORI_VERTICALI_ARTICLES: BlogArticle[] = [
     "10 aprile 2026",
     9,
     "Sala, cucina, bar: come scrivere annunci credibili con turni, tipologia di servizio e urgenze, riducendo candidature impreparate.",
-    "La ristorazione italiana convive con stagionalità, weekend e coperture last minute: un annuncio che nasconde gli orari o il tipo di servizio genera assenze e turnover. Qui proponiamo elementi minimi da dichiarare per attrarre profili realmente disponibili.",
+    "La ristorazione italiana convive con stagionalità, weekend e coperture last minute: un annuncio che nasconde gli orari o il tipo di servizio genera assenze e turnover. Di seguito, elementi minimi da dichiarare per attrarre profili realmente disponibili.",
     [
       {
         heading: "Ruolo e contesto operativo",
@@ -186,8 +186,8 @@ export const SETTORI_VERTICALI_ARTICLES: BlogArticle[] = [
     "2026-04-10",
     "10 aprile 2026",
     9,
-    "Patenti, muletto, automunito, turni notturni: come dichiararli in annuncio per match più precisi nel vertical logistica.",
-    "Nel logistics matching la precisione su mezzi, abilitazioni e fascia oraria evita colloqui con candidati che non possono legalmente o logisticamente coprire il turno. Questo testo elenca elementi utili da inserire e come collegarli al processo di selezione.",
+    "Patenti, muletto, automunito, turni notturni: come dichiararli in annuncio per una corrispondenza più precisa tra ricerca e profili nel vertical logistica.",
+    "In logistica, la precisione su mezzi, abilitazioni e fascia oraria negli annunci riduce colloqui con candidati che non possono legalmente o logisticamente coprire il turno. Questo testo elenca elementi utili da inserire e come collegarli al processo di ricerca del personale in azienda.",
     [
       {
         heading: "Abilitazioni e mezzi",
@@ -267,7 +267,7 @@ export const SETTORI_VERTICALI_ARTICLES: BlogArticle[] = [
     "10 aprile 2026",
     10,
     "Muratura, cartongesso, ristrutturazioni: come descrivere il lavoro reale e la prossimità al cantiere per ridurre CV generici.",
-    "Il comparto edile soffre di annunci troppo generici che attraggono manovalanza senza esperienza sul tipo di commessa. Specificare tipologia di intervento, strumenti, altezze e durata stimata del lavoro migliora il matching geografico e tecnico.",
+    "Il comparto edile soffre di annunci troppo generici che attraggono manovalanza senza esperienza sul tipo di commessa. Specificare tipologia di intervento, strumenti, altezze e durata stimata del lavoro migliora la coerenza tra zona, commessa e profili che rispondono all’annuncio.",
     [
       {
         heading: "Tipologia di intervento",
@@ -347,7 +347,7 @@ export const SETTORI_VERTICALI_ARTICLES: BlogArticle[] = [
     "10 aprile 2026",
     10,
     "Climatizzazione, sanitario, centrale termica: perché distinguere le specializzazioni riduce colloqui inutili con idraulici non allineati.",
-    "Sotto l’etichetta ‘idraulico’ convivono profili molto diversi. Annunci che specificano impianti, marche ricorrenti e tipologia di cliente (civile, condominiale, industriale leggero) migliorano il match.",
+    "Sotto l’etichetta ‘idraulico’ convivono profili molto diversi. Annunci che specificano impianti, marche ricorrenti e tipologia di cliente (civile, condominiale, industriale leggero) migliorano la pertinenza delle candidature rispetto alla commessa.",
     [
       {
         heading: "Specializzazioni e strumenti",

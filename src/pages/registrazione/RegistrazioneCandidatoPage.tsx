@@ -19,7 +19,7 @@ export function RegistrazioneCandidatoPage() {
     <PremiumPageShell
       eyebrow="Candidati"
       title="Registrazione candidato"
-      subtitle={`Compila il modulo. Accanto trovi gratis vs a pagamento e il dettaglio del piano «Cerca aziende» — niente pagina prezzi separata: così è chiaro cosa costa (${BRAND.domain}).`}
+      subtitle={`Compila il modulo. Non agenzia per il lavoro: profilo e incontro in autonomia con le imprese. Accanto: gratis vs a pagamento e piano «Cerca aziende» — tutto sullo stesso schermo (${BRAND.domain}).`}
       maxWidth="wide"
     >
       <div className="grid gap-8 lg:grid-cols-2 lg:items-start">

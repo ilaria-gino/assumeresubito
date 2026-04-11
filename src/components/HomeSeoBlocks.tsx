@@ -16,8 +16,10 @@ export function AudienceFitSection() {
           Per chi è il servizio — e quando conviene altro
         </h2>
         <p className="mx-auto mt-4 max-w-2xl text-center text-sm text-[#6b7a8d] sm:text-base">
-          Trasparenza sul modello: bacheca strutturata con verticali e tempi definiti, non sostituto di agenzie o
-          consulenza legale.
+          Trasparenza sul modello: <strong className="font-semibold text-[#152435]">non siamo un&apos;agenzia per il lavoro</strong>
+          — bacheca digitale con verticali e tempi definiti; niente intermediazione o collocamento. Strumento per
+          incontrare liberamente domanda e offerta; nessun rapporto di lavoro con noi e nessun obbligo di assumere o di
+          accettare un impiego. Non sostituisce consulenza legale o del lavoro.
         </p>
         <div className="mt-10 grid gap-6 lg:grid-cols-2">
           <div className="rounded-2xl border border-[#2C4A6E]/20 bg-white p-6 shadow-sm sm:p-8">
@@ -67,8 +69,9 @@ export function AudienceFitSection() {
                 <span className="text-red-400" aria-hidden>
                   •
                 </span>
-                Vuoi che la piattaforma <strong className="font-semibold">assuma al posto tuo</strong> o gestione
-                contrattuale end-to-end: non è il nostro modello.
+                Cerchi un&apos;<strong className="font-semibold">agenzia per il lavoro</strong> o un intermediario al
+                collocamento autorizzato: <strong className="font-semibold">non lo siamo</strong> e non possiamo svolgere
+                quelle funzioni.
               </li>
             </ul>
           </div>
@@ -132,7 +135,7 @@ export function ToolsResourceStrip() {
             <Link to="/blog" className={toolCard}>
               <span className="text-xs font-bold uppercase tracking-wide text-[#2C4A6E]">Editoriale</span>
               <span className="mt-2 font-semibold text-[#152435]">Blog</span>
-              <span className="mt-2 text-sm text-[#6b7a8d]">Guide su annunci, colloqui e contratti.</span>
+              <span className="mt-2 text-sm text-[#6b7a8d]">Guide su annunci e diritti (non sostituisce un&apos;agenzia).</span>
             </Link>
           </li>
         </ul>

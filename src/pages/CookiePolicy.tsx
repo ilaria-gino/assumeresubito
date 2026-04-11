@@ -6,7 +6,8 @@ export function CookiePolicy() {
     <PremiumPageShell
       eyebrow="Legale"
       title="Cookie Policy"
-      subtitle='Informativa sui cookie e tecnologie simili ai sensi del GDPR e del Codice Privacy, in linea con le linee guida del Garante e le indicazioni europee su cookie e consenso.'
+      subtitle="Informativa sui cookie e tecnologie simili ai sensi del GDPR e del Codice Privacy, in linea con le linee guida del Garante. Lavoro48h è un marketplace di annunci (bacheca digitale), non un'agenzia per il lavoro."
+      showMarketplaceFootnote={false}
     >
       <article className="space-y-4 text-[#152435]/85 leading-relaxed">
       <h2 className="mt-2 text-xl font-bold text-[#152435]">1. Cosa sono i cookie</h2>

@@ -64,6 +64,7 @@ export function CandidateRegistrationForm() {
             const cdConsents = [
               "cd_veritieri",
               "cd_privacy",
+              "cd_non_agenzia",
               "cd_trattamento",
               "cd_anon",
               "cd_comunicazione",
@@ -681,6 +682,27 @@ export function CandidateRegistrationForm() {
                 Ho letto e accetto la{" "}
                 <Link to="/privacy" target="_blank" rel="noreferrer">
                   Privacy Policy
+                </Link>
+              </span>
+            </label>
+            <label className="flex cursor-pointer items-start gap-2">
+              <input
+                type="checkbox"
+                name="cd_non_agenzia"
+                className="mt-1 shrink-0"
+                required
+              />
+              <span>
+                Dichiaro di aver compreso che <strong>Lavoro48h non è un&apos;agenzia per il lavoro</strong> e non svolge
+                intermediazione o collocamento: uso una <strong>bacheca digitale</strong> tra candidati e imprese per
+                incontrare liberamente bisogni complementari, senza obbligo di accettare un impiego e senza rapporto di
+                lavoro con il titolare del sito, come in{" "}
+                <Link to="/termini" target="_blank" rel="noreferrer">
+                  Termini
+                </Link>{" "}
+                e{" "}
+                <Link to="/privacy" target="_blank" rel="noreferrer">
+                  Privacy
                 </Link>
               </span>
             </label>

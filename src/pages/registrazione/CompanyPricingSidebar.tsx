@@ -11,7 +11,8 @@ export function CompanyPricingSidebar() {
         <p className="mt-2 text-sm font-bold text-[#152435]">Sblocco profilo completo</p>
         <p className="mt-2 text-sm leading-relaxed text-[#152435]/90">
           Dopo l&apos;anteprima anonima, lo <strong>sblocco</strong> consente di accedere ai dati completi del candidato
-          secondo il servizio. Ogni piano fissa <strong>quanti sblocchi</strong> usi nel periodo.
+          secondo il servizio. Ogni piano fissa <strong>quanti sblocchi</strong> usi nel periodo. Il corrispettivo è per
+          l&apos;accesso agli strumenti digitali, <strong>non</strong> per esito di colloquio o assunzione.
         </p>
         <p className="mt-3 text-sm leading-relaxed text-[#152435]/90">
           Con <strong>Starter</strong> e <strong>Basic</strong> il contatto parte in genere dall&apos;

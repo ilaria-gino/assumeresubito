@@ -27,7 +27,7 @@ export const BLOG_VISUALS: Record<string, BlogVisual> = {
     imageAlt: "Postazione di lavoro professionale con laptop in ambiente luminoso",
   },
   "annuncio-lavoro-efficace-scrittura-selezione": {
-    category: "Recruiting",
+    category: "Annunci & ricerca",
     coverImage:
       "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=1200&q=85&auto=format&fit=crop",
     imageAlt: "Scrivania con documenti e pianificazione",
@@ -73,7 +73,7 @@ export const BLOG_CATEGORIES = [
   "Tutti",
   "Verticali di settore",
   "Normativa & agile",
-  "Recruiting",
+  "Annunci & ricerca",
   "Colloquio",
   "Contratti",
   "Retribuzione",

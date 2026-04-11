@@ -5,6 +5,7 @@ import { getBlogVisual } from "../data/blog/covers";
 import { getSector } from "../data/sectors";
 import { getSectorSlugForBlogArticle } from "../data/sectorArticleLinks";
 import { buildBlogArticleJsonLd, buildBreadcrumbListJsonLd } from "../data/blogStructuredData";
+import { MarketplaceNotice } from "../components/MarketplaceNotice";
 
 export function BlogPost() {
   const { slug } = useParams<{ slug: string }>();
@@ -97,6 +98,10 @@ export function BlogPost() {
 
         <p className="mt-10 text-lg leading-relaxed text-slate-700">{post.intro}</p>
 
+        <div className="mt-8">
+          <MarketplaceNotice />
+        </div>
+
         {post.sections.map((section, idx) => (
           <section key={`${post.slug}-sec-${idx}`} className="mt-12">
             {section.heading && (
@@ -121,7 +126,8 @@ export function BlogPost() {
           <div className="border-b border-[#ece8e0] bg-[#152435] px-6 py-5">
             <h2 className="font-luxury-display text-2xl font-semibold text-white">Domande frequenti</h2>
             <p className="mt-2 text-sm text-white/55">
-              Sintesi collegata all&apos;argomento — verificate sempre fonti ufficiali e consulenti.
+              Contenuto divulgativo sul mercato e sulle buone pratiche; non descrive intermediazione da parte di Lavoro48h.
+              Verificate fonti ufficiali e consulenti.
             </p>
           </div>
           <dl className="divide-y divide-[#ece8e0] p-2">
@@ -139,8 +145,8 @@ export function BlogPost() {
             <h2 className="font-luxury-display text-lg font-semibold text-[#152435]">Vertical di settore</h2>
             <p className="mt-2 text-sm leading-relaxed text-slate-600">
               Questo articolo si collega al settore{" "}
-              <strong className="font-semibold text-[#152435]">{sector.title}</strong>. Nella landing trovi messaggi per
-              imprese e candidati, più altri approfondimenti e link alla FAQ.
+              <strong className="font-semibold text-[#152435]">{sector.title}</strong>. La landing è un punto di ingresso al
+              marketplace di annunci (non agenzia per il lavoro), con messaggi per imprese e candidati e link utili.
             </p>
             <div className="mt-4 flex flex-wrap gap-3">
               <Link

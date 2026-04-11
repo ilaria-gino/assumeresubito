@@ -7,9 +7,9 @@ export const selezionePersonalePmi: BlogArticle = {
   dateIso: "2026-04-02",
   readTimeMin: 20,
   excerpt:
-    "Come strutturare recruiting in piccole e medie imprese: ruoli, tempi, documentazione, onboarding e uso di piattaforme verticali.",
+    "Come strutturare la ricerca del personale in piccole e medie imprese: ruoli, tempi, documentazione, onboarding e uso di bacheche o marketplace per settore (strumenti digitali, non agenzia).",
   intro:
-    "Le PMI spesso non dispongono di un ufficio HR strutturato come nelle grandi corporation: la selezione ricade sul titolare o su figure operative già cariche di lavoro. Il rischio è duplice — o processi troppo lunghi che fanno perdere candidati validi, o scelte affrettate che generano turnover e costi nascosti. Questo articolo propone un approccio snello ma ordinato, adattabile ai contesti produttivi italiani, con riferimento a strumenti che favoriscono incontri mirati tra esigenze aziendali e profili professionali.",
+    "Le PMI spesso non dispongono di un ufficio HR strutturato come nelle grandi corporation: la selezione ricade sul titolare o su figure operative già cariche di lavoro. Il rischio è duplice — o processi troppo lunghi che fanno perdere candidati validi, o scelte affrettate che generano turnover e costi nascosti. Questo articolo propone un approccio snello ma ordinato, adattabile ai contesti produttivi italiani, con riferimento a marketplace o bacheche digitali che rendono visibili annunci e profili in modo ordinato (senza sostituire la valutazione in azienda).",
   sections: [
     {
       heading: "Definire il fabbisogno prima dell’annuncio",
@@ -20,7 +20,7 @@ export const selezionePersonalePmi: BlogArticle = {
     {
       heading: "Canali e tempi: evitare la dispersione",
       paragraphs: [
-        "Pubblicare ovunque senza gestire le risposte crea backlog e frustrazione. Meglio scegliere pochi canali efficaci per il settore e impostare tempi di feedback. Servizi che organizzano verticali di settore e tempi di risposta definiti aiutano a mantenere promesse realistiche.",
+        "Pubblicare ovunque senza gestire le risposte crea backlog e frustrazione. Meglio scegliere pochi canali efficaci per il settore e impostare tempi di feedback. Marketplace o bacheche con verticali di settore e tempi di risposta dichiarati possono aiutare a mantenere promesse realistiche, senza sostituire la valutazione in azienda.",
       ],
     },
     {
@@ -40,8 +40,8 @@ export const selezionePersonalePmi: BlogArticle = {
       paragraphs: [
         "Anche senza un HR manager dedicato, la PMI può definire un responsabile interno per le candidature, con accessi controllati ai database e conservazione limitata nel tempo. Ciò riduce rischi di perdita dati e incoerenze tra quanto promesso ai candidati e quanto effettivamente praticato.",
         "La documentazione delle decisioni di screening, nel rispetto della normativa privacy e senza tracciare dati non pertinenti, può essere utile in caso di controlli o contestazioni. Evitate di conservare copie di documenti non necessari al ruolo.",
-        "Per integrare strumenti digitali di matching verticale, verificate che l’informativa privacy sia accessibile e che i flussi di consenso siano chiari. La trasparenza su tempi di risposta e criteri generali di selezione migliora l’esperienza utente e si allinea ai principi di contenuti utili promossi dal progetto editoriale.",
-        "Infine, coinvolgete il titolare o i soci nelle decisioni su profili chiave: allineamento strategico riduce turnover da mismatch culturale, problema frequente quando la selezione è delegata interamente senza linee guida.",
+        "Per integrare marketplace o bacheche verticali (pubblicazione e consultazione di annunci), verificate che l’informativa privacy sia accessibile e che i flussi di consenso siano chiari. La trasparenza su tempi di risposta e criteri generali di selezione in azienda migliora l’esperienza utente e si allinea ai principi di contenuti utili promossi dal progetto editoriale.",
+        "Infine, coinvolgete il titolare o i soci nelle decisioni su profili chiave: allineamento strategico riduce turnover da disallineamento culturale, problema frequente quando la selezione è delegata interamente senza linee guida.",
       ],
     },
     {

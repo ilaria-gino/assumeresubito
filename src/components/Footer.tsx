@@ -14,6 +14,9 @@ export function Footer() {
               <BrandWordmark size="sm" variant="light" showDomain />
             </p>
             <p className="mt-4 text-sm leading-relaxed text-white/60">{BRAND.shortDescription}</p>
+            <p className="mt-3 text-xs font-semibold text-[#8AB4CE]">
+              Non siamo un&apos;agenzia per il lavoro né intermediari al collocamento.
+            </p>
           </div>
           <div>
             <p className="text-[0.65rem] font-bold uppercase tracking-[0.2em] text-[#8AB4CE]">Piattaforma</p>

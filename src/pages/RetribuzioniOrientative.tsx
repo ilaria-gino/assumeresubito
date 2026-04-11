@@ -6,7 +6,7 @@ export function RetribuzioniOrientative() {
     <PremiumPageShell
       eyebrow="Strumenti"
       title="Retribuzioni orientative di mercato"
-      subtitle="Quadro indicativo per confrontare offerte e aspettative — non sostituisce CCNL, contratti né consulenza del lavoro."
+      subtitle="Quadro indicativo per confrontare offerte e aspettative — non sostituisce CCNL, contratti né consulenza del lavoro. Lavoro48h non è un'agenzia per il lavoro."
     >
       <p className="text-[#152435]/90 leading-relaxed">
         <strong>Bande retributive indicative</strong> per settore, seniority e area geografica in Italia, utili per

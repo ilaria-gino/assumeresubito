@@ -24,8 +24,9 @@ export function ChecklistAnnuncio() {
             Checklist prima di pubblicare un annuncio
           </h1>
           <p className="mt-4 text-sm leading-relaxed text-slate-600 sm:text-base">
-            Elenco operativo per imprese e HR. Non sostituisce consulenza legale o del lavoro. Per il metodo completo
-            vedi anche l&apos;articolo sul blog e le{" "}
+            Elenco operativo per imprese e HR. Lavoro48h è una bacheca digitale tra utenti, non un&apos;agenzia per il
+            lavoro. Non sostituisce consulenza legale o del lavoro. Per il metodo completo vedi anche l&apos;articolo sul
+            blog e le{" "}
             <Link to="/faq" className="font-semibold text-[#2C4A6E] underline underline-offset-2">
               FAQ
             </Link>

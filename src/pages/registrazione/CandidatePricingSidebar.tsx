@@ -12,6 +12,10 @@ export function CandidatePricingSidebar() {
         <h3 className="mt-2 text-center font-luxury-display text-xl font-semibold text-[#152435] sm:text-2xl">
           Scegli un solo percorso nel modulo
         </h3>
+        <p className="mt-3 text-center text-xs leading-relaxed text-[#152435]/75">
+          Lavoro48h non è un&apos;agenzia per il lavoro: nessun collocamento; resti libero verso le imprese; eventuali
+          contratti di lavoro solo con l&apos;azienda.
+        </p>
         <div className="mt-4 grid gap-3 sm:gap-4">
           <div className="rounded-2xl border-2 border-emerald-600/35 bg-white p-4 text-center shadow-sm">
             <span className="inline-flex rounded-full bg-emerald-600 px-3 py-1 text-xs font-bold uppercase text-white">

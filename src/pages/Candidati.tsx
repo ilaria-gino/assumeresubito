@@ -227,7 +227,7 @@ export function Candidati() {
     <PremiumPageShell
       eyebrow="Marketplace"
       title="Candidati"
-      subtitle="Due ricerche separate: una per chi assume, una per chi cerca lavoro. Ognuna si attiva solo dopo la registrazione nel ruolo giusto."
+      subtitle="Bacheca digitale tra utenti (non agenzia per il lavoro): due ricerche separate — per chi pubblica ricerche e per chi cerca lavoro. Si attivano dopo la registrazione nel ruolo giusto; nessun collocamento da parte del sito."
       maxWidth="wide"
     >
       {guest && (

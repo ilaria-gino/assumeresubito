@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import { btnPrimarySm } from "../components/ui/ButtonStyles";
+import { MarketplaceNotice } from "../components/MarketplaceNotice";
 
 export function NotFound() {
   return (
@@ -10,6 +11,9 @@ export function NotFound() {
       <Link to="/" className={`${btnPrimarySm} mt-8 inline-flex px-8 py-3 text-base`}>
         Torna alla home
       </Link>
+      <div className="mx-auto mt-10 max-w-md">
+        <MarketplaceNotice variant="inline" />
+      </div>
     </div>
   );
 }

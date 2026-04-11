@@ -18,7 +18,7 @@ export function RegistrazioneAziendaPage() {
     <PremiumPageShell
       eyebrow="Imprese"
       title="Registrazione azienda"
-      subtitle={`Compila il modulo. A destra (o sopra su telefono) trovi i piani Starter, Basic e Full con importi indicativi e sblocchi — tutto sullo stesso schermo (${BRAND.domain}).`}
+      subtitle={`Compila il modulo. ${BRAND.name} non è un'agenzia: paghi per uso piattaforma, non per assunzioni. A destra (o sopra su telefono) piani Starter, Basic e Full con importi e sblocchi — stesso schermo (${BRAND.domain}).`}
       maxWidth="wide"
     >
       <div className="grid gap-8 lg:grid-cols-2 lg:items-start">

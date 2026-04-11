@@ -7,18 +7,25 @@ export function ChiSiamo() {
     <PremiumPageShell
       eyebrow="Chi siamo"
       title="Il servizio Lavoro48h"
-      subtitle={`${BRAND.name} struttura l'incontro tra organizzazioni e candidati, con percorsi distinti e attenzione ai settori di riferimento.`}
+      subtitle={`${BRAND.name} è uno strumento digitale per far incontrare, in autonomia, organizzazioni e candidati — esplicitamente non un'agenzia per il lavoro.`}
     >
-      <p className="text-lg leading-relaxed text-[#152435]/90">
-        <strong className="font-semibold text-[#152435]">{BRAND.name}</strong> ({BRAND.domain}) è una{" "}
-        <strong>bacheca digitale</strong> per annunci e profili di lavoro, in logica assimilabile a un{" "}
-        <strong>marketplace on-line</strong> (come i grandi portali di annunci): mette in relazione domanda e offerta con
-        strumenti di filtro e livelli di dettaglio progressivi.{" "}
-        <strong>Non è un&apos;agenzia per il lavoro</strong> e non svolge attività di intermediazione o collocamento.
+      <div className="rounded-2xl border border-[#2C4A6E]/25 bg-[#f0f6fb] px-5 py-4 text-sm leading-relaxed text-[#152435]">
+        <strong className="font-semibold text-[#152435]">Attenzione:</strong> {BRAND.name}{" "}
+        <strong>non è un&apos;agenzia per il lavoro</strong>, non opera in regime di intermediazione o collocamento
+        autorizzato e non seleziona candidati al posto delle imprese. Il servizio equivale a un{" "}
+        <strong>marketplace / bacheca on-line di annunci</strong> con strumenti tecnici di consultazione. L&apos;iscrizione
+        non crea rapporto di lavoro con il titolare del sito né obblighi di esito tra utenti.
+      </div>
+      <p className="mt-6 text-lg leading-relaxed text-[#152435]/90">
+        <strong className="font-semibold text-[#152435]">{BRAND.name}</strong> ({BRAND.domain}) mette in relazione
+        domanda e offerta — bisogni spesso complementari — con filtri e livelli di dettaglio progressivi, così che le
+        parti possano incontrarsi liberamente. Ogni valutazione, colloquio e assunzione resta in capo a{" "}
+        <strong>candidati e imprese</strong>.
       </p>
       <p className="mt-4 text-lg leading-relaxed text-[#152435]/90">
         Il modello prevede una prima fase con informazioni proporzionate e, ove applicabile, profili presentati in forma
-        non completamente identificativa, per orientare la selezione su competenze e disponibilità. I tempi di risposta
+        non completamente identificativa, per orientare la prima scelta su competenze e disponibilità (la selezione
+        finale è in azienda). I tempi di risposta
         sono definiti nel rispetto delle possibilità operative delle parti e, dove previsto dal servizio, con
         riferimento a finestre orientate alle quarantotto ore.
       </p>

@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 
-/** Blocco value proposition: cosa succede dopo l'iscrizione (48h, match, dettaglio progressivo). */
+/** Blocco value proposition: dopo l'iscrizione (48h, visibilità, corrispondenza tecnica annunci-profili). */
 export function PostSignupJourney() {
   return (
     <section
@@ -17,12 +17,14 @@ export function PostSignupJourney() {
           Cosa succede dopo l&apos;iscrizione
         </h2>
         <p className="mx-auto mt-4 max-w-2xl text-center text-sm leading-relaxed text-[#6b7a8d] sm:text-base">
-          Tempi orientati alle <strong className="font-semibold text-[#152435]">48 ore</strong> ove applicabile: il
-          servizio organizza incontro tra domanda e offerta con{" "}
+          Tempi orientati alle <strong className="font-semibold text-[#152435]">48 ore</strong> ove applicabile: la
+          piattaforma consente l&apos;incontro tra domanda e offerta con{" "}
           <strong className="font-semibold text-[#152435]">verticali di settore</strong>,{" "}
           <strong className="font-semibold text-[#152435]">area in Italia</strong> e{" "}
           <strong className="font-semibold text-[#152435]">dettaglio progressivo</strong> del profilo secondo le regole
-          della piattaforma — non siamo un&apos;agenzia per il lavoro.
+          della piattaforma. <strong className="font-semibold text-[#152435]">Lavoro48h non è un&apos;agenzia per il lavoro</strong>{" "}
+          e non svolge intermediazione o collocamento: è una bacheca digitale tra utenti, per incontrare in autonomia
+          esigenze opposte ma compatibili, senza obblighi tra le parti oltre ai Termini sul servizio.
         </p>
 
         <ol className="mx-auto mt-10 grid max-w-4xl gap-5 sm:grid-cols-3 sm:gap-6">
@@ -53,10 +55,10 @@ export function PostSignupJourney() {
             >
               2
             </span>
-            <h3 className="mt-4 font-semibold text-[#152435]">Visibilità e match</h3>
+            <h3 className="mt-4 font-semibold text-[#152435]">Visibilità e corrispondenza tecnica</h3>
             <p className="mt-2 text-sm leading-relaxed text-[#6b7a8d]">
-              Il profilo entra nel vertical di riferimento con filtri su competenze e zona; l&apos;anonimato iniziale
-              tutela chi cerca e chi offre fino alle fasi previste.
+              Il profilo compare nel vertical di riferimento con filtri su competenze e zona (strumenti informatici, non
+              selezione da parte del sito); l&apos;anonimato iniziale tutela chi cerca e chi offre fino alle fasi previste.
             </p>
           </li>
           <li className="relative rounded-2xl border border-[#e1dbd1] bg-[#f7f5f1] p-5 shadow-sm sm:col-span-1">

@@ -1,10 +1,18 @@
 export const TESTIMONIALS: { quote: string; author: string; role: string }[] = [
   { quote: "Personale trovato in pochi giorni, senza perdere tempo in CV inutili.", author: "Ristorazione — Milano", role: "Locale 40 coperti" },
-  { quote: "Finalmente un servizio chiaro: paghi solo se assumi.", author: "Logistica — Bergamo", role: "Hub spedizioni" },
-  { quote: "La verticalizzazione per settore si sente: candidati più pertinenti.", author: "Immobiliare — Torino", role: "Agenzia" },
+  {
+    quote: "Corrispettivo chiaro sull’uso della piattaforma, non legato all’assunzione: per noi conta la trasparenza.",
+    author: "Logistica — Bergamo",
+    role: "Hub spedizioni",
+  },
+  {
+    quote: "La verticalizzazione per settore si sente: candidati più pertinenti.",
+    author: "Immobiliare — Torino",
+    role: "Studio immobiliare",
+  },
   { quote: "Interfaccia semplice anche per chi non è esperto di HR.", author: "Edilizia — Roma", role: "Impresa edile" },
   { quote: "Abbiamo coperto turni urgenti senza stress.", author: "Ristorazione — Napoli", role: "Catena quick service" },
-  { quote: "Buon rapporto qualità-tempo per la selezione.", author: "Commercio — Bologna", role: "Retail" },
+  { quote: "Buon rapporto qualità-tempo per la ricerca di personale.", author: "Commercio — Bologna", role: "Retail" },
   { quote: "I profili anonimi all’inizio ci hanno aiutato a concentrarci sulle competenze.", author: "Uffici — PMI Italia", role: "Servizi" },
   { quote: "Processo veloce e linee guida chiare per il team.", author: "Logistica — Verona", role: "Magazzino" },
   { quote: "Utile per chi ha urgenza operativa.", author: "Ristorazione — Firenze", role: "Hotel" },
@@ -13,10 +21,14 @@ export const TESTIMONIALS: { quote: string; author: string; role: string }[] = [
   { quote: "Facilità nel trovare profili per reparto commerciale.", author: "Commercio — Torino", role: "Negozio" },
   { quote: "Ottima esperienza nella gestione della prima fase.", author: "Uffici — Milano", role: "Amministrazione" },
   { quote: "Chiarezza su cosa succede dopo la registrazione.", author: "Logistica — Parma", role: "Trasporti" },
-  { quote: "Supporto concreto per chi non ha un ufficio HR interno.", author: "Ristorazione — Venezia", role: "Bar" },
+  { quote: "Interfaccia chiara anche per chi non ha un ufficio HR strutturato.", author: "Ristorazione — Venezia", role: "Bar" },
   { quote: "Ci ha permesso di scalare assunzioni in alta stagione.", author: "Ristorazione — Rimini", role: "Stagionale" },
   { quote: "Feedback positivo dal reparto operativo.", author: "Edilizia — Perugia", role: "Cooperativa" },
-  { quote: "Strumento utile per filtrare prima del colloquio.", author: "Immobiliare — Monza", role: "Agenzia" },
+  {
+    quote: "Strumento utile per filtrare prima del colloquio.",
+    author: "Immobiliare — Monza",
+    role: "Rete immobiliare",
+  },
   { quote: "Servizio affidabile e comunicazione diretta.", author: "Commercio — Ancona", role: "GDO" },
   { quote: "Esperienza complessiva molto soddisfacente.", author: "Uffici — Trieste", role: "Consulenza" },
 ];

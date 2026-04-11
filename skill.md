@@ -14,9 +14,9 @@ Immobiliare, ristorazione, logistica, edilizia, **termoidraulica**, **impianti e
 
 ## Copy hero (homepage)
 
-- **Titolo:** Selezione strutturata tra imprese e candidati, per verticali e tempi definiti.  
-- **Sottotitolo:** Bacheca on-line / marketplace annunci, non agenzia; Starter / Basic / Full per imprese.  
-- **CTA:** Sono un’azienda · Cerco lavoro  
+- **Titolo (riferimento):** Incontro tra imprese e candidati; bacheca digitale, **non** agenzia per il lavoro.  
+- **Sottotitolo:** Strumento potente ma neutrale: mette in contatto domanda e offerta (anche bisogni complementari); nessun collocamento; contratti di lavoro solo tra le parti. Piani imprese Starter / Basic / Full.  
+- **CTA:** Sono un’azienda · Cerco lavoro · Cerca profili  
 
 ## Prezzi (messaggio)
 
@@ -27,13 +27,45 @@ Immobiliare, ristorazione, logistica, edilizia, **termoidraulica**, **impianti e
 
 ## Tono
 
-Istituzionale e chiaro; marketplace annunci, non collocamento; evitare promesse non coperte dai contratti.
+Istituzionale e chiaro; marketplace / bacheca annunci, **mai** collocamento o intermediazione; evitare promesse non coperte dai contratti del servizio digitale. Trasmettere **semplicità d’uso** (paragonabile a piattaforme social per chiarezza dell’esperienza), **senza** suggerire che Lavoro48h indirizzi, costringa o “chiuda” rapporti tra utenti.
 
 ## Posizionamento
 
-Servizio **non generico**: verticali, processi definiti; **non** agenzia; privacy e termini coerenti con ruolo di piattaforma digitale.
+Servizio **non generico**: verticali, percorsi e tempi definiti sul sito; **non** agenzia per il lavoro; privacy e termini coerenti con ruolo di **piattaforma digitale** (strumento di incontro), non di consulenza del lavoro, fiscalità o redazione contratti.
 
-Messaggi ricorrenti: *candidati gratuiti* · *Starter / Basic / Full con sblocchi espliciti* · *contatto da candidato solo con Full (top) se in contratto* · *tempi di risposta definiti* · *non siamo un’agenzia*.
+Messaggi ricorrenti: *candidati gratuiti (profilo base)* · *Starter / Basic / Full con sblocchi espliciti* · *contatto da candidato solo con Full (top) se in contratto* · *tempi di risposta definiti / 48 h ove applicabile* · *non siamo un’agenzia* · *corrispettivo = uso piattaforma, non esito assunzione* · *nessun vincolo tra le parti imposto dal sito* · *contratti e adempimenti tra datore e lavoratore: commercialisti, CAF, professionisti abilitati*.
+
+## Coerenza UI (marketplace su tutto il sito)
+
+- Componente **`MarketplaceNotice`** (`src/components/MarketplaceNotice.tsx`): testo unico su *marketplace di annunci / bacheca*, *non agenzia*, *niente intermediazione*, link a Termini · Chi siamo · FAQ. Varianti: `box`, `compact` (piè pagina), `inline`, `darkHero` (sfondi scuri).
+- **`PremiumPageShell`**: di default aggiunge in calce `MarketplaceNotice` compatto; su **Termini**, **Privacy** e **Cookie Policy** usare `showMarketplaceFootnote={false}` (testo già esaustivo nel corpo).
+- Presente anche su **Home** (fascia prima del footer), **Blog** (indice + ogni articolo dopo l’intro), **FAQ**, **Italia/regioni**, **SectorPage**, **404**.
+
+## Blog e contenuti editoriali (policy)
+
+Gli **articoli del blog** servono a:
+
+- **Raccontare l’andamento del mercato del lavoro**, contesto economico e territoriale, buone pratiche divulgative, **notizie e approfondimenti generici** utili a imprese e lavoratori.
+
+Non servono a:
+
+- Descrivere **funzioni di intermediazione**, collocamento, mediazione, ricerca e selezione **per conto di** Lavoro48h, né a presentare il sito come chi **assume**, **colloca** o **sceglie** al posto delle imprese.
+
+Cosa è ammesso, con linguaggio **cristallino**:
+
+- **Sponsorizzare un modo di incontrarsi** tramite annunci e profili digitali **senza** che la piattaforma imponga vincoli, contratti di lavoro o obblighi tra utenti: l’incontro è **libero**; eventuali rapporti successivi sono **tra le parti**.
+- Richiamare che Lavoro48h è uno **strumento potente e semplice** (intuitivo come l’uso di piattaforme diffuse), ma **privo di coinvolgimento in “convinzioni”, forzature o obblighi** rispetto all’assunzione o alle scelte professionali.
+- Indicare esplicitamente che **contratti, clausole, adempimenti fiscali, contributivi e legali** restano **affidati ai professionisti** che le parti scelgono (commercialisti, CAF, consulenti del lavoro, avvocati, ecc.) e alla **trattativa diretta tra le parti**, che **redigeranno** i propri atti.
+
+Formulazioni da evitare nel blog (se riferite a Lavoro48h come soggetto attivo):
+
+- “Vi collochiamo”, “La nostra selezione”, “Intermediazione”, “Vi proponiamo candidati idonei” **come se** fosse compito del sito, “Garantiamo l’assunzione”, “Obbligo di risposta positiva”, ecc.
+
+Formulazioni preferibili:
+
+- “Sul mercato…”, “Le imprese che ricercano personale…”, “I candidati possono…”, “Una bacheca digitale consente di… **senza** che il titolare del sito partecipi al contratto di lavoro.”
+
+Ogni pezzo editoriale deve poter essere letto da un utente e da un revisore legale senza ambiguità: **contenuto divulgativo / di contesto**, non **offerta di servizi di agenzia o di consulenza vincolante**.
 
 ---
 

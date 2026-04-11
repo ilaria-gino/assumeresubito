@@ -4,6 +4,24 @@ export type FaqItem = { id: string; question: string; answer: string };
 
 export const FAQ_EMPRESA: FaqItem[] = [
   {
+    id: "e_ag1",
+    question: "Lavoro48h è un'agenzia per il lavoro?",
+    answer:
+      "No. Lavoro48h è una bacheca digitale / marketplace di annunci tra imprese e candidati: non svolge attività di intermediazione, mediazione o collocamento dei lavoratori né funzioni riservate per legge alle agenzie per il lavoro. La selezione e le assunzioni restano in capo alle imprese; il corrispettivo attiene all'uso della piattaforma, non all'esito della ricerca. Non nasce alcun rapporto di lavoro o di agenzia tra voi e Lavoro48h: usate lo strumento in autonomia; eventuali contratti di lavoro sono solo tra impresa e candidato.",
+  },
+  {
+    id: "e_ag2",
+    question: "La piattaforma seleziona i candidati o propone abbinamenti vincolanti?",
+    answer:
+      "No. Il servizio offre strumenti di pubblicazione, consultazione e messa in relazione (anche con filtri su settore e area) senza valutazione di idoneità da parte del titolare del sito e senza shortlist vincolanti. Ogni giudizio su profili, colloqui e assunzioni spetta a imprese e candidati.",
+  },
+  {
+    id: "e_ag3",
+    question: "L'abbonamento o il corrispettivo creano un obbligo di assumere o un rapporto di agenzia con Lavoro48h?",
+    answer:
+      "No. Pagate per accesso e uso degli strumenti digitali (bacheca, sblocchi, funzioni previste dal piano), non per esito di colloquio o assunzione. Non siete 'clienti collocati' e Lavoro48h non diventa intermediario autorizzato al collocamento: le decisioni restano tra imprese e candidati.",
+  },
+  {
     id: "e1",
     question: "Come pubblicare una ricerca in modo conforme alla privacy?",
     answer:
@@ -155,9 +173,9 @@ export const FAQ_EMPRESA: FaqItem[] = [
   },
   {
     id: "e26",
-    question: "Come usare un servizio di matching verticale?",
+    question: "Come usare la bacheca per settore (verticali) in modo efficace?",
     answer:
-      "Definire settore, profilo, tempi di risposta e coerenza con quanto pubblicato su iscrizione (piani affiancati) e termini.",
+      "Definire con precisione settore, profilo, tempi di risposta e coerenza con quanto dichiarato in iscrizione (piani affiancati) e Termini: sono strumenti di pubblicazione e consultazione, non intermediazione sulle assunzioni.",
   },
   {
     id: "e27",
@@ -180,6 +198,24 @@ export const FAQ_EMPRESA: FaqItem[] = [
 ];
 
 export const FAQ_LAVORATORE: FaqItem[] = [
+  {
+    id: "l_ag1",
+    question: "Lavoro48h è un'agenzia per il lavoro che mi colloca?",
+    answer:
+      "No. Non è un'agenzia per il lavoro e non svolge collocamento o intermediazione. Offre un profilo e una bacheca digitale per metterti in relazione con imprese utenti: colloqui e contratti restano tra te e l'azienda. Non diventi dipendente di Lavoro48h e non sei 'collocato' dal sito; resti libero di accettare o rifiutare opportunità.",
+  },
+  {
+    id: "l_ag2",
+    question: "Chi fa la selezione se mi candido tramite Lavoro48h?",
+    answer:
+      "La selezione e le decisioni di assunzione spettano alle imprese (e al tuo percorso con loro). La piattaforma fornisce solo gli strumenti di annuncio e contatto secondo i piani e le regole del servizio, senza sostituirsi al datore di lavoro.",
+  },
+  {
+    id: "l_ag3",
+    question: "Sono obbligato ad accettare un lavoro se un'impresa mi contatta tramite Lavoro48h?",
+    answer:
+      "No. Resti libero in ogni fase: la piattaforma non impone contratti di lavoro né ti colloca. Eventuali assunzioni o collaborazioni nascono solo dal tuo rapporto con l'impresa, secondo quanto concordate tra voi e la legge applicabile.",
+  },
   {
     id: "l1",
     question: "Come preparare un curriculum efficace nel 2026?",
@@ -332,9 +368,9 @@ export const FAQ_LAVORATORE: FaqItem[] = [
   },
   {
     id: "l26",
-    question: "Come usare un servizio di matching verticale come candidato?",
+    question: "Come rendere visibile il proprio profilo nei verticali di settore?",
     answer:
-      "Profilo veritiero, disponibilità, zona e competenze aggiornate; risposte rapide alle richieste.",
+      "Profilo veritiero, disponibilità, zona e competenze aggiornate; risposte rapide alle richieste delle imprese. La piattaforma mostra annunci e profili secondo i filtri: non valuta idoneità al posto delle aziende.",
   },
   {
     id: "l27",

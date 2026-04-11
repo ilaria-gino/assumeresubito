@@ -1,6 +1,7 @@
 import { useMemo, useState } from "react";
 import { Link } from "react-router-dom";
 import { BRAND } from "../config/brand";
+import { MarketplaceNotice } from "../components/MarketplaceNotice";
 import { ALL_BLOG_ARTICLES } from "../data/blog/posts";
 import { BLOG_CATEGORIES, getBlogVisual } from "../data/blog/covers";
 
@@ -55,18 +56,20 @@ export function BlogIndex() {
               Blog &amp; risorse
             </p>
             <h1 className="font-luxury-display mt-3 text-4xl font-light leading-[1.15] text-white sm:text-5xl">
-              Guide e analisi su{" "}
-              <span className="font-semibold italic text-amber-100">lavoro, selezione</span>
+              Guide su{" "}
+              <span className="font-semibold italic text-amber-100">lavoro, annunci e processi in azienda</span>
               <br />
               e diritti
             </h1>
             <p className="mt-4 max-w-xl text-sm leading-relaxed text-white/45">
-              Approfondimenti istituzionali su normativa, recruiting e contratti, più guide per{" "}
+              Contenuti divulgativi su normativa, colloqui e contratti (la selezione è responsabilità delle imprese).{" "}
+              {BRAND.name} resta una <strong className="font-semibold text-white/70">bacheca digitale, non un&apos;agenzia</strong>
+              . Guide per{" "}
               <strong className="font-semibold text-white/70">verticali di settore</strong> (allineate alle landing{" "}
               <Link to="/" className="text-amber-200/90 underline decoration-amber-500/50 underline-offset-2">
                 dalla home
               </Link>
-              ).               Ogni articolo si chiude con FAQ. Hub geografico:{" "}
+              ). Ogni articolo si chiude con FAQ. Hub geografico:{" "}
               <Link to="/italia" className="text-amber-200/90 underline decoration-amber-500/50 underline-offset-2">
                 Italia per regione
               </Link>
@@ -76,6 +79,7 @@ export function BlogIndex() {
               </Link>
               . Contenuti utili, senza sostituire pareri legali.
             </p>
+            <MarketplaceNotice variant="darkHero" />
             <p className="mt-2 text-xs text-white/35">
               Ultimo aggiornamento contenuti: {new Date().toLocaleDateString("it-IT", { month: "long", year: "numeric" })}
             </p>

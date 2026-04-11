@@ -34,7 +34,7 @@ export const ITALIAN_REGIONS: RegionContent[] = [
     slug: "abruzzo",
     name: "Abruzzo",
     intro:
-      "Tra costa adriatica e Appennino, l’Abruzzo concentra manifatturiero, turismo e agricoltura: le selezioni spaziano da operai specializzati a profili legati all’ospitalità. Su Lavoro48h imprese e candidati indicano area e raggio in chilometri, con verticali di settore e tempi di risposta orientati alle 48 ore ove applicabile.",
+      "Tra costa adriatica e Appennino, l’Abruzzo concentra manifatturiero, turismo e agricoltura: chi assume cerca spesso operai specializzati o profili legati all’ospitalità. Su Lavoro48h imprese e candidati si incontrano tramite annunci e profili (non agenzia per il lavoro), con area, raggio in chilometri, verticali di settore e tempi di risposta orientati alle 48 ore ove applicabile.",
   },
   {
     slug: "basilicata",
@@ -58,7 +58,7 @@ export const ITALIAN_REGIONS: RegionContent[] = [
     slug: "emilia-romagna",
     name: "Emilia-Romagna",
     intro:
-      "Distretti manifatturieri, logistica e agroalimentare rendono la regione un laboratorio di recruiting strutturato. Per PMI e filiali, verticali dedicati (es. logistica, uffici, commercio) e profili con competenze esplicite accelerano il primo screening.",
+      "Distretti manifatturieri, logistica e agroalimentare rendono la regione un laboratorio di ricerca di personale strutturata in azienda. Per PMI e filiali, annunci su verticali dedicati (es. logistica, uffici, commercio) e profili con competenze esplicite accelerano il primo screening lato impresa.",
   },
   {
     slug: "friuli-venezia-giulia",
@@ -70,7 +70,7 @@ export const ITALIAN_REGIONS: RegionContent[] = [
     slug: "lazio",
     name: "Lazio",
     intro:
-      "Roma e la provincia concentrano amministrazione, servizi e cantieri infrastrutturali. La selezione beneficia di annunci precisi su mansioni e contratto, mentre i candidati possono valorizzare disponibilità e settore su profili ordinati.",
+      "Roma e la provincia concentrano amministrazione, servizi e cantieri infrastrutturali. Annunci precisi su mansioni e contratto aiutano le imprese a incontrare profili pertinenti; i candidati valorizzano disponibilità e settore su schede ordinate — sempre in autonomia tra le parti, senza collocamento da parte della piattaforma.",
   },
   {
     slug: "liguria",
@@ -94,19 +94,19 @@ export const ITALIAN_REGIONS: RegionContent[] = [
     slug: "molise",
     name: "Molise",
     intro:
-      "Territorio compatto con esigenze di prossimità tra comuni. Una piattaforma che mette in evidenza distanza e settore aiuta incontri mirati tra piccole imprese e lavoratori.",
+      "Territorio compatto con esigenze di prossimità tra comuni. Una bacheca che mette in evidenza distanza e settore aiuta piccole imprese e lavoratori a trovare annunci e profili coerenti, in autonomia.",
   },
   {
     slug: "piemonte",
     name: "Piemonte",
     intro:
-      "Automotive, design e vino animano un mercato che richiede profili tecnici e commerciali. Verticali e schede sintetiche supportano HR e titolari con processi snelli.",
+      "Automotive, design e vino animano un mercato che richiede profili tecnici e commerciali. Verticali e schede sintetiche aiutano titolari e chi cura la ricerca del personale a tenere processi snelli.",
   },
   {
     slug: "puglia",
     name: "Puglia",
     intro:
-      "Logistica, turismo lungo le coste e servizi urbani creano picchi stagionali. Comunicare turni e urgenze in annuncio migliora il match; i candidati possono indicare disponibilità su fasce orarie e trasferte.",
+      "Logistica, turismo lungo le coste e servizi urbani creano picchi stagionali. Comunicare turni e urgenze in annuncio migliora la pertinenza delle risposte; i candidati possono indicare disponibilità su fasce orarie e trasferte.",
   },
   {
     slug: "sardegna",
@@ -118,7 +118,7 @@ export const ITALIAN_REGIONS: RegionContent[] = [
     slug: "sicilia",
     name: "Sicilia",
     intro:
-      "Palermo, Catania e le province costiere combinano servizi, turismo e cantieristica. Selezioni rapide richiedono chiarezza su sede e vertical: la bacheca digitale organizza l’incontro iniziale con dettaglio progressivo.",
+      "Palermo, Catania e le province costiere combinano servizi, turismo e cantieristica. Processi rapidi in azienda richiedono chiarezza su sede e vertical: una bacheca digitale consente l’incontro iniziale tra annunci e profili, con dettaglio progressivo.",
   },
   {
     slug: "toscana",
@@ -130,7 +130,7 @@ export const ITALIAN_REGIONS: RegionContent[] = [
     slug: "trentino-alto-adige",
     name: "Trentino-Alto Adige",
     intro:
-      "Turismo alpino, manifattura specializzata e multilingualità influenzano il recruiting. Indicare lingua e turni in annuncio riduce fraintendimenti; i candidati dichiarano zona e mobilità in modo verificabile.",
+      "Turismo alpino, manifattura specializzata e multilingualità influenzano la ricerca di personale. Indicare lingua e turni in annuncio riduce fraintendimenti; i candidati dichiarano zona e mobilità in modo verificabile.",
   },
   {
     slug: "umbria",

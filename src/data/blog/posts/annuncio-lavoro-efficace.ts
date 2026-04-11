@@ -22,7 +22,7 @@ export const annuncioLavoroEfficace: BlogArticle = {
       heading: "Struttura consigliata: titolo, sottotitolo, corpo, chiusura",
       paragraphs: [
         "Il titolo dovrebbe contenere il ruolo principale e, se utile, un elemento distintivo (settore, tipologia di contratto, area geografica). Evitate abbreviazioni interne non note: un candidato esterno non deve dover indovinare cosa significhi una sigla. Un sottotitolo breve può descrivere il contesto aziendale o la dimensione del team, senza ripetere il titolo.",
-        "Nel corpo dell’annuncio conviene seguire un ordine logico: presentazione dell’azienda in poche righe; descrizione delle mansioni e responsabilità con priorità; requisiti obbligatori e requisiti preferenziali distinti in modo esplicito; informazioni su contratto, orario, modalità di lavoro, sede o zone, livello di inquadramento ove già noto; benefit e strumenti di lavoro; istruzioni per la candidatura e tempistiche di risposta. Se utilizzate piattaforme di recruiting strutturate, allineate il testo ai campi richiesti per migliorare la visibilità nei motori di ricerca interni e esterni.",
+        "Nel corpo dell’annuncio conviene seguire un ordine logico: presentazione dell’azienda in poche righe; descrizione delle mansioni e responsabilità con priorità; requisiti obbligatori e requisiti preferenziali distinti in modo esplicito; informazioni su contratto, orario, modalità di lavoro, sede o zone, livello di inquadramento ove già noto; benefit e strumenti di lavoro; istruzioni per la candidatura e tempistiche di risposta. Se utilizzate portali o moduli web per pubblicare le ricerche, allineate il testo ai campi richiesti per migliorare la visibilità nei motori di ricerca interni ed esterni (senza confondere pubblicazione annunci con servizi di agenzia).",
         "La chiusura deve indicare chiaramente come candidarsi, quali documenti allegare e se sono previste prove pratiche o test. Se applicate criteri di pre-selezione automatica, informate su quali parametri sono utilizzati (es. anni di esperienza, disponibilità geografica) nel rispetto della normativa privacy e delle policy anti-discriminazione.",
       ],
     },
@@ -41,9 +41,9 @@ export const annuncioLavoroEfficace: BlogArticle = {
       ],
     },
     {
-      heading: "Integrazione con il processo di selezione digitale",
+      heading: "Integrazione con il vostro processo interno di ricerca del personale",
       paragraphs: [
-        "Un annuncio efficace è il primo passo di un funnel: le successive fasi (screening, colloquio, eventuale prova) devono essere coerenti con i criteri dichiarati. Piattaforme che combinano verticali di settore, profili strutturati e anonimato iniziale possono ridurre il carico di lavoro sulle funzioni HR e permettere ai candidati di presentarsi in modo ordinato. L’importante è che l’annuncio rimandi a un percorso chiaro e non prometta servizi o tempi non sostenibili.",
+        "Un annuncio efficace è il primo passo di un funnel in azienda: le successive fasi (screening, colloquio, eventuale prova) restano di vostra competenza e devono essere coerenti con i criteri dichiarati. Marketplace o bacheche digitali con verticali di settore, profili strutturati e anonimato iniziale possono ridurre il rumore iniziale e far presentare i candidati in modo ordinato, ma non sostituiscono la valutazione né equivalgono a un’agenzia per il lavoro. L’importante è che l’annuncio rimandi a un percorso chiaro e non prometta servizi o tempi non sostenibili.",
       ],
     },
     {
@@ -64,7 +64,7 @@ export const annuncioLavoroEfficace: BlogArticle = {
     {
       heading: "Conclusioni",
       paragraphs: [
-        "Un annuncio efficace riduce attriti, accelera la selezione e rafforza la reputazione. Investire in chiarezza e coerenza con il processo successivo costa meno di gestire centinaia di candidature non pertinenti o contestazioni su aspettative non allineate. Per approfondimenti su colloqui e contratti, consultate gli altri articoli del blog e le FAQ.",
+        "Un annuncio efficace riduce attriti, accelera la fase di ricerca e di screening in azienda e rafforza la reputazione. Investire in chiarezza e coerenza con il processo successivo costa meno di gestire centinaia di candidature non pertinenti o contestazioni su aspettative non allineate. Per approfondimenti su colloqui e contratti, consultate gli altri articoli del blog e le FAQ.",
       ],
     },
   ],

@@ -14,7 +14,7 @@ export const BRAND = {
   email: "info@lavoro48h.it",
   /** Descrizione breve per meta e footer */
   shortDescription:
-    "Bacheca digitale tra domanda e offerta di lavoro (stile marketplace annunci), verticali di settore e abbonamenti Basic/Full per le imprese — non agenzia per il lavoro.",
+    "Strumento digitale per far incontrare, in autonomia, chi cerca personale e chi cerca lavoro (bisogni complementari): bacheca / marketplace di annunci, non agenzia per il lavoro né collocamento. Verticali; piani imprese Starter, Basic, Full.",
 };
 
 export function mailtoContact(subject?: string) {

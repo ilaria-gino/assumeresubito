@@ -1,4 +1,5 @@
 import type { ReactNode } from "react";
+import { MarketplaceNotice } from "./MarketplaceNotice";
 
 type MaxWidth = "narrow" | "wide";
 
@@ -13,12 +14,15 @@ export function PremiumPageShell({
   subtitle,
   children,
   maxWidth = "narrow",
+  showMarketplaceFootnote = true,
 }: {
   eyebrow?: string;
   title: string;
   subtitle?: string;
   children: ReactNode;
   maxWidth?: MaxWidth;
+  /** Su pagine legali già esaustive (Termini, Privacy, Cookie) impostare false per evitare ripetizione eccessiva. */
+  showMarketplaceFootnote?: boolean;
 }) {
   return (
     <div className="min-h-[40vh] bg-[#f7f5f1]">
@@ -39,7 +43,14 @@ export function PremiumPageShell({
           {subtitle ? <p className="mt-4 text-lg leading-relaxed text-white/75">{subtitle}</p> : null}
         </div>
       </header>
-      <div className={`mx-auto px-4 py-12 sm:px-6 sm:py-16 ${maxClass[maxWidth]}`}>{children}</div>
+      <div className={`mx-auto px-4 py-12 sm:px-6 sm:py-16 ${maxClass[maxWidth]}`}>
+        {children}
+        {showMarketplaceFootnote ? (
+          <div className="mt-12 border-t border-[#e1dbd1] pt-8">
+            <MarketplaceNotice variant="compact" />
+          </div>
+        ) : null}
+      </div>
     </div>
   );
 }

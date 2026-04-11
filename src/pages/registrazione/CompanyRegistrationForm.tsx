@@ -47,6 +47,7 @@ export function CompanyRegistrationForm() {
               "az_corretti",
               "az_termini",
               "az_privacy",
+              "az_non_agenzia",
               "az_selezione",
               "az_verifiche",
             ] as const;
@@ -237,13 +238,36 @@ export function CompanyRegistrationForm() {
             <label className="flex cursor-pointer items-start gap-2">
               <input
                 type="checkbox"
+                name="az_non_agenzia"
+                className="mt-1 shrink-0"
+                required
+              />
+              <span>
+                Dichiaro di aver compreso che <strong>Lavoro48h non è un&apos;agenzia per il lavoro</strong> e non svolge
+                intermediazione o collocamento: il servizio è una <strong>bacheca digitale / marketplace di annunci</strong>{" "}
+                tra utenti per incontrare in autonomia bisogni complementari; eventuali assunzioni e corrispettivi legati al
+                lavoro sono solo tra impresa e candidato, mentre il corrispettivo a Lavoro48h attiene all&apos;uso della
+                piattaforma, come descritto in{" "}
+                <Link to="/termini" target="_blank" rel="noreferrer">
+                  Termini
+                </Link>{" "}
+                e{" "}
+                <Link to="/privacy" target="_blank" rel="noreferrer">
+                  Privacy
+                </Link>
+              </span>
+            </label>
+            <label className="flex cursor-pointer items-start gap-2">
+              <input
+                type="checkbox"
                 name="az_selezione"
                 className="mt-1 shrink-0"
                 required
               />
               <span>
-                Mi impegno a utilizzare i dati dei candidati esclusivamente per
-                finalità di selezione
+                Mi impegno a utilizzare i dati dei candidati esclusivamente per le finalità di ricerca e selezione del
+                personale <strong>nell&apos;ambito della mia impresa</strong>, nel rispetto della legge e del fatto che{" "}
+                <strong>Lavoro48h non è un&apos;agenzia per il lavoro</strong>
               </span>
             </label>
             <label className="flex cursor-pointer items-start gap-2">
@@ -254,8 +278,9 @@ export function CompanyRegistrationForm() {
                 required
               />
               <span>
-                Mi assumo la responsabilità delle verifiche sui candidati e
-                delle eventuali assunzioni
+                Mi assumo la responsabilità delle verifiche sui candidati e delle eventuali assunzioni; prendo atto che
+                il servizio <strong>non sostituisce</strong> verifiche, colloqui o decisioni della mia impresa e che il
+                Titolare <strong>non è un&apos;agenzia per il lavoro</strong>
               </span>
             </label>
           </fieldset>
