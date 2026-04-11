@@ -1,4 +1,11 @@
-import { type FormEvent, type ReactNode, useCallback, useMemo, useState } from "react";
+import {
+  type FormEvent,
+  type ReactNode,
+  useCallback,
+  useEffect,
+  useMemo,
+  useState,
+} from "react";
 
 const STORAGE_KEY = "l48h_staging_unlocked";
 
@@ -26,6 +33,33 @@ export function StagingGate({ children }: { children: ReactNode }) {
 
   const [password, setPassword] = useState("");
   const [error, setError] = useState(false);
+
+  const locked = Boolean(expected) && !unlocked;
+
+  useEffect(() => {
+    if (!locked) return;
+    const html = document.documentElement;
+    const body = document.body;
+    const prevHtmlOverflow = html.style.overflow;
+    const prevBodyOverflow = body.style.overflow;
+    const prevBodyPosition = body.style.position;
+    const prevBodyWidth = body.style.width;
+    const prevBodyTop = body.style.top;
+    const scrollY = window.scrollY;
+    html.style.overflow = "hidden";
+    body.style.overflow = "hidden";
+    body.style.position = "fixed";
+    body.style.width = "100%";
+    body.style.top = `-${scrollY}px`;
+    return () => {
+      html.style.overflow = prevHtmlOverflow;
+      body.style.overflow = prevBodyOverflow;
+      body.style.position = prevBodyPosition;
+      body.style.width = prevBodyWidth;
+      body.style.top = prevBodyTop;
+      window.scrollTo(0, scrollY);
+    };
+  }, [locked]);
 
   const submit = useCallback(
     (e: FormEvent) => {
@@ -55,39 +89,54 @@ export function StagingGate({ children }: { children: ReactNode }) {
   }
 
   return (
-    <div className="fixed inset-0 z-[100] flex min-h-screen flex-col items-center justify-center bg-[#0f172a] px-4">
-      <div className="w-full max-w-md rounded-2xl border border-white/10 bg-[#152435] p-8 shadow-2xl">
+    <div
+      className="fixed inset-0 z-[99999] flex min-h-[100dvh] w-full flex-col items-center justify-center overflow-y-auto overscroll-contain bg-[#0f172a] px-4 py-6 [-webkit-overflow-scrolling:touch]"
+      style={{
+        paddingTop: "max(1.5rem, env(safe-area-inset-top))",
+        paddingBottom: "max(1.5rem, env(safe-area-inset-bottom))",
+      }}
+      role="dialog"
+      aria-modal="true"
+      aria-labelledby="staging-gate-title"
+    >
+      <div className="w-full max-w-md shrink-0 rounded-2xl border border-white/10 bg-[#152435] p-6 shadow-2xl sm:p-8">
         <p className="text-center text-[0.65rem] font-bold uppercase tracking-[0.2em] text-[#8AB4CE]">Lavoro48h</p>
-        <h1 className="mt-3 text-center font-semibold text-white">Accesso staging</h1>
+        <h1 id="staging-gate-title" className="mt-3 text-center text-lg font-semibold text-white sm:text-xl">
+          Accesso staging
+        </h1>
         <p className="mt-2 text-center text-sm text-white/70">
           Ambiente non pubblico. Inserisci la password condivisa dal team.
         </p>
-        <form className="mt-8 space-y-4" onSubmit={submit}>
+        <form className="mt-6 space-y-4 sm:mt-8" onSubmit={submit}>
           <label className="sr-only" htmlFor="staging-password">
             Password
           </label>
           <input
             id="staging-password"
             type="password"
+            name="staging-password"
             autoComplete="current-password"
+            enterKeyHint="go"
+            inputMode="text"
             value={password}
             onChange={(e) => {
               setPassword(e.target.value);
               setError(false);
             }}
-            className="w-full rounded-xl border border-white/15 bg-white/5 px-4 py-3 text-white placeholder:text-white/40 focus:border-[#FF6B35]/60 focus:outline-none focus:ring-2 focus:ring-[#FF6B35]/25"
+            className="min-h-[48px] w-full rounded-xl border border-white/15 bg-white/5 px-4 py-3 text-base text-white placeholder:text-white/40 focus:border-[#FF6B35]/60 focus:outline-none focus:ring-2 focus:ring-[#FF6B35]/25"
             placeholder="Password"
           />
           {error && <p className="text-center text-sm text-red-300">Password non valida.</p>}
           <button
             type="submit"
-            className="w-full rounded-xl bg-gradient-to-b from-orange-300 to-[#FF6B35] py-3 text-sm font-bold text-[#0A0F1C] shadow-lg transition hover:brightness-105"
+            className="min-h-[48px] w-full touch-manipulation rounded-xl bg-gradient-to-b from-orange-300 to-[#FF6B35] py-3 text-base font-bold text-[#0A0F1C] shadow-lg transition hover:brightness-105 active:brightness-95"
           >
             Accedi
           </button>
         </form>
         <p className="mt-6 text-center text-xs text-white/45">
-          Sessione browser: chiudendo la scheda potrebbe essere richiesta di nuovo la password.
+          Su cellulare, in navigazione privata alcuni browser limitano la memoria: se la password non resta memorizzata,
+          è normale — reinseriscila. Chiudendo la scheda potrebbe essere richiesta di nuovo.
         </p>
       </div>
     </div>
