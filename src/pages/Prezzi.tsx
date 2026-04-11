@@ -8,15 +8,57 @@ export function Prezzi() {
     <PremiumPageShell
       eyebrow="Trasparenza"
       title="Prezzi per le imprese"
-      subtitle="Tre formule chiare. I candidati non pagano. I prezzi qui sotto sono indicativi (+ IVA); l’offerta vincolante è nel contratto."
+      subtitle="Piani imprese (Starter, Basic, Full) e, per i candidati, percorso gratuito oppure piano «Cerca aziende». Importi indicativi + IVA; il contratto fa fede."
       maxWidth="wide"
     >
-      <div className="mt-6 rounded-2xl border border-[#2C4A6E]/20 bg-[#f7f5f1] px-5 py-4 text-center text-sm text-[#152435]/90 sm:text-base">
-        <strong className="text-[#152435]">Candidati:</strong> percorso <strong>gratuito</strong> se scegli solo di essere
-        contattato; opzione <strong>a pagamento</strong> se vuoi anche cercare attivamente le imprese.{" "}
-        <Link to="/registrazione#candidato" className="font-semibold text-[#2C4A6E] underline underline-offset-2">
-          Registrazione
-        </Link>
+      <div className="mt-6 rounded-2xl border-2 border-[#152435]/25 bg-gradient-to-br from-[#ecfdf5] via-white to-[#fff7ed] p-6 shadow-[0_12px_40px_rgba(21,36,53,0.12)] sm:p-8">
+        <p className="text-center text-[0.65rem] font-bold uppercase tracking-[0.2em] text-[#2C4A6E]">
+          Per chi cerca lavoro
+        </p>
+        <h3 className="mt-2 text-center font-luxury-display text-2xl font-semibold text-[#152435] sm:text-3xl">
+          Due possibilità, ben distinte
+        </h3>
+        <p className="mx-auto mt-2 max-w-2xl text-center text-sm text-[#152435]/80">
+          In fase di registrazione scegli <strong className="text-[#152435]">un solo percorso</strong>: restare tra i profili
+          contattabili <strong>senza costi</strong>, oppure aggiungere la ricerca attiva verso le imprese{" "}
+          <strong>a pagamento</strong>.
+        </p>
+        <div className="mt-6 grid gap-4 sm:grid-cols-2 sm:gap-5">
+          <div className="flex flex-col rounded-2xl border-2 border-emerald-600/35 bg-white p-5 text-center shadow-sm ring-2 ring-emerald-600/10 sm:p-6">
+            <span className="mx-auto inline-flex rounded-full bg-emerald-600 px-4 py-1.5 text-xs font-bold uppercase tracking-wide text-white">
+              Gratis
+            </span>
+            <p className="mt-4 text-lg font-bold text-[#152435]">Solo essere contattato</p>
+            <p className="mt-2 flex-1 text-sm leading-relaxed text-[#152435]/85">
+              Ti iscrivi senza pagare: le imprese in abbonamento possono trovarti in base a settore, zona e km. Il contatto
+              parte in genere dall&apos;azienda.
+            </p>
+          </div>
+          <div className="flex flex-col rounded-2xl border-2 border-[#FF6B35] bg-white p-5 text-center shadow-sm ring-2 ring-[#FF6B35]/15 sm:p-6">
+            <span className="mx-auto inline-flex rounded-full bg-[#FF6B35] px-4 py-1.5 text-xs font-bold uppercase tracking-wide text-[#0A0F1C]">
+              A pagamento
+            </span>
+            <p className="mt-4 text-lg font-bold text-[#152435]">Cerco attivamente le aziende</p>
+            <p className="mt-2 flex-1 text-sm leading-relaxed text-[#152435]/85">
+              Piano indicativo <strong>99 € / 6 mesi</strong> + IVA: dopo attivazione e pagamento, accesso alle funzioni per
+              consultare i profili imprese in linea con il tuo profilo. Dettagli nel riquadro sotto.
+            </p>
+          </div>
+        </div>
+        <div className="mt-6 flex flex-col items-center justify-center gap-3 sm:flex-row">
+          <Link
+            to="/registrazione#candidato"
+            className={`${btnPrimary} w-full justify-center px-8 sm:w-auto`}
+          >
+            Vai alla registrazione candidato
+          </Link>
+          <Link
+            to="/prezzi#piano-cerca-aziende"
+            className={`${btnSecondary} w-full justify-center sm:w-auto`}
+          >
+            Leggi il piano «Cerca aziende»
+          </Link>
+        </div>
       </div>
 
       <div
@@ -31,8 +73,8 @@ export function Prezzi() {
           Oltre al profilo <strong>gratuito</strong> (solo contattato dalle imprese), puoi richiedere l&apos;accesso alle
           funzioni con cui <strong>consultare i profili delle aziende</strong> in linea con settore e zona, dopo
           attivazione contrattuale. <strong>Paese</strong>, <strong>città</strong> e <strong>chilometri</strong> che
-          dichiari in registrazione devono essere coerenti: è il modo in cui le imprese capiscono subito se ha senso
-          approfondire, senza perdere tempo.
+          dichiari in registrazione (incluso il <strong>CAP</strong> o codice postale che compili a mano) devono essere
+          coerenti: è il modo in cui le imprese capiscono subito se ha senso approfondire, senza perdere tempo.
         </p>
         <p className="mt-4 font-luxury-display text-3xl font-semibold text-[#152435]">
           99 €<span className="text-lg font-semibold text-[#6b7a8d]"> / 6 mesi</span>

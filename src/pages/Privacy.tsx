@@ -27,7 +27,7 @@ export function Privacy() {
           <h2 className={h2}>2. Natura del servizio e ruolo del Titolare</h2>
           <p>
             {BRAND.name} ({BRAND.siteUrl}) è una <strong>piattaforma digitale di pubblicazione e consultazione di
-            annunci e profili</strong>, organizzata per settore e con livelli di dettaglio progressivi, in una logica
+              annunci e profili</strong>, organizzata per settore e con livelli di dettaglio progressivi, in una logica
             assimilabile a un <strong>marketplace o bacheca on-line</strong> (annunci di domanda e offerta di lavoro).
           </p>
           <p>
@@ -44,8 +44,9 @@ export function Privacy() {
           <ul className="list-inside list-disc space-y-2 pl-1">
             <li>
               <strong>Candidati:</strong> dati identificativi, di contatto, professionali (es. competenze, esperienze,
-              preferenze di settore), <strong>Paese</strong> e <strong>località</strong> (regione/città o equivalente),
-              <strong> raggio di spostamento in chilometri</strong>, scelta tra percorso <strong>gratuito</strong> (solo
+              preferenze di settore),               <strong>Paese</strong>, <strong>località</strong> (regione/città o equivalente),{" "}
+              <strong>CAP o codice postale</strong> inserito manualmente,{" "}
+              <strong>raggio di spostamento in chilometri</strong>, scelta tra percorso <strong>gratuito</strong> (solo
               contattato) o richiesta di <strong>piano a pagamento</strong> per consultare profili imprese (ove
               attivato), eventuali altri dati inseriti volontariamente nel profilo.
             </li>

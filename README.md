@@ -38,6 +38,7 @@ Le migration sono in `supabase/migrations/`. Eseguile **in ordine** sullo stesso
 | `20260205120000_candidate_trade_skills.sql` | Colonna `trade_skills` (jsonb) su `candidate_leads` |
 | `20260206120000_location_city_travel_km.sql` | Colonne `city` su entrambe le lead; `travel_radius_km` su `candidate_leads` |
 | `20260211180000_candidate_mode_country.sql` | `country`, `registration_mode` su `candidate_leads` (percorso gratis vs cerca aziende) |
+| `20260211190000_candidate_postal_code.sql` | `postal_code` (CAP / codice postale) su `candidate_leads` |
 
 ### Opzione A — Dashboard (senza CLI)
 

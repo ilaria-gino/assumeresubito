@@ -122,13 +122,12 @@ export function Registrazione() {
           >
             {azStatus !== "idle" && (
               <p
-                className={`rounded-xl px-4 py-3 text-sm font-medium ${
-                  azStatus === "success"
+                className={`rounded-xl px-4 py-3 text-sm font-medium ${azStatus === "success"
                     ? "bg-emerald-50 text-emerald-950"
                     : azStatus === "error"
                       ? "bg-red-50 text-red-900"
                       : "bg-slate-100 text-slate-700"
-                }`}
+                  }`}
                 role="status"
               >
                 {azStatus === "loading" ? "Invio in corso…" : azMessage}
@@ -246,8 +245,9 @@ export function Registrazione() {
           <p className="mt-2 text-sm text-slate-600">
             2–4 minuti. Scegli sotto se vuoi restare <strong className="text-slate-800">solo tra i profili contattabili</strong>{" "}
             dalle imprese (gratis) oppure attivare anche la ricerca attiva verso le aziende (piano a pagamento). Indica{" "}
-            <strong className="text-slate-800">Paese</strong>, località e <strong className="text-slate-800">km</strong> in
-            modo coerente: così le aziende capiscono subito se la distanza è realisticamente compatibile.
+            <strong className="text-slate-800">Paese</strong>, località, <strong className="text-slate-800">CAP</strong> (a
+            mano) e <strong className="text-slate-800">km</strong> in modo coerente: così le aziende capiscono subito se la
+            zona è compatibile.
           </p>
           <form
             className="mt-6 space-y-4"
@@ -304,6 +304,25 @@ export function Registrazione() {
                 region = ra || "—";
               }
 
+              const postal_code = String(fd.get("cd_cap") ?? "")
+                .trim()
+                .replace(/\s/g, "");
+              if (!postal_code) {
+                setCdStatus("error");
+                setCdMessage("Inserisci il CAP (Italia) o il codice postale della tua zona di riferimento.");
+                return;
+              }
+              if (country === "Italia" && !/^\d{5}$/.test(postal_code)) {
+                setCdStatus("error");
+                setCdMessage("Per l’Italia il CAP è composto da esattamente 5 cifre.");
+                return;
+              }
+              if (postal_code.length > 16) {
+                setCdStatus("error");
+                setCdMessage("Codice postale troppo lungo. Controlla e riprova.");
+                return;
+              }
+
               const first_name = String(fd.get("nome") ?? "").trim();
               const last_name = String(fd.get("cognome") ?? "").trim();
               const age = Number(fd.get("eta"));
@@ -338,6 +357,7 @@ export function Registrazione() {
                 country,
                 region,
                 city,
+                postal_code,
                 travel_radius_km: travelRadiusRaw,
                 registration_mode,
                 sector,
@@ -373,29 +393,34 @@ export function Registrazione() {
           >
             {cdStatus !== "idle" && (
               <p
-                className={`rounded-xl px-4 py-3 text-sm font-medium ${
-                  cdStatus === "success"
+                className={`rounded-xl px-4 py-3 text-sm font-medium ${cdStatus === "success"
                     ? "bg-emerald-50 text-emerald-950"
                     : cdStatus === "error"
                       ? "bg-red-50 text-red-900"
                       : "bg-slate-100 text-slate-700"
-                }`}
+                  }`}
                 role="status"
               >
                 {cdStatus === "loading" ? "Invio in corso…" : cdMessage}
               </p>
             )}
             <fieldset
-              className="space-y-3 rounded-2xl border border-slate-200 bg-white p-4 shadow-sm"
+              className="space-y-4 rounded-2xl border-2 border-[#152435]/25 bg-gradient-to-b from-white via-slate-50/50 to-[#f8fafc] p-5 shadow-[0_8px_30px_rgba(21,36,53,0.08)] sm:p-6"
               disabled={cdStatus === "loading"}
             >
-              <legend className="px-1 text-sm font-semibold text-slate-900">Come vuoi usare il servizio?</legend>
+              <legend className="mb-1 w-full px-0">
+                <span className="block text-center text-[0.65rem] font-bold uppercase tracking-[0.2em] text-[#2C4A6E] sm:text-left">
+                  Scegli il tuo percorso
+                </span>
+                <span className="mt-2 block text-center text-lg font-bold leading-tight text-[#152435] sm:text-left sm:text-xl">
+                  Gratis <span className="text-[#6b7a8d]">oppure</span> a pagamento
+                </span>
+              </legend>
               <label
-                className={`flex cursor-pointer gap-3 rounded-xl border p-4 transition ${
-                  cdMode === "contact_only"
-                    ? "border-[#152435] bg-[#152435]/[0.04] ring-1 ring-[#152435]/20"
-                    : "border-slate-200 bg-slate-50/60 hover:border-slate-300"
-                }`}
+                className={`flex cursor-pointer gap-3 rounded-xl border-2 p-4 transition sm:p-5 ${cdMode === "contact_only"
+                    ? "border-emerald-600/50 bg-emerald-50/40 ring-2 ring-emerald-600/20"
+                    : "border-slate-200 bg-white/80 hover:border-slate-300"
+                  }`}
               >
                 <input
                   type="radio"
@@ -403,10 +428,15 @@ export function Registrazione() {
                   value="contact_only"
                   checked={cdMode === "contact_only"}
                   onChange={() => setCdMode("contact_only")}
-                  className="mt-1 shrink-0"
+                  className="mt-1.5 h-4 w-4 shrink-0 accent-emerald-700"
                 />
-                <div>
-                  <span className="font-semibold text-slate-900">Solo essere contattato dalle imprese</span>
+                <div className="min-w-0 flex-1">
+                  <span className="flex flex-wrap items-center gap-2 font-bold text-slate-900">
+                    Solo essere contattato dalle imprese
+                    <span className="rounded-full bg-emerald-600 px-2.5 py-0.5 text-[0.65rem] font-bold uppercase tracking-wide text-white">
+                      Gratis
+                    </span>
+                  </span>
                   <p className="mt-1 text-sm text-slate-600">
                     Profilo <strong>gratuito</strong>: le aziende abbonate possono individuarti in base a settore, Paese,
                     località e km che indichi. L&apos;iniziativa del contatto resta in genere loro, salvo eccezioni (es.
@@ -415,11 +445,10 @@ export function Registrazione() {
                 </div>
               </label>
               <label
-                className={`flex cursor-pointer gap-3 rounded-xl border p-4 transition ${
-                  cdMode === "active_search"
-                    ? "border-[#FF6B35] bg-[#fff7ed]/80 ring-1 ring-[#FF6B35]/25"
-                    : "border-slate-200 bg-slate-50/60 hover:border-slate-300"
-                }`}
+                className={`flex cursor-pointer gap-3 rounded-xl border-2 p-4 transition sm:p-5 ${cdMode === "active_search"
+                    ? "border-[#FF6B35] bg-[#fff7ed] ring-2 ring-[#FF6B35]/30"
+                    : "border-slate-200 bg-white/80 hover:border-slate-300"
+                  }`}
               >
                 <input
                   type="radio"
@@ -427,10 +456,15 @@ export function Registrazione() {
                   value="active_search"
                   checked={cdMode === "active_search"}
                   onChange={() => setCdMode("active_search")}
-                  className="mt-1 shrink-0"
+                  className="mt-1.5 h-4 w-4 shrink-0 accent-[#FF6B35]"
                 />
-                <div>
-                  <span className="font-semibold text-slate-900">Voglio cercare attivamente le aziende</span>
+                <div className="min-w-0 flex-1">
+                  <span className="flex flex-wrap items-center gap-2 font-bold text-slate-900">
+                    Voglio cercare attivamente le aziende
+                    <span className="rounded-full bg-[#FF6B35] px-2.5 py-0.5 text-[0.65rem] font-bold uppercase tracking-wide text-[#0A0F1C]">
+                      A pagamento
+                    </span>
+                  </span>
                   <p className="mt-1 text-sm text-slate-600">
                     Piano <strong>a pagamento</strong> (indicativo: <strong>99 € / 6 mesi</strong> + IVA): consente, dopo
                     attivazione e pagamento, l&apos;accesso alle funzioni di consultazione dei profili imprese in linea con
@@ -560,6 +594,29 @@ export function Registrazione() {
                 </div>
               </div>
             )}
+            <div className="rounded-xl border border-slate-200 bg-slate-50/80 p-4">
+              <label className="block text-sm font-semibold text-slate-800" htmlFor="cd-cap">
+                CAP / codice postale
+              </label>
+              <input
+                id="cd-cap"
+                name="cd_cap"
+                required
+                maxLength={16}
+                inputMode={cdCountry === "Italia" ? "numeric" : "text"}
+                autoComplete="postal-code"
+                disabled={cdStatus === "loading"}
+                placeholder={cdCountry === "Italia" ? "Es. 35100 (5 cifre)" : "Codice postale della tua zona"}
+                title={cdCountry === "Italia" ? "CAP italiano: 5 cifre" : undefined}
+                pattern={cdCountry === "Italia" ? "[0-9]{5}" : undefined}
+                className="mt-2 w-full max-w-xs rounded-xl border border-slate-200 px-4 py-3 text-slate-900 disabled:opacity-60"
+              />
+              <p className="mt-2 text-xs leading-relaxed text-slate-600">
+                <strong className="text-slate-800">Lo inserisci tu a mano:</strong> affina la zona rispetto alla sola
+                città scelta nell&apos;elenco e ai chilometri che dichiari sotto — le imprese capiscono prima se ha senso
+                approfondire.
+              </p>
+            </div>
             <div>
               <label className="block text-sm font-medium text-slate-700" htmlFor="cd-travel-km">
                 Quanti km sei disposto a spostarti per lavoro?

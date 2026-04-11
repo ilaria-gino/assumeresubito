@@ -18,7 +18,7 @@ const ROUTES: Record<string, { title: string; description: string }> = {
   "/registrazione": {
     title: `Registrazione azienda o candidato | ${BASE}`,
     description:
-      "Candidato: gratis se solo contattato, opzione a pagamento per cercare aziende; Paese e località con raggio km. Imprese: richiesta accesso. Privacy e cookie.",
+      "Candidato: percorso gratis o a pagamento; Paese, città, CAP a mano, km. Imprese: richiesta accesso. Privacy e cookie.",
   },
   "/chi-siamo": {
     title: `Chi siamo | ${BASE}`,

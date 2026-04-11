@@ -313,8 +313,8 @@ export function Home() {
                   </span>
                   <span>
                     Compili <strong>privacy e consensi</strong> e il profilo: <strong>Paese</strong>, località (Italia con
-                    regione/città oppure estero con testo libero) e <strong>km</strong> di spostamento in modo coerente —
-                    così le imprese non perdono tempo su contatti irrealistici.
+                    regione/città oppure estero con testo libero), <strong>CAP o codice postale</strong> (inserito a mano)
+                    e <strong>km</strong> in modo coerente — così le imprese non perdono tempo su contatti irrealistici.
                   </span>
                 </li>
                 <li className="flex gap-3">
