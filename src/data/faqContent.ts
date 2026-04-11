@@ -354,4 +354,10 @@ export const FAQ_LAVORATORE: FaqItem[] = [
     answer:
       "Nella pagina Retribuzioni orientative trovate bande indicative (non CCNL) con esempi su più aree italiane. Usatele solo come confronto generico; la retribuzione si definisce in offerta e contratto.",
   },
+  {
+    id: "l30",
+    question: "Devo pagare per iscrivermi come candidato?",
+    answer:
+      "No per il percorso base: puoi registrarti gratis e restare tra i profili che le imprese possono contattare. Se vuoi anche cercare attivamente le aziende (funzioni di consultazione), è previsto un piano a pagamento separato (indicativo 99 € / 6 mesi + IVA), con attivazione dopo pagamento quando lo strumento sarà operativo. Dettagli in Prezzi.",
+  },
 ];

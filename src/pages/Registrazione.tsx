@@ -5,6 +5,7 @@ import { getSupabase, isSupabaseConfigured } from "../lib/supabase";
 import { PremiumPageShell } from "../components/PremiumPageShell";
 import { tradeSkillGroupsForSector } from "../data/candidateTradeSkills";
 import { TRAVEL_RADIUS_OPTIONS } from "../data/italyGeo";
+import { CANDIDATE_COUNTRIES } from "../data/candidateCountries";
 import { RegionCitySelects } from "../components/RegionCitySelects";
 
 const legalBox =
@@ -24,6 +25,10 @@ export function Registrazione() {
   const [cdRegion, setCdRegion] = useState("");
   const [cdCity, setCdCity] = useState("");
   const [cdTravelKm, setCdTravelKm] = useState("");
+  const [cdMode, setCdMode] = useState<"contact_only" | "active_search">("contact_only");
+  const [cdCountry, setCdCountry] = useState("Italia");
+  const [cdRegionAbroad, setCdRegionAbroad] = useState("");
+  const [cdCityAbroad, setCdCityAbroad] = useState("");
 
   useEffect(() => {
     if (hash === "#azienda" || hash === "#candidato") {
@@ -239,14 +244,10 @@ export function Registrazione() {
         >
           <h2 className="text-xl font-bold text-slate-900">Cerco lavoro</h2>
           <p className="mt-2 text-sm text-slate-600">
-            2–3 minuti. Per edilizia e impianti puoi indicare{" "}
-            <strong className="font-medium text-slate-800">competenze specifiche</strong> (es. cartongesso,
-            termoidraulica): aiuta le imprese a capire subito se sei in linea. Il contatto diretto da parte tua verso
-            l&apos;azienda è previsto solo per imprese con piano <strong>Full (top)</strong>, come da{" "}
-            <Link to="/prezzi" className="font-semibold text-[#2C4A6E] underline underline-offset-2">
-              Prezzi
-            </Link>{" "}
-            e contratto.
+            2–4 minuti. Scegli sotto se vuoi restare <strong className="text-slate-800">solo tra i profili contattabili</strong>{" "}
+            dalle imprese (gratis) oppure attivare anche la ricerca attiva verso le aziende (piano a pagamento). Indica{" "}
+            <strong className="text-slate-800">Paese</strong>, località e <strong className="text-slate-800">km</strong> in
+            modo coerente: così le aziende capiscono subito se la distanza è realisticamente compatibile.
           </p>
           <form
             className="mt-6 space-y-4"
@@ -269,22 +270,49 @@ export function Registrazione() {
                 }
               }
 
+              const modeRaw = fd.get("cd_mode");
+              const registration_mode =
+                modeRaw === "active_search" ? "active_search" : "contact_only";
+              if (registration_mode === "active_search" && fd.get("cd_piano_cerca") !== "on") {
+                setCdStatus("error");
+                setCdMessage(
+                  "Per il percorso «Cerca aziende» devi confermare di aver preso visione del piano a pagamento nella pagina Prezzi.",
+                );
+                return;
+              }
+
+              const country = String(fd.get("cd_country") ?? cdCountry).trim() || "Italia";
+
+              let region: string;
+              let city: string;
+              if (country === "Italia") {
+                if (!cdRegion.trim() || !cdCity.trim()) {
+                  setCdStatus("error");
+                  setCdMessage("Seleziona regione e città italiane di residenza o di riferimento.");
+                  return;
+                }
+                region = cdRegion.trim();
+                city = cdCity.trim();
+              } else {
+                city = String(fd.get("cd_city_abroad") ?? cdCityAbroad).trim();
+                if (!city) {
+                  setCdStatus("error");
+                  setCdMessage("Indica la città (o località) nel Paese selezionato.");
+                  return;
+                }
+                const ra = String(fd.get("cd_region_abroad") ?? cdRegionAbroad).trim();
+                region = ra || "—";
+              }
+
               const first_name = String(fd.get("nome") ?? "").trim();
               const last_name = String(fd.get("cognome") ?? "").trim();
               const age = Number(fd.get("eta"));
-              if (!cdRegion.trim() || !cdCity.trim()) {
-                setCdStatus("error");
-                setCdMessage("Seleziona regione e città di residenza o di riferimento.");
-                return;
-              }
               const travelRadiusRaw = cdTravelKm === "" ? NaN : Number(cdTravelKm);
               if (!Number.isFinite(travelRadiusRaw)) {
                 setCdStatus("error");
                 setCdMessage("Indica quanti chilometri sei disposto a spostarti per lavoro.");
                 return;
               }
-              const region = cdRegion.trim();
-              const city = cdCity.trim();
               const sector = String(fd.get("settore") ?? "").trim();
               const expRaw = fd.get("esperienza");
               const experience_years =
@@ -307,9 +335,11 @@ export function Registrazione() {
                 first_name,
                 last_name,
                 age,
+                country,
                 region,
                 city,
                 travel_radius_km: travelRadiusRaw,
+                registration_mode,
                 sector,
                 experience_years: Number.isFinite(experience_years as number) ? experience_years : null,
                 has_car,
@@ -325,12 +355,20 @@ export function Registrazione() {
               }
 
               setCdStatus("success");
-              setCdMessage("Profilo inviato. Riceverai aggiornamenti via email.");
+              setCdMessage(
+                registration_mode === "active_search"
+                  ? "Richiesta registrata. Ti contatteremo all’indirizzo email indicato con le istruzioni per attivare il piano «Cerca aziende» e completare il pagamento (integrazione in arrivo)."
+                  : "Profilo inviato. Riceverai aggiornamenti via email.",
+              );
               form.reset();
               setCdSector("");
               setCdRegion("");
               setCdCity("");
               setCdTravelKm("");
+              setCdMode("contact_only");
+              setCdCountry("Italia");
+              setCdRegionAbroad("");
+              setCdCityAbroad("");
             }}
           >
             {cdStatus !== "idle" && (
@@ -347,6 +385,65 @@ export function Registrazione() {
                 {cdStatus === "loading" ? "Invio in corso…" : cdMessage}
               </p>
             )}
+            <fieldset
+              className="space-y-3 rounded-2xl border border-slate-200 bg-white p-4 shadow-sm"
+              disabled={cdStatus === "loading"}
+            >
+              <legend className="px-1 text-sm font-semibold text-slate-900">Come vuoi usare il servizio?</legend>
+              <label
+                className={`flex cursor-pointer gap-3 rounded-xl border p-4 transition ${
+                  cdMode === "contact_only"
+                    ? "border-[#152435] bg-[#152435]/[0.04] ring-1 ring-[#152435]/20"
+                    : "border-slate-200 bg-slate-50/60 hover:border-slate-300"
+                }`}
+              >
+                <input
+                  type="radio"
+                  name="cd_mode"
+                  value="contact_only"
+                  checked={cdMode === "contact_only"}
+                  onChange={() => setCdMode("contact_only")}
+                  className="mt-1 shrink-0"
+                />
+                <div>
+                  <span className="font-semibold text-slate-900">Solo essere contattato dalle imprese</span>
+                  <p className="mt-1 text-sm text-slate-600">
+                    Profilo <strong>gratuito</strong>: le aziende abbonate possono individuarti in base a settore, Paese,
+                    località e km che indichi. L&apos;iniziativa del contatto resta in genere loro, salvo eccezioni (es.
+                    piano Full dell&apos;impresa).
+                  </p>
+                </div>
+              </label>
+              <label
+                className={`flex cursor-pointer gap-3 rounded-xl border p-4 transition ${
+                  cdMode === "active_search"
+                    ? "border-[#FF6B35] bg-[#fff7ed]/80 ring-1 ring-[#FF6B35]/25"
+                    : "border-slate-200 bg-slate-50/60 hover:border-slate-300"
+                }`}
+              >
+                <input
+                  type="radio"
+                  name="cd_mode"
+                  value="active_search"
+                  checked={cdMode === "active_search"}
+                  onChange={() => setCdMode("active_search")}
+                  className="mt-1 shrink-0"
+                />
+                <div>
+                  <span className="font-semibold text-slate-900">Voglio cercare attivamente le aziende</span>
+                  <p className="mt-1 text-sm text-slate-600">
+                    Piano <strong>a pagamento</strong> (indicativo: <strong>99 € / 6 mesi</strong> + IVA): consente, dopo
+                    attivazione e pagamento, l&apos;accesso alle funzioni di consultazione dei profili imprese in linea con
+                    il tuo profilo, come da{" "}
+                    <Link to="/prezzi#piano-cerca-aziende" className="font-semibold text-[#2C4A6E] underline">
+                      Prezzi
+                    </Link>
+                    . L&apos;integrazione di pagamento è in fase di completamento: invii ora la richiesta e ricevi il
+                    link o le istruzioni via email.
+                  </p>
+                </div>
+              </label>
+            </fieldset>
             <div className="grid gap-4 sm:grid-cols-2">
               <div>
                 <label className="block text-sm font-medium text-slate-700" htmlFor="cd-nome">
@@ -388,17 +485,81 @@ export function Registrazione() {
                 className="mt-1 w-full rounded-xl border border-slate-200 px-4 py-3 text-slate-900 disabled:opacity-60"
               />
             </div>
-            <RegionCitySelects
-              regionId="cd-region"
-              cityId="cd-city"
-              regionName={cdRegion}
-              cityName={cdCity}
-              disabled={cdStatus === "loading"}
-              onRegionChange={setCdRegion}
-              onCityChange={setCdCity}
-              regionLabel="Regione (Italia)"
-              cityLabel="Città di residenza o di riferimento"
-            />
+            <div>
+              <label className="block text-sm font-medium text-slate-700" htmlFor="cd-country">
+                Paese di residenza o di riferimento
+              </label>
+              <select
+                id="cd-country"
+                name="cd_country"
+                required
+                value={cdCountry}
+                onChange={(e) => {
+                  setCdCountry(e.target.value);
+                  setCdRegion("");
+                  setCdCity("");
+                  setCdRegionAbroad("");
+                  setCdCityAbroad("");
+                }}
+                disabled={cdStatus === "loading"}
+                className="mt-1 w-full rounded-xl border border-slate-200 px-4 py-3 text-slate-900 disabled:opacity-60"
+              >
+                {CANDIDATE_COUNTRIES.map((c) => (
+                  <option key={c} value={c}>
+                    {c}
+                  </option>
+                ))}
+              </select>
+              <p className="mt-1 text-xs text-slate-600">
+                Paese, città e km devono essere <strong>coerenti tra loro</strong>: così le imprese evitano contatti
+                inutili e il servizio risulta più professionale per tutti.
+              </p>
+            </div>
+            {cdCountry === "Italia" ? (
+              <RegionCitySelects
+                regionId="cd-region"
+                cityId="cd-city"
+                regionName={cdRegion}
+                cityName={cdCity}
+                disabled={cdStatus === "loading"}
+                onRegionChange={setCdRegion}
+                onCityChange={setCdCity}
+                regionLabel="Regione (Italia)"
+                cityLabel="Città di residenza o di riferimento"
+              />
+            ) : (
+              <div className="grid gap-4 sm:grid-cols-2">
+                <div className="sm:col-span-2">
+                  <label className="block text-sm font-medium text-slate-700" htmlFor="cd-region-abroad">
+                    Regione / stato / provincia (facoltativo)
+                  </label>
+                  <input
+                    id="cd-region-abroad"
+                    name="cd_region_abroad"
+                    value={cdRegionAbroad}
+                    onChange={(e) => setCdRegionAbroad(e.target.value)}
+                    disabled={cdStatus === "loading"}
+                    className="mt-1 w-full rounded-xl border border-slate-200 px-4 py-3 text-slate-900 disabled:opacity-60"
+                    placeholder="Es. Canton Ticino, Carinzia…"
+                  />
+                </div>
+                <div className="sm:col-span-2">
+                  <label className="block text-sm font-medium text-slate-700" htmlFor="cd-city-abroad">
+                    Città o località
+                  </label>
+                  <input
+                    id="cd-city-abroad"
+                    name="cd_city_abroad"
+                    required
+                    value={cdCityAbroad}
+                    onChange={(e) => setCdCityAbroad(e.target.value)}
+                    disabled={cdStatus === "loading"}
+                    className="mt-1 w-full rounded-xl border border-slate-200 px-4 py-3 text-slate-900 disabled:opacity-60"
+                    placeholder="Es. Lugano, Monaco di Baviera…"
+                  />
+                </div>
+              </div>
+            )}
             <div>
               <label className="block text-sm font-medium text-slate-700" htmlFor="cd-travel-km">
                 Quanti km sei disposto a spostarti per lavoro?
@@ -419,10 +580,25 @@ export function Registrazione() {
                 ))}
               </select>
               <p className="mt-1 text-xs text-slate-600">
-                Le imprese usano questo dato per capire se la sede o il cantiere possono essere compatibili con la tua
-                disponibilità (non è un impegno contrattuale).
+                Riferito al <strong>Paese e alla località</strong> che hai indicato sopra: le imprese valutano se sede o
+                cantiere rientrano nel raggio che dichiari (non è un impegno contrattuale).
               </p>
             </div>
+            {cdMode === "active_search" && (
+              <div className="rounded-xl border border-[#FF6B35]/35 bg-[#fff7ed]/70 p-4 text-sm text-slate-800">
+                <label className="flex cursor-pointer items-start gap-3">
+                  <input type="checkbox" name="cd_piano_cerca" className="mt-1 shrink-0 rounded border-slate-300" />
+                  <span>
+                    Ho preso visione del piano <strong>Cerca aziende</strong> nella pagina{" "}
+                    <Link to="/prezzi#piano-cerca-aziende" className="font-semibold text-[#2C4A6E] underline">
+                      Prezzi
+                    </Link>{" "}
+                    (corrispettivo indicativo <strong>99 € / 6 mesi</strong> + IVA) e richiedo di essere ricontattato per
+                    attivazione e pagamento quando lo strumento sarà operativo.
+                  </span>
+                </label>
+              </div>
+            )}
             <div>
               <label className="block text-sm font-medium text-slate-700" htmlFor="cd-settore">
                 Settore di interesse

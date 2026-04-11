@@ -13,12 +13,12 @@ const ROUTES: Record<string, { title: string; description: string }> = {
   "/prezzi": {
     title: `Prezzi e condizioni | ${BASE}`,
     description:
-      "Starter, Basic, Full (piano top): sblocchi profilo espliciti. Solo Full può includere contatto candidato→impresa se abilitato. Candidati gratis. Importi indicativi +IVA.",
+      "Imprese: Starter, Basic, Full (top). Candidati: gratis o piano Cerca aziende (indicativo 99€/6 mesi). Sblocchi e contatti come da pagina. +IVA indicativa.",
   },
   "/registrazione": {
     title: `Registrazione azienda o candidato | ${BASE}`,
     description:
-      "Form per tutta Italia: regione e città (capoluoghi di provincia), per i candidati anche raggio km di spostamento. Privacy e cookie policy.",
+      "Candidato: gratis se solo contattato, opzione a pagamento per cercare aziende; Paese e località con raggio km. Imprese: richiesta accesso. Privacy e cookie.",
   },
   "/chi-siamo": {
     title: `Chi siamo | ${BASE}`,

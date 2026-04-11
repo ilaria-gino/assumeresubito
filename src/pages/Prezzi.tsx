@@ -12,10 +12,45 @@ export function Prezzi() {
       maxWidth="wide"
     >
       <div className="mt-6 rounded-2xl border border-[#2C4A6E]/20 bg-[#f7f5f1] px-5 py-4 text-center text-sm text-[#152435]/90 sm:text-base">
-        <strong className="text-[#152435]">Candidati:</strong> registrazione e profilo base{" "}
-        <strong>sempre gratuiti</strong>.{" "}
+        <strong className="text-[#152435]">Candidati:</strong> percorso <strong>gratuito</strong> se scegli solo di essere
+        contattato; opzione <strong>a pagamento</strong> se vuoi anche cercare attivamente le imprese.{" "}
         <Link to="/registrazione#candidato" className="font-semibold text-[#2C4A6E] underline underline-offset-2">
-          Cerco lavoro
+          Registrazione
+        </Link>
+      </div>
+
+      <div
+        id="piano-cerca-aziende"
+        className="mx-auto mt-12 max-w-3xl scroll-mt-24 rounded-2xl border-2 border-[#FF6B35]/30 bg-gradient-to-b from-[#fff7ed] to-white p-6 shadow-sm sm:p-8"
+      >
+        <p className="text-xs font-bold uppercase tracking-wide text-[#FF6B35]">Per chi cerca lavoro</p>
+        <h2 className="mt-2 font-luxury-display text-2xl font-semibold text-[#152435] sm:text-3xl">
+          Piano «Cerca aziende»
+        </h2>
+        <p className="mt-3 text-sm leading-relaxed text-[#152435]/90">
+          Oltre al profilo <strong>gratuito</strong> (solo contattato dalle imprese), puoi richiedere l&apos;accesso alle
+          funzioni con cui <strong>consultare i profili delle aziende</strong> in linea con settore e zona, dopo
+          attivazione contrattuale. <strong>Paese</strong>, <strong>città</strong> e <strong>chilometri</strong> che
+          dichiari in registrazione devono essere coerenti: è il modo in cui le imprese capiscono subito se ha senso
+          approfondire, senza perdere tempo.
+        </p>
+        <p className="mt-4 font-luxury-display text-3xl font-semibold text-[#152435]">
+          99 €<span className="text-lg font-semibold text-[#6b7a8d]"> / 6 mesi</span>
+        </p>
+        <p className="text-xs text-[#6b7a8d]">+ IVA · importo indicativo · vincolante nel contratto</p>
+        <ul className="mt-4 list-inside list-disc space-y-2 text-sm text-[#152435]/90">
+          <li>Durata semestrale rinnovabile secondo condizioni pubblicate.</li>
+          <li>
+            Attivazione dopo verifica e <strong>pagamento</strong> (integrazione gateway in completamento: riceverai link
+            o istruzioni via email).
+          </li>
+          <li>Non sostituisce il piano Full lato impresa per il contatto inverso; convive con le regole pubblicate.</li>
+        </ul>
+        <Link
+          to="/registrazione#candidato"
+          className={`${btnPrimary} mt-6 inline-flex w-full justify-center sm:w-auto`}
+        >
+          Inizia dalla registrazione
         </Link>
       </div>
 

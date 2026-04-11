@@ -28,7 +28,13 @@ export function ChiSiamo() {
         <Link to="/prezzi" className="premium-link">
           Prezzi
         </Link>
-        ; i candidati non pagano per il profilo base. Con <strong>Starter</strong> e <strong>Basic</strong> l’iniziativa di
+        ; i candidati non pagano per il <strong>profilo base</strong> (solo contattati dalle imprese). Chi richiede anche
+        le funzioni per <strong>cercare attivamente le aziende</strong> può sottoscrivere un piano candidato a parte, come
+        da{" "}
+        <Link to="/prezzi#piano-cerca-aziende" className="premium-link">
+          Prezzi
+        </Link>
+        . Con <strong>Starter</strong> e <strong>Basic</strong> l’iniziativa di
         contatto dopo lo sblocco resta in capo all’impresa; il piano <strong>Full</strong> (top) può includere, se abilitato
         nel contratto, la possibilità per il candidato di manifestare interesse o contattare l’azienda — un vantaggio
         commerciale da comunicare chiaramente al team che sottoscrive l’abbonamento.

@@ -37,11 +37,12 @@ Le migration sono in `supabase/migrations/`. Eseguile **in ordine** sullo stesso
 | `20260121000000_initial_leads.sql` | Tabelle `company_leads`, `candidate_leads` + RLS (solo **INSERT** per `anon`) |
 | `20260205120000_candidate_trade_skills.sql` | Colonna `trade_skills` (jsonb) su `candidate_leads` |
 | `20260206120000_location_city_travel_km.sql` | Colonne `city` su entrambe le lead; `travel_radius_km` su `candidate_leads` |
+| `20260211180000_candidate_mode_country.sql` | `country`, `registration_mode` su `candidate_leads` (percorso gratis vs cerca aziende) |
 
 ### Opzione A — Dashboard (senza CLI)
 
 1. [Supabase Dashboard](https://supabase.com/dashboard) → progetto → **SQL Editor** → **New query**.
-2. Incolla il contenuto del primo file, **Run**; ripeti per gli altri due nell’ordine della tabella.
+2. Incolla il contenuto del primo file, **Run**; ripeti per **tutti gli altri file** della tabella, nello stesso ordine.
 
 ### Opzione B — Supabase CLI
 

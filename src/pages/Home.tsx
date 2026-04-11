@@ -104,7 +104,7 @@ export function Home() {
               <figcaption className="border-t border-white/10 bg-[#0f172a]/80 px-4 py-3 text-left text-sm text-white/90">
                 <span className="font-bold text-white">Lato candidato</span>
                 <span className="mt-0.5 block text-white/70">
-                  Regione, città, km massimi per spostarsi: le imprese capiscono subito se c&apos;è compatibilità.
+                  Paese, città e km coerenti tra loro: meno tempo perso per te e per le imprese.
                 </span>
               </figcaption>
             </figure>
@@ -113,7 +113,14 @@ export function Home() {
           <dl className="mx-auto mt-12 grid max-w-3xl gap-3 text-sm sm:grid-cols-2 sm:text-left">
             <div className="rounded-xl border border-white/15 bg-white/10 px-4 py-3 text-white/90 backdrop-blur-sm">
               <dt className="font-semibold text-white">Candidati</dt>
-              <dd className="mt-1 text-white/75">Iscrizione e creazione del profilo senza costi.</dd>
+              <dd className="mt-1 text-white/75">
+                Percorso <strong className="text-white/90">gratis</strong> se resti tra i profili contattabili; opzione{" "}
+                <strong className="text-white/90">a pagamento</strong> per cercare attivamente le aziende.{" "}
+                <Link to="/prezzi#piano-cerca-aziende" className="font-semibold text-[#FF8F5E] underline underline-offset-2">
+                  Piano 6 mesi
+                </Link>
+                .
+              </dd>
             </div>
             <div className="rounded-xl border border-white/15 bg-white/10 px-4 py-3 text-white/90 backdrop-blur-sm">
               <dt className="font-semibold text-white">Imprese</dt>
@@ -225,14 +232,14 @@ export function Home() {
             Come funziona
           </h2>
           <p className="mx-auto mt-4 max-w-3xl text-center text-[#6b7a8d]">
-            <strong className="text-[#152435]">Trasparenza:</strong> l&apos;iscrizione per i candidati è sempre gratuita.
-            Le <strong className="text-[#152435]">imprese</strong> accedono solo tramite{" "}
-            <strong className="text-[#2C4A6E]">Starter, Basic o Full</strong>: paghi per uso dello strumento digitale
-            (bacheca annunci), con limiti chiari sugli sblocchi profilo. Dettagli in{" "}
-            <Link to="/prezzi" className="premium-link">
+            <strong className="text-[#152435]">Trasparenza:</strong> i candidati possono iscriversi <strong>senza costi</strong>{" "}
+            per essere contattati dalle imprese. Chi vuole anche <strong>cercare attivamente le aziende</strong> può
+            sottoscrivere un <strong>piano candidato</strong> a parte (indicativo 99 € / 6 mesi + IVA), come in{" "}
+            <Link to="/prezzi#piano-cerca-aziende" className="premium-link">
               Prezzi
             </Link>
-            .
+            . Le <strong className="text-[#152435]">imprese</strong> usano <strong className="text-[#2C4A6E]">Starter, Basic o Full</strong>{" "}
+            con limiti chiari sugli sblocchi profilo.
           </p>
 
           <div className="mt-12 grid gap-10 lg:grid-cols-2">
@@ -292,7 +299,12 @@ export function Home() {
                     1
                   </span>
                   <span>
-                    <strong>Registrazione gratuita</strong> — non paghi per iscriverti né per il profilo base.
+                    Scegli: <strong>solo essere contattato</strong> (gratis) oppure anche <strong>cercare le aziende</strong>{" "}
+                    (piano a pagamento, dopo attivazione) — vedi{" "}
+                    <Link to="/prezzi#piano-cerca-aziende" className="font-semibold text-[#2C4A6E] underline">
+                      Prezzi
+                    </Link>
+                    .
                   </span>
                 </li>
                 <li className="flex gap-3">
@@ -300,8 +312,9 @@ export function Home() {
                     2
                   </span>
                   <span>
-                    Compili <strong>privacy e consensi</strong> per il trattamento dei dati e per la comunicazione alle
-                    aziende in linea con l&apos;informativa.
+                    Compili <strong>privacy e consensi</strong> e il profilo: <strong>Paese</strong>, località (Italia con
+                    regione/città oppure estero con testo libero) e <strong>km</strong> di spostamento in modo coerente —
+                    così le imprese non perdono tempo su contatti irrealistici.
                   </span>
                 </li>
                 <li className="flex gap-3">
@@ -309,8 +322,7 @@ export function Home() {
                     3
                   </span>
                   <span>
-                    Profilo, <strong>regione e città</strong> in Italia, <strong>quanti km sei disposto a spostarti</strong>{" "}
-                    per lavoro, avatar (2–3 minuti); sei proposto in modo anonimo con iniziali dove previsto.
+                    Profilo e avatar (pochi minuti); presentazione anonima con iniziali dove previsto.
                   </span>
                 </li>
                 <li className="flex gap-3">
@@ -318,12 +330,10 @@ export function Home() {
                     ✓
                   </span>
                   <span className="font-semibold text-[#152435]">
-                    Ricevi richieste quando c&apos;è match; il contatto diretto da te verso l&apos;impresa è previsto solo
-                    se l&apos;azienda ha il piano <strong>Full (top)</strong> e la funzione è attiva, come da{" "}
-                    <Link to="/prezzi" className="premium-link">
-                      Prezzi
-                    </Link>
-                    .
+                    Con il percorso gratis ricevi richieste quando c&apos;è match. Il contatto diretto da te verso
+                    l&apos;impresa senza piano candidato resta legato al <strong>Full (top)</strong> lato azienda se
+                    abilitato. Con il piano <strong>Cerca aziende</strong> accedi alle funzioni di consultazione imprese
+                    dopo pagamento.
                   </span>
                 </li>
               </ol>
@@ -400,7 +410,8 @@ export function Home() {
         <div className="mx-auto max-w-3xl rounded-3xl border border-[#2C4A6E]/20 bg-gradient-to-b from-[#152435] to-[#0a1628] px-6 py-12 text-center text-white shadow-[0_24px_80px_rgba(15,23,42,0.35)] sm:px-12">
           <h2 className="font-luxury-display text-3xl font-semibold sm:text-4xl">Accesso al servizio</h2>
           <p className="mt-3 text-white/70">
-            Registrazione senza costi per i candidati; per le imprese, attivazione secondo le condizioni pubblicate.
+            Candidati: percorso base senza costi; opzione a pagamento per cercare aziende. Imprese: attivazione secondo
+            Prezzi.
           </p>
           <Link to="/registrazione" className={`${btnDark} mt-8 border border-white/10`}>
             Vai alla registrazione

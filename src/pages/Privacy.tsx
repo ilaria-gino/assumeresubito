@@ -44,9 +44,10 @@ export function Privacy() {
           <ul className="list-inside list-disc space-y-2 pl-1">
             <li>
               <strong>Candidati:</strong> dati identificativi, di contatto, professionali (es. competenze, esperienze,
-              preferenze di settore), <strong>regione e città di riferimento</strong> in Italia,{" "}
-              <strong>raggio di spostamento dichiarato in chilometri</strong> per finalità di compatibilità con sedi o
-              cantieri, eventuali altri dati inseriti volontariamente nel profilo.
+              preferenze di settore), <strong>Paese</strong> e <strong>località</strong> (regione/città o equivalente),
+              <strong> raggio di spostamento in chilometri</strong>, scelta tra percorso <strong>gratuito</strong> (solo
+              contattato) o richiesta di <strong>piano a pagamento</strong> per consultare profili imprese (ove
+              attivato), eventuali altri dati inseriti volontariamente nel profilo.
             </li>
             <li>
               <strong>Imprese / richiedenti personale:</strong> dati identificativi e di contatto del referente o della
@@ -72,6 +73,10 @@ export function Privacy() {
             <li>
               gestire gli <strong>abbonamenti aziendali</strong> (piani <strong>Starter</strong>,{" "}
               <strong>Basic</strong> e <strong>Full</strong>), i pagamenti e gli obblighi contrattuali connessi;
+            </li>
+            <li>
+              gestire, ove attivati, i <strong>piani a pagamento per candidati</strong> (es. consultazione profili
+              imprese) e i relativi pagamenti secondo contratto;
             </li>
             <li>comunicazioni strumentali al servizio (es. conferme, aggiornamenti tecnici);</li>
             <li>
