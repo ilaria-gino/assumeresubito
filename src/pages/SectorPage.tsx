@@ -179,6 +179,12 @@ export function SectorPage() {
             <Link to="/blog" className="premium-link text-sm font-semibold">
               Tutti gli articoli del blog
             </Link>
+            <Link to="/italia" className="premium-link text-sm font-semibold">
+              Lavoro per regione (Italia)
+            </Link>
+            <Link to="/risorse/checklist-annuncio" className="premium-link text-sm font-semibold">
+              Checklist annuncio
+            </Link>
           </div>
         </div>
       </section>

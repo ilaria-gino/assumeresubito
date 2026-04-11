@@ -3,6 +3,7 @@ import { useLocation } from "react-router-dom";
 import { BRAND } from "../config/brand";
 import { getArticleBySlug } from "../data/blog/posts";
 import { getSector } from "../data/sectors";
+import { getRegion } from "../data/regions";
 
 const BASE = BRAND.domain;
 
@@ -65,9 +66,37 @@ const ROUTES: Record<string, { title: string; description: string }> = {
     description:
       "Bande indicative lordo mensile per ruoli operativi (edilizia, termoidraulica, elettrico), esempi su più aree italiane: confronto di mercato, non CCNL né consulenza.",
   },
+  "/candidati": {
+    title: `Cerca profili candidati | ${BASE}`,
+    description:
+      "Anteprima del flusso per imprese: profili per settore e area, anonimato iniziale ove previsto, tempi orientati alle 48 ore ove applicabile.",
+  },
+  "/italia": {
+    title: `Lavoro e selezione per regione | Italia | ${BASE}`,
+    description:
+      "Venti approfondimenti geografici: contesto locale, verticali di settore, iscrizione imprese e candidati, FAQ e risorse. Bacheca strutturata, non agenzia.",
+  },
+  "/risorse/checklist-annuncio": {
+    title: `Checklist annuncio di lavoro | Risorse imprese | ${BASE}`,
+    description:
+      "Elenco operativo prima di pubblicare una ricerca: titolo, sede, mansioni, requisiti, contratto, privacy. Contenuto divulgativo.",
+  },
 };
 
 function metaForPath(pathname: string) {
+  if (pathname.startsWith("/italia/")) {
+    const slug = pathname.replace(/^\/italia\//, "");
+    const region = slug ? getRegion(slug) : undefined;
+    if (region) {
+      const desc =
+        region.intro.length > 158 ? `${region.intro.slice(0, 155).trim()}…` : region.intro;
+      return {
+        title: `Lavoro e selezione in ${region.name} | ${BASE}`,
+        description: desc,
+      };
+    }
+    return ROUTES["/italia"];
+  }
   if (pathname.startsWith("/settori/")) {
     const slug = pathname.replace(/^\/settori\//, "");
     const sector = slug ? getSector(slug) : undefined;

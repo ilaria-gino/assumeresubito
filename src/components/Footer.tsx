@@ -53,6 +53,16 @@ export function Footer() {
                   Retribuzioni orientative
                 </Link>
               </li>
+              <li>
+                <Link to="/italia" className={footLink}>
+                  Italia per regione
+                </Link>
+              </li>
+              <li>
+                <Link to="/risorse/checklist-annuncio" className={footLink}>
+                  Checklist annuncio
+                </Link>
+              </li>
             </ul>
           </div>
           <div>

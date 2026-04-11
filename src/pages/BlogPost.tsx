@@ -1,8 +1,10 @@
+import { useMemo } from "react";
 import { Link, useParams } from "react-router-dom";
 import { getArticleBySlug } from "../data/blog/posts";
 import { getBlogVisual } from "../data/blog/covers";
 import { getSector } from "../data/sectors";
 import { getSectorSlugForBlogArticle } from "../data/sectorArticleLinks";
+import { buildBlogArticleJsonLd, buildBreadcrumbListJsonLd } from "../data/blogStructuredData";
 
 export function BlogPost() {
   const { slug } = useParams<{ slug: string }>();
@@ -26,8 +28,26 @@ export function BlogPost() {
   const sectorSlug = getSectorSlugForBlogArticle(post.slug);
   const sector = sectorSlug ? getSector(sectorSlug) : undefined;
 
+  const articleJsonLd = useMemo(
+    () => JSON.stringify(buildBlogArticleJsonLd(post, `/blog/${post.slug}`)),
+    [post.slug, post.title, post.excerpt, post.dateIso],
+  );
+  const breadcrumbJsonLd = useMemo(
+    () =>
+      JSON.stringify(
+        buildBreadcrumbListJsonLd([
+          { name: "Home", path: "/" },
+          { name: "Blog", path: "/blog" },
+          { name: post.title, path: `/blog/${post.slug}` },
+        ]),
+      ),
+    [post.slug, post.title],
+  );
+
   return (
     <article className="luxury-page font-luxury-sans pb-24">
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: articleJsonLd }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: breadcrumbJsonLd }} />
       {/* Hero articolo */}
       <header className="relative">
         <div className="relative h-[min(52vh,420px)] min-h-[280px] w-full overflow-hidden bg-[#152435]">

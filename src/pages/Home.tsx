@@ -5,6 +5,7 @@ import { RoleAvatar } from "../components/RoleAvatar";
 import { exampleCandidates, heroEmployer, heroWorker } from "../data/freeMedia";
 import { ExplainerSection } from "../components/ExplainerSection";
 import { PostSignupJourney } from "../components/PostSignupJourney";
+import { AudienceFitSection, ToolsResourceStrip } from "../components/HomeSeoBlocks";
 import { TestimonialsMarquee } from "../components/TestimonialsMarquee";
 import { btnDark, btnPrimary, btnSecondary } from "../components/ui/ButtonStyles";
 
@@ -160,6 +161,8 @@ export function Home() {
       </section>
 
       <PostSignupJourney />
+
+      <AudienceFitSection />
 
       {/* Anonimato + card esempio */}
       <section className="border-y border-[#e1dbd1] bg-[#f7f5f1] px-4 py-16 sm:px-6">
@@ -402,6 +405,8 @@ export function Home() {
           </div>
         </div>
       </section>
+
+      <ToolsResourceStrip />
 
       <section className="bg-[#f7f5f1] px-4 py-16 sm:px-6">
         <div className="mx-auto max-w-6xl">

@@ -93,6 +93,9 @@ export function Header() {
           <NavLink to="/chi-siamo" className={desktopLink}>
             Chi siamo
           </NavLink>
+          <NavLink to="/italia" className={desktopLink}>
+            Italia
+          </NavLink>
           <NavLink to="/blog" className={desktopLink}>
             Blog
           </NavLink>
@@ -143,6 +146,9 @@ export function Header() {
             ))}
             <NavLink to="/chi-siamo" className={mobileLink} onClick={() => setOpen(false)}>
               Chi siamo
+            </NavLink>
+            <NavLink to="/italia" className={mobileLink} onClick={() => setOpen(false)}>
+              Italia
             </NavLink>
             <NavLink to="/blog" className={mobileLink} onClick={() => setOpen(false)}>
               Blog

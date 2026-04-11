@@ -1,4 +1,5 @@
 import { useRef } from "react";
+import { Link } from "react-router-dom";
 import { explainerVideoMp4, explainerVideoPoster } from "../data/freeMedia";
 
 export function ExplainerSection() {
@@ -14,7 +15,15 @@ export function ExplainerSection() {
         <p className="mx-auto mt-4 max-w-2xl text-[#cbd5e1]">
           Organizzazione per verticali di settore, livelli di dettaglio progressivi sui profili, tempi di risposta
           definiti (con riferimento alle quarantotto ore ove applicabile). Indirizzato a imprese e candidati che
-          richiedono un percorso strutturato.
+          richiedono un percorso strutturato. Per il contesto geografico:{" "}
+          <Link to="/italia" className="font-semibold text-[#FFCCBC] underline decoration-[#FF6B35]/50 underline-offset-2">
+            pagine per regione
+          </Link>
+          ; per dubbi operativi:{" "}
+          <Link to="/faq" className="font-semibold text-[#FFCCBC] underline decoration-[#FF6B35]/50 underline-offset-2">
+            FAQ
+          </Link>
+          .
         </p>
 
         <div className="relative mt-10 overflow-hidden rounded-3xl border border-white/10 bg-black/40 shadow-[0_24px_80px_rgba(0,0,0,0.45)] ring-1 ring-white/10">

@@ -66,7 +66,11 @@ export function BlogIndex() {
               <Link to="/" className="text-amber-200/90 underline decoration-amber-500/50 underline-offset-2">
                 dalla home
               </Link>
-              ). Ogni articolo si chiude con FAQ. Per risposte rapide:{" "}
+              ).               Ogni articolo si chiude con FAQ. Hub geografico:{" "}
+              <Link to="/italia" className="text-amber-200/90 underline decoration-amber-500/50 underline-offset-2">
+                Italia per regione
+              </Link>
+              . Per risposte rapide:{" "}
               <Link to="/faq" className="text-amber-200/90 underline decoration-amber-500/50 underline-offset-2">
                 pagina FAQ
               </Link>
