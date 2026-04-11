@@ -40,21 +40,20 @@ export function Home() {
         <div className="relative z-10 mx-auto w-full max-w-6xl px-4 pb-20 pt-10 sm:px-6 sm:pb-24 sm:pt-14">
           <div className="mx-auto max-w-3xl text-center">
             <p className="text-[0.65rem] font-bold uppercase tracking-[0.35em] text-[#FF8F5E]">{BRAND.domain}</p>
-            <h1 className="font-luxury-display mt-5 text-4xl font-semibold leading-[1.08] tracking-tight text-white sm:text-5xl md:text-[3.25rem]">
-              Selezione tra{" "}
-              <em className="not-italic text-[#FF8F5E]">imprese</em> e <em className="not-italic text-white/95">candidati</em>
-              , con verticali e tempi definiti.
+            <h1 className="font-luxury-display mt-5 text-center">
+              <span className="block text-[2rem] font-extrabold leading-[1.06] tracking-tight text-white sm:text-5xl md:text-[3.5rem] md:leading-[1.05]">
+                Selezione tra <em className="not-italic text-[#FF8F5E]">imprese</em> e{" "}
+                <em className="not-italic text-white">candidati</em>
+              </span>
+              <span className="mx-auto mt-4 block max-w-3xl text-lg font-bold leading-snug text-white sm:text-xl md:text-2xl">
+                <span className="text-[#FFCCBC]">Regioni, province e città</span> su tutta Italia —{" "}
+                <span className="text-white">verticali di settore</span> e{" "}
+                <span className="text-white/95">tempi definiti</span>
+                <span className="mt-2 block text-base font-semibold text-white/85 sm:text-lg">
+                  Risposta orientata alle 48 ore ove applicabile.
+                </span>
+              </span>
             </h1>
-            <p className="mx-auto mt-6 max-w-2xl text-base leading-relaxed text-white/85 sm:text-lg">
-              Una <strong className="font-semibold text-white">bacheca on-line</strong> (come un marketplace di annunci),
-              non un&apos;agenzia: mettiamo in contatto domanda e offerta con profili a dettaglio progressivo, filtri per
-              competenza e <strong className="font-semibold text-white">area in Italia</strong> (regione e città) e, per i
-              candidati, <strong className="font-semibold text-white">raggio di spostamento in km</strong> — tempi orientati
-              alle 48 ore ove applicabile. Le imprese usano la piattaforma con
-              abbonamento <strong className="font-semibold text-white">Starter</strong>,{" "}
-              <strong className="font-semibold text-white">Basic</strong> o{" "}
-              <strong className="font-semibold text-white">Full</strong>.
-            </p>
             <div className="mt-10 flex flex-col items-stretch justify-center gap-3 sm:flex-row sm:flex-wrap sm:items-center sm:justify-center">
               <Link to="/registrazione/azienda" className={btnPrimary}>
                 Sono un&apos;azienda
@@ -115,6 +114,18 @@ export function Home() {
               </figcaption>
             </figure>
           </div>
+
+          <p className="mx-auto mt-10 max-w-3xl text-center text-base font-semibold leading-relaxed text-white/92 sm:mt-12 sm:text-lg">
+            Una <strong className="font-bold text-white">bacheca on-line</strong> (come un marketplace di annunci),{" "}
+            <strong className="font-bold text-white">non un&apos;agenzia</strong>: mettiamo in contatto domanda e offerta
+            con profili a <strong className="font-bold text-white">dettaglio progressivo</strong>, filtri per competenza e{" "}
+            <strong className="font-bold text-white">area in Italia</strong> (regione e città) e, per i candidati,{" "}
+            <strong className="font-bold text-white">raggio di spostamento in km</strong> — tempi orientati alle{" "}
+            <strong className="font-bold text-white">48 ore</strong> ove applicabile. Le imprese usano la piattaforma con
+            abbonamento <strong className="font-bold text-[#FF8F5E]">Starter</strong>,{" "}
+            <strong className="font-bold text-[#FF8F5E]">Basic</strong> o <strong className="font-bold text-[#FF8F5E]">Full</strong>
+            .
+          </p>
 
           <dl className="mx-auto mt-12 grid max-w-3xl gap-3 text-sm sm:grid-cols-2 sm:text-left">
             <div className="rounded-xl border border-white/15 bg-white/10 px-4 py-3 text-white/90 backdrop-blur-sm">
