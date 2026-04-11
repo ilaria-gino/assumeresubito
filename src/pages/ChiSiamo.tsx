@@ -25,14 +25,14 @@ export function ChiSiamo() {
       <p className="mt-4 text-lg leading-relaxed text-[#152435]/90">
         Le imprese accedono tramite abbonamento (<strong>Starter</strong>, <strong>Basic</strong> o{" "}
         <strong>Full</strong>), come descritto in{" "}
-        <Link to="/prezzi" className="premium-link">
-          Prezzi
+        <Link to="/registrazione/azienda" className="premium-link">
+          Iscrizione imprese e piani
         </Link>
         ; i candidati non pagano per il <strong>profilo base</strong> (solo contattati dalle imprese). Chi richiede anche
         le funzioni per <strong>cercare attivamente le aziende</strong> può sottoscrivere un piano candidato a parte, come
         da{" "}
-        <Link to="/prezzi#piano-cerca-aziende" className="premium-link">
-          Prezzi
+        <Link to="/registrazione/candidato#piano-cerca-aziende" className="premium-link">
+          Piano candidato «Cerca aziende»
         </Link>
         . Con <strong>Starter</strong> e <strong>Basic</strong> l’iniziativa di
         contatto dopo lo sblocco resta in capo all’impresa; il piano <strong>Full</strong> (top) può includere, se abilitato

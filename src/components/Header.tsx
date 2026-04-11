@@ -90,9 +90,6 @@ export function Header() {
               </ul>
             </div>
           </div>
-          <NavLink to="/prezzi" className={desktopLink}>
-            Prezzi
-          </NavLink>
           <NavLink to="/chi-siamo" className={desktopLink}>
             Chi siamo
           </NavLink>
@@ -105,10 +102,10 @@ export function Header() {
         </nav>
 
         <div className="hidden items-center gap-2 sm:flex">
-          <Link to="/registrazione#candidato" className={btnGhostSm}>
+          <Link to="/registrazione/candidato" className={btnGhostSm}>
             Cerco lavoro
           </Link>
-          <Link to="/registrazione#azienda" className={btnPrimarySm}>
+          <Link to="/registrazione/azienda" className={btnPrimarySm}>
             Sono un&apos;azienda
           </Link>
         </div>
@@ -144,9 +141,6 @@ export function Header() {
                 {s.title}
               </Link>
             ))}
-            <NavLink to="/prezzi" className={mobileLink} onClick={() => setOpen(false)}>
-              Prezzi
-            </NavLink>
             <NavLink to="/chi-siamo" className={mobileLink} onClick={() => setOpen(false)}>
               Chi siamo
             </NavLink>
@@ -157,14 +151,14 @@ export function Header() {
               FAQ
             </NavLink>
             <Link
-              to="/registrazione#candidato"
+              to="/registrazione/candidato"
               className={`${btnGhostSm} mt-2 w-full justify-center`}
               onClick={() => setOpen(false)}
             >
               Cerco lavoro
             </Link>
             <Link
-              to="/registrazione#azienda"
+              to="/registrazione/azienda"
               className={`${btnPrimarySm} w-full justify-center`}
               onClick={() => setOpen(false)}
             >

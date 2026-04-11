@@ -37,13 +37,13 @@ export function SectorPage() {
           <p className="mt-4 max-w-2xl text-lg text-white/75">{sector.heroSubtitle}</p>
           <div className="mt-8 flex flex-wrap gap-3">
             <Link
-              to="/registrazione#azienda"
+              to="/registrazione/azienda"
               className={`${btnPrimarySm} px-6 py-3 text-base shadow-lg`}
             >
               {sector.cta}
             </Link>
             <Link
-              to="/registrazione#candidato"
+              to="/registrazione/candidato"
               className="inline-flex rounded-xl border border-white/25 bg-white/10 px-6 py-3 font-semibold text-white backdrop-blur-sm transition hover:bg-white/20"
             >
               Registrati come candidato
@@ -137,8 +137,8 @@ export function SectorPage() {
           <h2 className="font-luxury-display text-xl font-semibold text-[#152435]">Un percorso dedicato al settore</h2>
           <p className="mt-2 text-[#6b7a8d]">
             Messaggi e filtri sono calibrati sul vertical di riferimento. Per le condizioni economiche:{" "}
-            <Link to="/prezzi" className="premium-link">
-              Prezzi
+            <Link to="/registrazione/azienda" className="premium-link">
+              Piani imprese (modulo affiancato)
             </Link>
             .
           </p>

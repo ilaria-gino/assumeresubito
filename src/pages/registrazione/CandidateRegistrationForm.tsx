@@ -1,0 +1,735 @@
+import { useState } from "react";
+import { Link } from "react-router-dom";
+import { getSupabase, isSupabaseConfigured } from "../../lib/supabase";
+import { tradeSkillGroupsForSector } from "../../data/candidateTradeSkills";
+import { TRAVEL_RADIUS_OPTIONS } from "../../data/italyGeo";
+import { CANDIDATE_COUNTRIES } from "../../data/candidateCountries";
+import { RegionCitySelects } from "../../components/RegionCitySelects";
+import { registerCandidateSession } from "../../lib/searchSession";
+
+const legalBox =
+  "space-y-3 rounded-xl border border-slate-200 bg-slate-50/90 p-4 text-sm text-slate-800 [&_a]:underline [&_a]:underline-offset-2";
+
+type FormStatus = "idle" | "loading" | "success" | "error";
+
+export function CandidateRegistrationForm() {
+  const [cdStatus, setCdStatus] = useState<FormStatus>("idle");
+  const [cdMessage, setCdMessage] = useState("");
+  const [cdSector, setCdSector] = useState("");
+  const [cdRegion, setCdRegion] = useState("");
+  const [cdCity, setCdCity] = useState("");
+  const [cdTravelKm, setCdTravelKm] = useState("");
+  const [cdMode, setCdMode] = useState<"contact_only" | "active_search">(
+    "contact_only",
+  );
+  const [cdCountry, setCdCountry] = useState("Italia");
+  const [cdRegionAbroad, setCdRegionAbroad] = useState("");
+  const [cdCityAbroad, setCdCityAbroad] = useState("");
+  const configured = isSupabaseConfigured();
+
+  return (
+    <>
+      {!configured && (
+        <p
+          className="mb-6 rounded-xl border border-amber-200 bg-amber-50 px-4 py-3 text-sm text-amber-950"
+          role="status"
+        >
+          Invio modulo temporaneamente non disponibile. Per urgenze usa la
+          pagina Contatti.
+        </p>
+      )}
+      <section
+        id="candidato"
+        className="scroll-mt-24 rounded-3xl border border-[#FF6B35]/20 bg-[#fff7ed]/60 p-8 shadow-sm"
+      >
+        <h2 className="text-xl font-bold text-slate-900">Cerco lavoro</h2>
+        <p className="mt-2 text-sm text-slate-600">
+          2–4 minuti. Scegli sotto se vuoi restare{" "}
+          <strong className="text-slate-800">
+            solo tra i profili contattabili
+          </strong>{" "}
+          dalle imprese (gratis) oppure attivare anche la ricerca attiva verso
+          le aziende (piano a pagamento). Indica{" "}
+          <strong className="text-slate-800">Paese</strong>, località,{" "}
+          <strong className="text-slate-800">CAP</strong> (a mano) e{" "}
+          <strong className="text-slate-800">km</strong> in modo coerente: così
+          le aziende capiscono subito se la zona è compatibile.
+        </p>
+        <form
+          className="mt-6 space-y-4"
+          onSubmit={async (e) => {
+            e.preventDefault();
+            const form = e.currentTarget;
+            const fd = new FormData(form);
+            const cdConsents = [
+              "cd_veritieri",
+              "cd_privacy",
+              "cd_trattamento",
+              "cd_anon",
+              "cd_comunicazione",
+            ] as const;
+            for (const name of cdConsents) {
+              if (fd.get(name) !== "on") {
+                setCdStatus("error");
+                setCdMessage(
+                  "Per proseguire devi accettare tutte le dichiarazioni obbligatorie in calce al modulo.",
+                );
+                return;
+              }
+            }
+
+            const modeRaw = fd.get("cd_mode");
+            const registration_mode =
+              modeRaw === "active_search" ? "active_search" : "contact_only";
+            if (
+              registration_mode === "active_search" &&
+              fd.get("cd_piano_cerca") !== "on"
+            ) {
+              setCdStatus("error");
+                setCdMessage(
+                  "Per il percorso «Cerca aziende» devi confermare di aver preso visione del piano nel riquadro a destra (o sopra il modulo su telefono) e spuntare la casella sotto.",
+                );
+              return;
+            }
+
+            const country =
+              String(fd.get("cd_country") ?? cdCountry).trim() || "Italia";
+
+            let region: string;
+            let city: string;
+            if (country === "Italia") {
+              if (!cdRegion.trim() || !cdCity.trim()) {
+                setCdStatus("error");
+                setCdMessage(
+                  "Seleziona regione e città italiane di residenza o di riferimento.",
+                );
+                return;
+              }
+              region = cdRegion.trim();
+              city = cdCity.trim();
+            } else {
+              city = String(fd.get("cd_city_abroad") ?? cdCityAbroad).trim();
+              if (!city) {
+                setCdStatus("error");
+                setCdMessage(
+                  "Indica la città (o località) nel Paese selezionato.",
+                );
+                return;
+              }
+              const ra = String(
+                fd.get("cd_region_abroad") ?? cdRegionAbroad,
+              ).trim();
+              region = ra || "—";
+            }
+
+            const postal_code = String(fd.get("cd_cap") ?? "")
+              .trim()
+              .replace(/\s/g, "");
+            if (!postal_code) {
+              setCdStatus("error");
+              setCdMessage(
+                "Inserisci il CAP (Italia) o il codice postale della tua zona di riferimento.",
+              );
+              return;
+            }
+            if (country === "Italia" && !/^\d{5}$/.test(postal_code)) {
+              setCdStatus("error");
+              setCdMessage(
+                "Per l’Italia il CAP è composto da esattamente 5 cifre.",
+              );
+              return;
+            }
+            if (postal_code.length > 16) {
+              setCdStatus("error");
+              setCdMessage("Codice postale troppo lungo. Controlla e riprova.");
+              return;
+            }
+
+            const first_name = String(fd.get("nome") ?? "").trim();
+            const last_name = String(fd.get("cognome") ?? "").trim();
+            const age = Number(fd.get("eta"));
+            const travelRadiusRaw =
+              cdTravelKm === "" ? NaN : Number(cdTravelKm);
+            if (!Number.isFinite(travelRadiusRaw)) {
+              setCdStatus("error");
+              setCdMessage(
+                "Indica quanti chilometri sei disposto a spostarti per lavoro.",
+              );
+              return;
+            }
+            const sector = String(fd.get("settore") ?? "").trim();
+            const expRaw = fd.get("esperienza");
+            const experience_years =
+              expRaw === "" || expRaw === null ? null : Number(expRaw);
+            const has_car = fd.get("automunito") === "on";
+            const has_license = fd.get("patente") === "on";
+            const email = String(fd.get("email") ?? "").trim();
+            const trade_skills = fd.getAll("trade_skill").map(String);
+
+            const sb = getSupabase();
+            if (!sb) {
+              setCdStatus("error");
+              setCdMessage(
+                "Servizio non disponibile. Riprova più tardi o contattaci.",
+              );
+              return;
+            }
+
+            setCdStatus("loading");
+            setCdMessage("");
+            const { error } = await sb.from("candidate_leads").insert({
+              first_name,
+              last_name,
+              age,
+              country,
+              region,
+              city,
+              postal_code,
+              travel_radius_km: travelRadiusRaw,
+              registration_mode,
+              sector,
+              experience_years: Number.isFinite(experience_years as number)
+                ? experience_years
+                : null,
+              has_car,
+              has_license,
+              email,
+              trade_skills,
+            });
+
+            if (error) {
+              setCdStatus("error");
+              setCdMessage(
+                error.message ||
+                  "Impossibile completare l'invio. Riprova o contattaci.",
+              );
+              return;
+            }
+
+            setCdStatus("success");
+            setCdMessage(
+              registration_mode === "active_search"
+                ? "Richiesta registrata. Ti contatteremo all’indirizzo email indicato con le istruzioni per attivare il piano «Cerca aziende» e completare il pagamento (integrazione in arrivo)."
+                : "Profilo inviato. Riceverai aggiornamenti via email.",
+            );
+            registerCandidateSession(
+              registration_mode === "active_search"
+                ? "active_search"
+                : "contact_only",
+            );
+            form.reset();
+            setCdSector("");
+            setCdRegion("");
+            setCdCity("");
+            setCdTravelKm("");
+            setCdMode("contact_only");
+            setCdCountry("Italia");
+            setCdRegionAbroad("");
+            setCdCityAbroad("");
+          }}
+        >
+          {cdStatus !== "idle" && (
+            <p
+              className={`rounded-xl px-4 py-3 text-sm font-medium ${
+                cdStatus === "success"
+                  ? "bg-emerald-50 text-emerald-950"
+                  : cdStatus === "error"
+                    ? "bg-red-50 text-red-900"
+                    : "bg-slate-100 text-slate-700"
+              }`}
+              role="status"
+            >
+              {cdStatus === "loading" ? "Invio in corso…" : cdMessage}
+            </p>
+          )}
+          <fieldset
+            className="space-y-4 rounded-2xl border-2 border-[#152435]/25 bg-gradient-to-b from-white via-slate-50/50 to-[#f8fafc] p-5 shadow-[0_8px_30px_rgba(21,36,53,0.08)] sm:p-6"
+            disabled={cdStatus === "loading"}
+          >
+            <legend className="mb-1 w-full px-0">
+              <span className="block text-center text-[0.65rem] font-bold uppercase tracking-[0.2em] text-[#2C4A6E] sm:text-left">
+                Scegli il tuo percorso
+              </span>
+              <span className="mt-2 block text-center text-lg font-bold leading-tight text-[#152435] sm:text-left sm:text-xl">
+                Gratis <span className="text-[#6b7a8d]">oppure</span> a
+                pagamento
+              </span>
+            </legend>
+            <label
+              className={`flex cursor-pointer gap-3 rounded-xl border-2 p-4 transition sm:p-5 ${
+                cdMode === "contact_only"
+                  ? "border-emerald-600/50 bg-emerald-50/40 ring-2 ring-emerald-600/20"
+                  : "border-slate-200 bg-white/80 hover:border-slate-300"
+              }`}
+            >
+              <input
+                type="radio"
+                name="cd_mode"
+                value="contact_only"
+                checked={cdMode === "contact_only"}
+                onChange={() => setCdMode("contact_only")}
+                className="mt-1.5 h-4 w-4 shrink-0 accent-emerald-700"
+              />
+              <div className="min-w-0 flex-1">
+                <span className="flex flex-wrap items-center gap-2 font-bold text-slate-900">
+                  Solo essere contattato dalle imprese
+                  <span className="rounded-full bg-emerald-600 px-2.5 py-0.5 text-[0.65rem] font-bold uppercase tracking-wide text-white">
+                    Gratis
+                  </span>
+                </span>
+                <p className="mt-1 text-sm text-slate-600">
+                  Profilo <strong>gratuito</strong>: le aziende abbonate possono
+                  individuarti in base a settore, Paese, località e km che
+                  indichi. L&apos;iniziativa del contatto resta in genere loro,
+                  salvo eccezioni (es. piano Full dell&apos;impresa).
+                </p>
+              </div>
+            </label>
+            <label
+              className={`flex cursor-pointer gap-3 rounded-xl border-2 p-4 transition sm:p-5 ${
+                cdMode === "active_search"
+                  ? "border-[#FF6B35] bg-[#fff7ed] ring-2 ring-[#FF6B35]/30"
+                  : "border-slate-200 bg-white/80 hover:border-slate-300"
+              }`}
+            >
+              <input
+                type="radio"
+                name="cd_mode"
+                value="active_search"
+                checked={cdMode === "active_search"}
+                onChange={() => setCdMode("active_search")}
+                className="mt-1.5 h-4 w-4 shrink-0 accent-[#FF6B35]"
+              />
+              <div className="min-w-0 flex-1">
+                <span className="flex flex-wrap items-center gap-2 font-bold text-slate-900">
+                  Voglio cercare attivamente le aziende
+                  <span className="rounded-full bg-[#FF6B35] px-2.5 py-0.5 text-[0.65rem] font-bold uppercase tracking-wide text-[#0A0F1C]">
+                    A pagamento
+                  </span>
+                </span>
+                <p className="mt-1 text-sm text-slate-600">
+                  Piano <strong>a pagamento</strong> (indicativo:{" "}
+                  <strong>99 € / 6 mesi</strong> + IVA): consente, dopo
+                  attivazione e pagamento, l&apos;accesso alle funzioni di
+                  consultazione dei profili imprese in linea con il tuo profilo,
+                  come da{" "}
+                  <a
+                    href="#piano-cerca-aziende"
+                    className="font-semibold text-[#2C4A6E] underline"
+                  >
+                    riquadro del piano
+                  </a>
+                  . L&apos;integrazione di pagamento è in fase di completamento:
+                  invii ora la richiesta e ricevi il link o le istruzioni via
+                  email.
+                </p>
+              </div>
+            </label>
+          </fieldset>
+          <div className="grid gap-4 sm:grid-cols-2">
+            <div>
+              <label
+                className="block text-sm font-medium text-slate-700"
+                htmlFor="cd-nome"
+              >
+                Nome
+              </label>
+              <input
+                id="cd-nome"
+                name="nome"
+                required
+                disabled={cdStatus === "loading"}
+                className="mt-1 w-full rounded-xl border border-slate-200 px-4 py-3 text-slate-900 disabled:opacity-60"
+              />
+            </div>
+            <div>
+              <label
+                className="block text-sm font-medium text-slate-700"
+                htmlFor="cd-cognome"
+              >
+                Cognome
+              </label>
+              <input
+                id="cd-cognome"
+                name="cognome"
+                required
+                disabled={cdStatus === "loading"}
+                className="mt-1 w-full rounded-xl border border-slate-200 px-4 py-3 text-slate-900 disabled:opacity-60"
+              />
+            </div>
+          </div>
+          <div>
+            <label
+              className="block text-sm font-medium text-slate-700"
+              htmlFor="cd-eta"
+            >
+              Età
+            </label>
+            <input
+              id="cd-eta"
+              name="eta"
+              type="number"
+              min={16}
+              max={80}
+              required
+              disabled={cdStatus === "loading"}
+              className="mt-1 w-full rounded-xl border border-slate-200 px-4 py-3 text-slate-900 disabled:opacity-60"
+            />
+          </div>
+          <div>
+            <label
+              className="block text-sm font-medium text-slate-700"
+              htmlFor="cd-country"
+            >
+              Paese di residenza o di riferimento
+            </label>
+            <select
+              id="cd-country"
+              name="cd_country"
+              required
+              value={cdCountry}
+              onChange={(e) => {
+                setCdCountry(e.target.value);
+                setCdRegion("");
+                setCdCity("");
+                setCdRegionAbroad("");
+                setCdCityAbroad("");
+              }}
+              disabled={cdStatus === "loading"}
+              className="mt-1 w-full rounded-xl border border-slate-200 px-4 py-3 text-slate-900 disabled:opacity-60"
+            >
+              {CANDIDATE_COUNTRIES.map((c) => (
+                <option key={c} value={c}>
+                  {c}
+                </option>
+              ))}
+            </select>
+            <p className="mt-1 text-xs text-slate-600">
+              Paese, città e km devono essere <strong>coerenti tra loro</strong>
+              : così le imprese evitano contatti inutili e il servizio risulta
+              più professionale per tutti.
+            </p>
+          </div>
+          {cdCountry === "Italia" ? (
+            <RegionCitySelects
+              regionId="cd-region"
+              cityId="cd-city"
+              regionName={cdRegion}
+              cityName={cdCity}
+              disabled={cdStatus === "loading"}
+              onRegionChange={setCdRegion}
+              onCityChange={setCdCity}
+              regionLabel="Regione (Italia)"
+              cityLabel="Città di residenza o di riferimento"
+            />
+          ) : (
+            <div className="grid gap-4 sm:grid-cols-2">
+              <div className="sm:col-span-2">
+                <label
+                  className="block text-sm font-medium text-slate-700"
+                  htmlFor="cd-region-abroad"
+                >
+                  Regione / stato / provincia (facoltativo)
+                </label>
+                <input
+                  id="cd-region-abroad"
+                  name="cd_region_abroad"
+                  value={cdRegionAbroad}
+                  onChange={(e) => setCdRegionAbroad(e.target.value)}
+                  disabled={cdStatus === "loading"}
+                  className="mt-1 w-full rounded-xl border border-slate-200 px-4 py-3 text-slate-900 disabled:opacity-60"
+                  placeholder="Es. Canton Ticino, Carinzia…"
+                />
+              </div>
+              <div className="sm:col-span-2">
+                <label
+                  className="block text-sm font-medium text-slate-700"
+                  htmlFor="cd-city-abroad"
+                >
+                  Città o località
+                </label>
+                <input
+                  id="cd-city-abroad"
+                  name="cd_city_abroad"
+                  required
+                  value={cdCityAbroad}
+                  onChange={(e) => setCdCityAbroad(e.target.value)}
+                  disabled={cdStatus === "loading"}
+                  className="mt-1 w-full rounded-xl border border-slate-200 px-4 py-3 text-slate-900 disabled:opacity-60"
+                  placeholder="Es. Lugano, Monaco di Baviera…"
+                />
+              </div>
+            </div>
+          )}
+          <div className="rounded-xl border border-slate-200 bg-slate-50/80 p-4">
+            <label
+              className="block text-sm font-semibold text-slate-800"
+              htmlFor="cd-cap"
+            >
+              CAP / codice postale
+            </label>
+            <input
+              id="cd-cap"
+              name="cd_cap"
+              required
+              maxLength={16}
+              inputMode={cdCountry === "Italia" ? "numeric" : "text"}
+              autoComplete="postal-code"
+              disabled={cdStatus === "loading"}
+              placeholder={
+                cdCountry === "Italia"
+                  ? "Es. 35100 (5 cifre)"
+                  : "Codice postale della tua zona"
+              }
+              title={
+                cdCountry === "Italia" ? "CAP italiano: 5 cifre" : undefined
+              }
+              pattern={cdCountry === "Italia" ? "[0-9]{5}" : undefined}
+              className="mt-2 w-full max-w-xs rounded-xl border border-slate-200 px-4 py-3 text-slate-900 disabled:opacity-60"
+            />
+            <p className="mt-2 text-xs leading-relaxed text-slate-600">
+              <strong className="text-slate-800">
+                Lo inserisci tu a mano:
+              </strong>{" "}
+              affina la zona rispetto alla sola città scelta nell&apos;elenco e
+              ai chilometri che dichiari sotto — le imprese capiscono prima se
+              ha senso approfondire.
+            </p>
+          </div>
+          <div>
+            <label
+              className="block text-sm font-medium text-slate-700"
+              htmlFor="cd-travel-km"
+            >
+              Quanti km sei disposto a spostarti per lavoro?
+            </label>
+            <select
+              id="cd-travel-km"
+              required
+              value={cdTravelKm}
+              onChange={(e) => setCdTravelKm(e.target.value)}
+              disabled={cdStatus === "loading"}
+              className="mt-1 w-full rounded-xl border border-slate-200 px-4 py-3 text-slate-900 disabled:opacity-60"
+            >
+              <option value="">Scegli…</option>
+              {TRAVEL_RADIUS_OPTIONS.map((o) => (
+                <option key={o.value} value={String(o.value)}>
+                  {o.label}
+                </option>
+              ))}
+            </select>
+            <p className="mt-1 text-xs text-slate-600">
+              Riferito al <strong>Paese e alla località</strong> che hai
+              indicato sopra: le imprese valutano se sede o cantiere rientrano
+              nel raggio che dichiari (non è un impegno contrattuale).
+            </p>
+          </div>
+          {cdMode === "active_search" && (
+            <div className="rounded-xl border border-[#FF6B35]/35 bg-[#fff7ed]/70 p-4 text-sm text-slate-800">
+              <label className="flex cursor-pointer items-start gap-3">
+                <input
+                  type="checkbox"
+                  name="cd_piano_cerca"
+                  className="mt-1 shrink-0 rounded border-slate-300"
+                />
+                <span>
+                  Ho preso visione del piano <strong>Cerca aziende</strong>{" "}
+                  nel{" "}
+                  <a
+                    href="#piano-cerca-aziende"
+                    className="font-semibold text-[#2C4A6E] underline"
+                  >
+                    riquadro accanto al modulo
+                  </a>{" "}
+                  (corrispettivo indicativo <strong>99 € / 6 mesi</strong> +
+                  IVA) e richiedo di essere ricontattato per attivazione e
+                  pagamento quando lo strumento sarà operativo.
+                </span>
+              </label>
+            </div>
+          )}
+          <div>
+            <label
+              className="block text-sm font-medium text-slate-700"
+              htmlFor="cd-settore"
+            >
+              Settore di interesse
+            </label>
+            <select
+              id="cd-settore"
+              name="settore"
+              required
+              value={cdSector}
+              onChange={(e) => setCdSector(e.target.value)}
+              disabled={cdStatus === "loading"}
+              className="mt-1 w-full rounded-xl border border-slate-200 px-4 py-3 text-slate-900 disabled:opacity-60"
+            >
+              <option value="">Scegli…</option>
+              <option>Immobiliare</option>
+              <option>Ristorazione</option>
+              <option>Logistica</option>
+              <option>Edilizia</option>
+              <option>Termoidraulica / impianti idraulici</option>
+              <option>Impianti elettrici</option>
+              <option>Uffici / amministrazione</option>
+              <option>Commercio</option>
+            </select>
+          </div>
+          {tradeSkillGroupsForSector(cdSector).length > 0 && (
+            <fieldset
+              className="space-y-4 rounded-xl border border-[#FF6B35]/25 bg-[#fff7ed]/40 p-4"
+              disabled={cdStatus === "loading"}
+            >
+              <legend className="text-sm font-semibold text-[#152435]">
+                Competenze che ti rappresentano (seleziona tutte le pertinenti)
+              </legend>
+              <p className="text-xs text-slate-600">
+                Così le aziende capiscono se cerchi davvero il loro tipo di
+                lavoro (muratura vs cartongesso, civile vs climatizzazione,
+                ecc.).
+              </p>
+              {tradeSkillGroupsForSector(cdSector).map((group) => (
+                <div key={group.label}>
+                  <p className="text-xs font-bold uppercase tracking-wide text-[#6b7a8d]">
+                    {group.label}
+                  </p>
+                  <div className="mt-2 flex flex-wrap gap-2">
+                    {group.skills.map((s) => (
+                      <label
+                        key={s.id}
+                        className="inline-flex cursor-pointer items-center gap-2 rounded-lg border border-slate-200 bg-white px-3 py-2 text-sm text-slate-800 shadow-sm"
+                      >
+                        <input
+                          type="checkbox"
+                          name="trade_skill"
+                          value={s.id}
+                          className="rounded border-slate-300"
+                        />
+                        {s.label}
+                      </label>
+                    ))}
+                  </div>
+                </div>
+              ))}
+            </fieldset>
+          )}
+          <div>
+            <label
+              className="block text-sm font-medium text-slate-700"
+              htmlFor="cd-exp"
+            >
+              Anni di esperienza
+            </label>
+            <input
+              id="cd-exp"
+              name="esperienza"
+              type="number"
+              min={0}
+              max={50}
+              disabled={cdStatus === "loading"}
+              className="mt-1 w-full rounded-xl border border-slate-200 px-4 py-3 text-slate-900 disabled:opacity-60"
+            />
+          </div>
+          <fieldset className="space-y-2" disabled={cdStatus === "loading"}>
+            <legend className="text-sm font-medium text-slate-700">
+              Disponibilità
+            </legend>
+            <label className="flex items-center gap-2 text-slate-700">
+              <input type="checkbox" name="automunito" /> Automunito
+            </label>
+            <label className="flex items-center gap-2 text-slate-700">
+              <input type="checkbox" name="patente" /> Patente
+            </label>
+          </fieldset>
+          <div>
+            <label
+              className="block text-sm font-medium text-slate-700"
+              htmlFor="cd-email"
+            >
+              Email
+            </label>
+            <input
+              id="cd-email"
+              name="email"
+              type="email"
+              required
+              disabled={cdStatus === "loading"}
+              className="mt-1 w-full rounded-xl border border-slate-200 px-4 py-3 text-slate-900 disabled:opacity-60"
+            />
+          </div>
+          <fieldset className={legalBox} disabled={cdStatus === "loading"}>
+            <legend className="mb-2 text-sm font-semibold text-slate-900">
+              Dichiarazioni obbligatorie
+            </legend>
+            <label className="flex cursor-pointer items-start gap-2">
+              <input
+                type="checkbox"
+                name="cd_veritieri"
+                className="mt-1 shrink-0"
+                required
+              />
+              <span>Dichiaro che i dati inseriti sono veritieri</span>
+            </label>
+            <label className="flex cursor-pointer items-start gap-2">
+              <input
+                type="checkbox"
+                name="cd_privacy"
+                className="mt-1 shrink-0"
+                required
+              />
+              <span>
+                Ho letto e accetto la{" "}
+                <Link to="/privacy" target="_blank" rel="noreferrer">
+                  Privacy Policy
+                </Link>
+              </span>
+            </label>
+            <label className="flex cursor-pointer items-start gap-2">
+              <input
+                type="checkbox"
+                name="cd_trattamento"
+                className="mt-1 shrink-0"
+                required
+              />
+              <span>
+                Acconsento al trattamento dei miei dati personali per finalità
+                di inserimento nella piattaforma
+              </span>
+            </label>
+            <label className="flex cursor-pointer items-start gap-2">
+              <input
+                type="checkbox"
+                name="cd_anon"
+                className="mt-1 shrink-0"
+                required
+              />
+              <span>
+                Acconsento alla visualizzazione del mio profilo in forma
+                anonimizzata
+              </span>
+            </label>
+            <label className="flex cursor-pointer items-start gap-2">
+              <input
+                type="checkbox"
+                name="cd_comunicazione"
+                className="mt-1 shrink-0"
+                required
+              />
+              <span>
+                Acconsento alla comunicazione dei miei dati alle aziende
+                registrate secondo le modalità del servizio
+              </span>
+            </label>
+          </fieldset>
+          <button
+            type="submit"
+            disabled={cdStatus === "loading"}
+            className="w-full rounded-xl bg-[#152435] py-3 font-bold text-white transition hover:bg-[#2C4A6E] disabled:opacity-60"
+          >
+            {cdStatus === "loading" ? "Invio…" : "Invia profilo"}
+          </button>
+        </form>
+      </section>
+    </>
+  );
+}

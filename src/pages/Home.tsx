@@ -56,11 +56,11 @@ export function Home() {
               <strong className="font-semibold text-white">Full</strong>.
             </p>
             <div className="mt-10 flex flex-col items-stretch justify-center gap-3 sm:flex-row sm:flex-wrap sm:items-center sm:justify-center">
-              <Link to="/registrazione#azienda" className={btnPrimary}>
+              <Link to="/registrazione/azienda" className={btnPrimary}>
                 Sono un&apos;azienda
               </Link>
               <Link
-                to="/registrazione#candidato"
+                to="/registrazione/candidato"
                 className={`${btnSecondary} !border-white/25 !bg-white/10 !from-white/10 !to-white/5 !text-white !shadow-none hover:!border-white/40 hover:!bg-white/15`}
               >
                 Cerco lavoro
@@ -122,7 +122,10 @@ export function Home() {
               <dd className="mt-1 text-white/75">
                 Percorso <strong className="text-white/90">gratis</strong> se resti tra i profili contattabili; opzione{" "}
                 <strong className="text-white/90">a pagamento</strong> per cercare attivamente le aziende.{" "}
-                <Link to="/prezzi#piano-cerca-aziende" className="font-semibold text-[#FF8F5E] underline underline-offset-2">
+                <Link
+                  to="/registrazione/candidato#piano-cerca-aziende"
+                  className="font-semibold text-[#FF8F5E] underline underline-offset-2"
+                >
                   Piano 6 mesi
                 </Link>
                 .
@@ -134,8 +137,8 @@ export function Home() {
                 Tre formule: <strong className="text-white/90">Starter</strong>,{" "}
                 <strong className="text-white/90">Basic</strong> e <strong className="text-white/90">Full (top)</strong> —
                 solo col Full i candidati possono contattarvi se abilitato in contratto. Dettagli in{" "}
-                <Link to="/prezzi" className="font-semibold text-[#FF8F5E] underline underline-offset-2">
-                  Prezzi
+                <Link to="/registrazione/azienda" className="font-semibold text-[#FF8F5E] underline underline-offset-2">
+                  Iscrizione e piani imprese
                 </Link>
                 .
               </dd>
@@ -241,8 +244,8 @@ export function Home() {
             <strong className="text-[#152435]">Trasparenza:</strong> i candidati possono iscriversi <strong>senza costi</strong>{" "}
             per essere contattati dalle imprese. Chi vuole anche <strong>cercare attivamente le aziende</strong> può
             sottoscrivere un <strong>piano candidato</strong> a parte (indicativo 99 € / 6 mesi + IVA), come in{" "}
-            <Link to="/prezzi#piano-cerca-aziende" className="premium-link">
-              Prezzi
+            <Link to="/registrazione/candidato#piano-cerca-aziende" className="premium-link">
+              pagina iscrizione candidato (piano affiancato)
             </Link>
             . Le <strong className="text-[#152435]">imprese</strong> usano <strong className="text-[#2C4A6E]">Starter, Basic o Full</strong>{" "}
             con limiti chiari sugli sblocchi profilo.
@@ -307,8 +310,11 @@ export function Home() {
                   <span>
                     Scegli: <strong>solo essere contattato</strong> (gratis) oppure anche <strong>cercare le aziende</strong>{" "}
                     (piano a pagamento, dopo attivazione) — vedi{" "}
-                    <Link to="/prezzi#piano-cerca-aziende" className="font-semibold text-[#2C4A6E] underline">
-                      Prezzi
+                    <Link
+                      to="/registrazione/candidato#piano-cerca-aziende"
+                      className="font-semibold text-[#2C4A6E] underline"
+                    >
+                      iscrizione candidato
                     </Link>
                     .
                   </span>
@@ -416,8 +422,8 @@ export function Home() {
         <div className="mx-auto max-w-3xl rounded-3xl border border-[#2C4A6E]/20 bg-gradient-to-b from-[#152435] to-[#0a1628] px-6 py-12 text-center text-white shadow-[0_24px_80px_rgba(15,23,42,0.35)] sm:px-12">
           <h2 className="font-luxury-display text-3xl font-semibold sm:text-4xl">Accesso al servizio</h2>
           <p className="mt-3 text-white/70">
-            Candidati: percorso base senza costi; opzione a pagamento per cercare aziende. Imprese: attivazione secondo
-            Prezzi.
+            Candidati: percorso base senza costi; opzione a pagamento per cercare aziende. Imprese: piani affiancati al
+            modulo di iscrizione.
           </p>
           <Link to="/registrazione" className={`${btnDark} mt-8 border border-white/10`}>
             Vai alla registrazione

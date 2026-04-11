@@ -19,8 +19,8 @@ export function Footer() {
             <p className="text-[0.65rem] font-bold uppercase tracking-[0.2em] text-[#8AB4CE]">Piattaforma</p>
             <ul className="mt-4 space-y-2.5">
               <li>
-                <Link to="/prezzi" className={footLink}>
-                  Prezzi
+                <Link to="/registrazione/azienda" className={footLink}>
+                  Iscrizione imprese e piani
                 </Link>
               </li>
               <li>
@@ -30,7 +30,12 @@ export function Footer() {
               </li>
               <li>
                 <Link to="/registrazione" className={footLink}>
-                  Registrazione
+                  Registrazione (scelta percorso)
+                </Link>
+              </li>
+              <li>
+                <Link to="/registrazione/candidato" className={footLink}>
+                  Iscrizione candidato
                 </Link>
               </li>
               <li>

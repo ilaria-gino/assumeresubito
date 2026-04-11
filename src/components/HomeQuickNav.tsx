@@ -6,7 +6,7 @@ import { Link, useLocation } from "react-router-dom";
  */
 export function HomeQuickNav() {
   const { pathname } = useLocation();
-  if (pathname === "/" || pathname === "/registrazione") return null;
+  if (pathname === "/" || pathname.startsWith("/registrazione")) return null;
 
   return (
     <Link

@@ -10,15 +10,20 @@ const ROUTES: Record<string, { title: string; description: string }> = {
     title: `${BRAND.name} | Selezione tra aziende e candidati, verticali di settore`,
     description: `${BRAND.shortDescription} Ricerca su tutta Italia (regione, città; i candidati dichiarano i km di spostamento). Starter, Basic e Full (piano top): contatto da candidato solo con Full se in contratto. Candidati gratis.`,
   },
-  "/prezzi": {
-    title: `Prezzi e condizioni | ${BASE}`,
-    description:
-      "Imprese: Starter, Basic, Full (top). Candidati: gratis o piano Cerca aziende (indicativo 99€/6 mesi). Sblocchi e contatti come da pagina. +IVA indicativa.",
-  },
   "/registrazione": {
-    title: `Registrazione azienda o candidato | ${BASE}`,
+    title: `Registrazione | Scegli percorso | ${BASE}`,
     description:
-      "Candidato: percorso gratis o a pagamento; Paese, città, CAP a mano, km. Imprese: richiesta accesso. Privacy e cookie.",
+      "Hub iscrizione: candidato o impresa. Su ogni pagina modulo e condizioni economiche affiancate (niente pagina prezzi separata).",
+  },
+  "/registrazione/azienda": {
+    title: `Iscrizione imprese e piani Starter, Basic, Full | ${BASE}`,
+    description:
+      "Modulo richiesta azienda con piani e sblocchi indicativi affiancati. +IVA. Non agenzia per il lavoro.",
+  },
+  "/registrazione/candidato": {
+    title: `Iscrizione candidato | Gratis o Cerca aziende | ${BASE}`,
+    description:
+      "Modulo candidato: percorso gratuito o piano a pagamento per consultare imprese. Prezzi nel riquadro accanto al form.",
   },
   "/chi-siamo": {
     title: `Chi siamo | ${BASE}`,

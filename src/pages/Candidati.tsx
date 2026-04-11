@@ -277,8 +277,8 @@ export function Candidati() {
                   "Questa colonna è solo per chi ha registrato un’azienda.",
                 ]
           }
-          veilPrimary={{ to: "/registrazione#azienda", label: "Registrati come azienda" }}
-          veilSecondary={!session ? { to: "/prezzi", label: "Quanto costa per le imprese" } : undefined}
+          veilPrimary={{ to: "/registrazione/azienda", label: "Registrati come azienda" }}
+          veilSecondary={!session ? { to: "/registrazione/azienda", label: "Vedi piani accanto al modulo" } : undefined}
         >
           {session?.role === "company" && (
             <>
@@ -352,15 +352,18 @@ export function Candidati() {
           }
           veilPrimary={
             !session
-              ? { to: "/registrazione#candidato", label: "Registrati come candidato" }
+              ? { to: "/registrazione/candidato", label: "Registrati come candidato" }
               : session.role === "company"
-                ? { to: "/registrazione#candidato", label: "Vai al modulo candidato" }
-                : { to: "/prezzi#piano-cerca-aziende", label: "Leggi il piano «Cerca aziende»" }
+                ? { to: "/registrazione/candidato", label: "Vai al modulo candidato" }
+                : {
+                    to: "/registrazione/candidato#piano-cerca-aziende",
+                    label: "Leggi il piano «Cerca aziende»",
+                  }
           }
           veilSecondary={
             !session || session.role === "company"
-              ? { to: "/prezzi", label: "Tutti i prezzi" }
-              : { to: "/registrazione#candidato", label: "Cambia percorso in registrazione" }
+              ? { to: "/registrazione/azienda", label: "Piani per le imprese" }
+              : { to: "/registrazione/candidato", label: "Cambia percorso in iscrizione" }
           }
         >
           {isWorkerSearchActive && session && (

@@ -93,8 +93,8 @@ Se il repository remoto non è vuoto, segui le istruzioni GitHub per il primo pu
 | ---------------- | ---------------------------- |
 | `/`              | Homepage                     |
 | `/settori/:slug` | Landing verticali            |
-| `/registrazione` | Form → Supabase (se `.env`)  |
-| `/prezzi`, …     | Pagine istituzionali         |
+| `/registrazione` | Scelta percorso (hub)        |
+| `/registrazione/azienda`, `/registrazione/candidato` | Modulo + piani affiancati → Supabase (se `.env`) |
 
 Slug settori: `immobiliare`, `ristorazione`, `logistica`, `edilizia`, `termoidraulica`, `impianti-elettrici`, `uffici`, `commercio`.
 

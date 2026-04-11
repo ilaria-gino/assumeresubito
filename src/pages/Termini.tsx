@@ -44,7 +44,8 @@ export function Termini() {
             I candidati possono utilizzare un <strong>profilo base gratuito</strong> per essere contattati dalle imprese.
             L&apos;accesso a funzioni aggiuntive di <strong>consultazione attiva dei profili aziendali</strong> può essere
             subordinato a un <strong>piano a pagamento per candidati</strong> (es. formula semestrale), alle condizioni
-            pubblicate nella pagina Prezzi e nel contratto applicabile, con attivazione dopo pagamento ove previsto.
+            pubblicate nella pagina di iscrizione (piani affiancati al modulo) e nel contratto applicabile, con attivazione
+            dopo pagamento ove previsto.
           </p>
         </section>
 

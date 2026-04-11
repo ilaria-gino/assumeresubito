@@ -157,7 +157,7 @@ export const FAQ_EMPRESA: FaqItem[] = [
     id: "e26",
     question: "Come usare un servizio di matching verticale?",
     answer:
-      "Definire settore, profilo, tempi di risposta e coerenza con quanto pubblicato su prezzi e termini.",
+      "Definire settore, profilo, tempi di risposta e coerenza con quanto pubblicato su iscrizione (piani affiancati) e termini.",
   },
   {
     id: "e27",
@@ -340,7 +340,7 @@ export const FAQ_LAVORATORE: FaqItem[] = [
     id: "l27",
     question: "Posso contattare io un’azienda dalla piattaforma?",
     answer:
-      "Di norma l’iniziativa è dell’impresa dopo lo sblocco del profilo. Solo se l’azienda ha il piano Full (top) e la funzione è attiva (come da contratto tra voi e il servizio), può essere possibile manifestare interesse o contattarla. Controllate la pagina Prezzi e le comunicazioni ufficiali.",
+      "Di norma l’iniziativa è dell’impresa dopo lo sblocco del profilo. Solo se l’azienda ha il piano Full (top) e la funzione è attiva (come da contratto tra voi e il servizio), può essere possibile manifestare interesse o contattarla. Controllate i piani sulla pagina di iscrizione imprese e le comunicazioni ufficiali.",
   },
   {
     id: "l28",
@@ -358,6 +358,6 @@ export const FAQ_LAVORATORE: FaqItem[] = [
     id: "l30",
     question: "Devo pagare per iscrivermi come candidato?",
     answer:
-      "No per il percorso base: puoi registrarti gratis e restare tra i profili che le imprese possono contattare. Se vuoi anche cercare attivamente le aziende (funzioni di consultazione), è previsto un piano a pagamento separato (indicativo 99 € / 6 mesi + IVA), con attivazione dopo pagamento quando lo strumento sarà operativo. Dettagli in Prezzi.",
+      "No per il percorso base: puoi registrarti gratis e restare tra i profili che le imprese possono contattare. Se vuoi anche cercare attivamente le aziende (funzioni di consultazione), è previsto un piano a pagamento separato (indicativo 99 € / 6 mesi + IVA), con attivazione dopo pagamento quando lo strumento sarà operativo. Dettagli nella pagina di iscrizione candidato, affiancati al modulo.",
   },
 ];
