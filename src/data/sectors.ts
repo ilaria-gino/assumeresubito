@@ -17,6 +17,11 @@ export interface SectorContent {
   problems: string[];
   solutions: string[];
   cta: string;
+  /** Due articoli blog collegati (SEO e fiducia). */
+  relatedArticleSlugs: readonly [string, string];
+  /** Link opzionale a strumenti (es. retribuzioni orientative). */
+  relatedToolPath?: string;
+  relatedToolLabel?: string;
   /** Per avatar / illustrazione locale */
   avatarHint: "suit" | "chef" | "warehouse" | "hardhat" | "desk" | "retail";
 }
@@ -32,6 +37,7 @@ export const SECTORS: SectorContent[] = [
     problems: ["Candidati poco seri", "Troppi CV generici", "Turnover alto", "Urgenza su trattative"],
     solutions: ["Profili filtrati per zona e esperienza", "Disponibilità chiara fin da subito", "Contatto rapido", "Anonimato che attira risposte"],
     cta: "Trova agenti disponibili ora",
+    relatedArticleSlugs: ["immobiliare-annuncio-zona-primo-contatto", "immobiliare-selezione-affidabilita-agenti"],
     avatarHint: "suit",
   },
   {
@@ -43,6 +49,7 @@ export const SECTORS: SectorContent[] = [
     problems: ["Coperture last minute", "Assenze improvvise", "Candidati inesperti"],
     solutions: ["Disponibilità turni evidenziata", "Esperienza in sala/cucina", "Match per zona"],
     cta: "Trova personale per il locale",
+    relatedArticleSlugs: ["ristorazione-annunci-turni-ruoli-chiari", "ristorazione-assumere-sala-cucina-tempi"],
     avatarHint: "chef",
   },
   {
@@ -54,6 +61,7 @@ export const SECTORS: SectorContent[] = [
     problems: ["Turni notturni difficili da coprire", "Patenti e abilitazioni da verificare", "Picchi di ordini"],
     solutions: ["Filtri patente e automunito", "Disponibilità immediata", "Profili con esperienza logistica"],
     cta: "Trova operatori disponibili",
+    relatedArticleSlugs: ["logistica-magazzino-annuncio-patenti-disponibilita", "logistica-selezione-operatori-errori-comuni"],
     avatarHint: "warehouse",
   },
   {
@@ -70,6 +78,9 @@ export const SECTORS: SectorContent[] = [
       "Profili coerenti col ruolo",
     ],
     cta: "Trova operai disponibili",
+    relatedArticleSlugs: ["edilizia-annuncio-cantiere-competenze-verificabili", "edilizia-assumere-operai-tempi-sicurezza"],
+    relatedToolPath: "/retribuzioni-orientative",
+    relatedToolLabel: "Retribuzioni orientative (ruoli operativi)",
     avatarHint: "hardhat",
   },
   {
@@ -82,6 +93,9 @@ export const SECTORS: SectorContent[] = [
     problems: ["Specializzazioni diverse sotto lo stesso nome", "Urgenze su commessa", "Verifica competenze reali"],
     solutions: ["Tag su tipi di impianto e materiali", "Zona operativa chiara", "Match su esperienza dichiarata"],
     cta: "Trova installatori disponibili",
+    relatedArticleSlugs: ["termoidraulica-annuncio-specializzazioni-impianto", "termoidraulica-idraulico-urgenze-commessa"],
+    relatedToolPath: "/retribuzioni-orientative",
+    relatedToolLabel: "Retribuzioni orientative (manutenzione e impianti)",
     avatarHint: "hardhat",
   },
   {
@@ -94,6 +108,12 @@ export const SECTORS: SectorContent[] = [
     problems: ["Requisiti tecnici eterogenei", "Carenza di manodopera qualificata", "Commesse con scadenze strette"],
     solutions: ["Competenze granulari nel profilo", "Disponibilità e raggio d’azione", "Contatto rapido dopo sblocco"],
     cta: "Trova elettricisti disponibili",
+    relatedArticleSlugs: [
+      "impianti-elettrici-annuncio-civile-industriale-domotica",
+      "impianti-elettrici-elettricista-mercato-teso",
+    ],
+    relatedToolPath: "/retribuzioni-orientative",
+    relatedToolLabel: "Retribuzioni orientative (impianti)",
     avatarHint: "hardhat",
   },
   {
@@ -105,6 +125,7 @@ export const SECTORS: SectorContent[] = [
     problems: ["CV lunghi e poco chiari", "Mancanza di disponibilità immediata", "Troppi colloqui inutili"],
     solutions: ["Scheda sintetica e leggibile", "Match su competenze e zona", "Contatto entro 48 ore"],
     cta: "Trova profili amministrativi",
+    relatedArticleSlugs: ["uffici-amministrazione-annuncio-chiaro", "uffici-selezione-back-office-colloquio"],
     avatarHint: "desk",
   },
   {
@@ -116,6 +137,7 @@ export const SECTORS: SectorContent[] = [
     problems: ["Picchi nei weekend", "Turni spezzati", "Personale instabile"],
     solutions: ["Full-time / part-time chiaro", "Esperienza vendita", "Zona e disponibilità"],
     cta: "Trova commessi disponibili",
+    relatedArticleSlugs: ["commercio-negozio-annuncio-turni-weekend", "commercio-vendita-dettaglio-assunzione-rapida"],
     avatarHint: "retail",
   },
 ];

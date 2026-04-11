@@ -55,6 +55,12 @@ export function RegistrazioneHub() {
           <span className={`${btnSecondary} mt-8 w-full justify-center border-2 border-[#2C4A6E]/30`}>Continua</span>
         </Link>
       </div>
+      <p className="mt-10 text-center text-sm text-[#152435]/75">
+        <Link to="/#dopo-iscrizione" className="font-semibold text-[#2C4A6E] underline decoration-[#2C4A6E]/30 underline-offset-4">
+          Cosa succede dopo l&apos;iscrizione
+        </Link>{" "}
+        (tempi orientati alle 48 ore ove applicabile, match per settore e area).
+      </p>
     </PremiumPageShell>
   );
 }

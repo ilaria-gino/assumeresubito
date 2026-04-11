@@ -1,5 +1,6 @@
 import { Link, useParams } from "react-router-dom";
 import { getSector } from "../data/sectors";
+import { getArticleBySlug } from "../data/blog/posts";
 import { RoleAvatar } from "../components/RoleAvatar";
 import { btnPrimarySm } from "../components/ui/ButtonStyles";
 
@@ -129,6 +130,56 @@ export function SectorPage() {
             Filtri: esperienza · disponibilità · automunito / patente · full-time / part-time — nella dashboard
             completa.
           </p>
+        </div>
+      </section>
+
+      <section className="border-t border-[#e1dbd1] bg-[#faf8f5] px-4 py-12 sm:px-6">
+        <div className="mx-auto max-w-3xl">
+          <h2 className="font-luxury-display text-center text-xl font-semibold text-[#152435]">
+            Approfondimenti sul settore
+          </h2>
+          <p className="mt-2 text-center text-sm text-[#6b7a8d]">
+            Due articoli del blog collegati a <strong className="font-semibold text-[#152435]">{sector.title}</strong>{" "}
+            — annunci, selezione e buone pratiche (contenuti informativi).
+          </p>
+          <ul className="mt-8 space-y-3">
+            {sector.relatedArticleSlugs.map((slug) => {
+              const art = getArticleBySlug(slug);
+              if (!art) return null;
+              return (
+                <li key={slug}>
+                  <Link
+                    to={`/blog/${slug}`}
+                    className="group flex items-start gap-3 rounded-xl border border-[#e1dbd1] bg-white p-4 shadow-sm transition hover:border-[#2C4A6E]/35 hover:shadow-md"
+                  >
+                    <span className="mt-0.5 text-[#FF6B35]" aria-hidden>
+                      →
+                    </span>
+                    <span className="text-left font-semibold text-[#2C4A6E] group-hover:underline">{art.title}</span>
+                  </Link>
+                </li>
+              );
+            })}
+          </ul>
+          <div className="mt-8 flex flex-col items-center justify-center gap-3 sm:flex-row sm:flex-wrap">
+            <Link
+              to="/faq"
+              className="inline-flex rounded-xl border border-[#2C4A6E]/30 bg-white px-5 py-2.5 text-sm font-semibold text-[#2C4A6E] transition hover:bg-[#2C4A6E]/5"
+            >
+              FAQ imprese e candidati
+            </Link>
+            {sector.relatedToolPath && sector.relatedToolLabel && (
+              <Link
+                to={sector.relatedToolPath}
+                className="inline-flex rounded-xl border border-[#FF6B35]/40 bg-[#fff7ed] px-5 py-2.5 text-sm font-semibold text-[#9a3412] transition hover:bg-[#ffedd5]"
+              >
+                {sector.relatedToolLabel}
+              </Link>
+            )}
+            <Link to="/blog" className="premium-link text-sm font-semibold">
+              Tutti gli articoli del blog
+            </Link>
+          </div>
         </div>
       </section>
 

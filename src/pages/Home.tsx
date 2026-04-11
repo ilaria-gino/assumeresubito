@@ -4,6 +4,7 @@ import { SECTORS } from "../data/sectors";
 import { RoleAvatar } from "../components/RoleAvatar";
 import { exampleCandidates, heroEmployer, heroWorker } from "../data/freeMedia";
 import { ExplainerSection } from "../components/ExplainerSection";
+import { PostSignupJourney } from "../components/PostSignupJourney";
 import { TestimonialsMarquee } from "../components/TestimonialsMarquee";
 import { btnDark, btnPrimary, btnSecondary } from "../components/ui/ButtonStyles";
 
@@ -157,6 +158,8 @@ export function Home() {
           </dl>
         </div>
       </section>
+
+      <PostSignupJourney />
 
       {/* Anonimato + card esempio */}
       <section className="border-y border-[#e1dbd1] bg-[#f7f5f1] px-4 py-16 sm:px-6">

@@ -6,6 +6,7 @@ import {
   useMemo,
   useState,
 } from "react";
+import { createPortal } from "react-dom";
 
 const STORAGE_KEY = "l48h_staging_unlocked";
 
@@ -42,33 +43,24 @@ export function StagingGate({ children }: { children: ReactNode }) {
     const body = document.body;
     const prevHtmlOverflow = html.style.overflow;
     const prevBodyOverflow = body.style.overflow;
-    const prevBodyPosition = body.style.position;
-    const prevBodyWidth = body.style.width;
-    const prevBodyTop = body.style.top;
-    const scrollY = window.scrollY;
     html.style.overflow = "hidden";
     body.style.overflow = "hidden";
-    body.style.position = "fixed";
-    body.style.width = "100%";
-    body.style.top = `-${scrollY}px`;
     return () => {
       html.style.overflow = prevHtmlOverflow;
       body.style.overflow = prevBodyOverflow;
-      body.style.position = prevBodyPosition;
-      body.style.width = prevBodyWidth;
-      body.style.top = prevBodyTop;
-      window.scrollTo(0, scrollY);
     };
   }, [locked]);
 
   const submit = useCallback(
-    (e: FormEvent) => {
+    (e: FormEvent<HTMLFormElement>) => {
       e.preventDefault();
       if (!expected) {
         setUnlocked(true);
         return;
       }
-      const ok = timingSafeEqual(password, expected);
+      const fromDom = new FormData(e.currentTarget).get("staging-password");
+      const pwd = (typeof fromDom === "string" ? fromDom : password).trim();
+      const ok = timingSafeEqual(pwd, expected);
       if (ok) {
         try {
           window.sessionStorage.setItem(STORAGE_KEY, "1");
@@ -88,12 +80,13 @@ export function StagingGate({ children }: { children: ReactNode }) {
     return <>{children}</>;
   }
 
-  return (
+  const overlay = (
     <div
-      className="fixed inset-0 z-[99999] flex min-h-[100dvh] w-full flex-col items-center justify-center overflow-y-auto overscroll-contain bg-[#0f172a] px-4 py-6 [-webkit-overflow-scrolling:touch]"
+      className="fixed inset-0 z-[2147483647] box-border flex min-h-screen min-h-[100dvh] w-full max-w-none flex-col items-center justify-center overflow-y-auto overscroll-none bg-[#0f172a] px-4 py-6 [-webkit-overflow-scrolling:touch]"
       style={{
         paddingTop: "max(1.5rem, env(safe-area-inset-top))",
         paddingBottom: "max(1.5rem, env(safe-area-inset-bottom))",
+        minHeight: "-webkit-fill-available",
       }}
       role="dialog"
       aria-modal="true"
@@ -107,7 +100,7 @@ export function StagingGate({ children }: { children: ReactNode }) {
         <p className="mt-2 text-center text-sm text-white/70">
           Ambiente non pubblico. Inserisci la password condivisa dal team.
         </p>
-        <form className="mt-6 space-y-4 sm:mt-8" onSubmit={submit}>
+        <form className="mt-6 space-y-4 sm:mt-8" onSubmit={submit} noValidate>
           <label className="sr-only" htmlFor="staging-password">
             Password
           </label>
@@ -116,11 +109,18 @@ export function StagingGate({ children }: { children: ReactNode }) {
             type="password"
             name="staging-password"
             autoComplete="current-password"
+            autoCorrect="off"
+            autoCapitalize="off"
+            spellCheck={false}
             enterKeyHint="go"
             inputMode="text"
             value={password}
             onChange={(e) => {
               setPassword(e.target.value);
+              setError(false);
+            }}
+            onInput={(e) => {
+              setPassword((e.target as HTMLInputElement).value);
               setError(false);
             }}
             className="min-h-[48px] w-full rounded-xl border border-white/15 bg-white/5 px-4 py-3 text-base text-white placeholder:text-white/40 focus:border-[#FF6B35]/60 focus:outline-none focus:ring-2 focus:ring-[#FF6B35]/25"
@@ -129,7 +129,7 @@ export function StagingGate({ children }: { children: ReactNode }) {
           {error && <p className="text-center text-sm text-red-300">Password non valida.</p>}
           <button
             type="submit"
-            className="min-h-[48px] w-full touch-manipulation rounded-xl bg-gradient-to-b from-orange-300 to-[#FF6B35] py-3 text-base font-bold text-[#0A0F1C] shadow-lg transition hover:brightness-105 active:brightness-95"
+            className="min-h-[48px] w-full cursor-pointer touch-manipulation rounded-xl bg-gradient-to-b from-orange-300 to-[#FF6B35] py-3 text-base font-bold text-[#0A0F1C] shadow-lg transition hover:brightness-105 active:brightness-95"
           >
             Accedi
           </button>
@@ -141,4 +141,6 @@ export function StagingGate({ children }: { children: ReactNode }) {
       </div>
     </div>
   );
+
+  return createPortal(overlay, document.body);
 }

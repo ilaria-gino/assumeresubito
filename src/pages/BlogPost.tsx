@@ -1,6 +1,8 @@
 import { Link, useParams } from "react-router-dom";
 import { getArticleBySlug } from "../data/blog/posts";
 import { getBlogVisual } from "../data/blog/covers";
+import { getSector } from "../data/sectors";
+import { getSectorSlugForBlogArticle } from "../data/sectorArticleLinks";
 
 export function BlogPost() {
   const { slug } = useParams<{ slug: string }>();
@@ -21,6 +23,8 @@ export function BlogPost() {
   }
 
   const v = getBlogVisual(post.slug);
+  const sectorSlug = getSectorSlugForBlogArticle(post.slug);
+  const sector = sectorSlug ? getSector(sectorSlug) : undefined;
 
   return (
     <article className="luxury-page font-luxury-sans pb-24">
@@ -109,6 +113,31 @@ export function BlogPost() {
             ))}
           </dl>
         </section>
+
+        {sector && (
+          <aside className="mt-12 rounded-2xl border border-[#2C4A6E]/20 bg-gradient-to-br from-[#f0f6fb] to-white p-6 shadow-sm">
+            <h2 className="font-luxury-display text-lg font-semibold text-[#152435]">Vertical di settore</h2>
+            <p className="mt-2 text-sm leading-relaxed text-slate-600">
+              Questo articolo si collega al settore{" "}
+              <strong className="font-semibold text-[#152435]">{sector.title}</strong>. Nella landing trovi messaggi per
+              imprese e candidati, più altri approfondimenti e link alla FAQ.
+            </p>
+            <div className="mt-4 flex flex-wrap gap-3">
+              <Link
+                to={`/settori/${sector.slug}`}
+                className="inline-flex rounded-lg bg-[#2C4A6E] px-4 py-2 text-sm font-semibold text-white transition hover:bg-[#3a5f8c]"
+              >
+                Vai a {sector.title}
+              </Link>
+              <Link
+                to="/faq"
+                className="inline-flex rounded-lg border border-[#2C4A6E]/35 bg-white px-4 py-2 text-sm font-semibold text-[#2C4A6E] transition hover:bg-[#2C4A6E]/5"
+              >
+                FAQ
+              </Link>
+            </div>
+          </aside>
+        )}
 
         <p className="mt-14 text-center">
           <Link

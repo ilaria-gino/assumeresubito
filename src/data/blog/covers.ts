@@ -1,11 +1,25 @@
 /** Immagini dedicate (Unsplash) e categorie editoriali per il layout blog. */
+import { SETTORI_VERTICALI_SLUGS } from "./posts/settori-articoli-verticali";
+
 export type BlogVisual = {
   category: string;
   coverImage: string;
   imageAlt: string;
 };
 
+const SETTORI_VERTICALI_VISUAL: BlogVisual = {
+  category: "Verticali di settore",
+  coverImage:
+    "https://images.unsplash.com/photo-1521737711867-e3b97375f902?w=1200&q=85&auto=format&fit=crop",
+  imageAlt: "Professionisti in contesto di lavoro strutturato",
+};
+
+const SETTORI_VERTICALI_COVER_MAP = Object.fromEntries(
+  SETTORI_VERTICALI_SLUGS.map((slug) => [slug, SETTORI_VERTICALI_VISUAL]),
+) as Record<string, BlogVisual>;
+
 export const BLOG_VISUALS: Record<string, BlogVisual> = {
+  ...SETTORI_VERTICALI_COVER_MAP,
   "smart-working-obblighi-aprile-2026": {
     category: "Normativa & agile",
     coverImage:
@@ -57,6 +71,7 @@ export function getBlogVisual(slug: string): BlogVisual {
 
 export const BLOG_CATEGORIES = [
   "Tutti",
+  "Verticali di settore",
   "Normativa & agile",
   "Recruiting",
   "Colloquio",

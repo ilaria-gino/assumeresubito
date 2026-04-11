@@ -2,6 +2,7 @@ import { useEffect, useMemo } from "react";
 import { useLocation } from "react-router-dom";
 import { BRAND } from "../config/brand";
 import { getArticleBySlug } from "../data/blog/posts";
+import { getSector } from "../data/sectors";
 
 const BASE = BRAND.domain;
 
@@ -68,6 +69,16 @@ const ROUTES: Record<string, { title: string; description: string }> = {
 
 function metaForPath(pathname: string) {
   if (pathname.startsWith("/settori/")) {
+    const slug = pathname.replace(/^\/settori\//, "");
+    const sector = slug ? getSector(slug) : undefined;
+    if (sector) {
+      const desc =
+        sector.heroSubtitle.length > 158 ? `${sector.heroSubtitle.slice(0, 155).trim()}…` : sector.heroSubtitle;
+      return {
+        title: `${sector.title}: selezione e assunzioni | ${BASE}`,
+        description: desc,
+      };
+    }
     return {
       title: `Settore | ${BASE}`,
       description: `Landing di settore su ${BRAND.domain}: filtri, messaggi e percorsi di registrazione per aziende e candidati.`,

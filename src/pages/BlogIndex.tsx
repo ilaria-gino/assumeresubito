@@ -61,8 +61,16 @@ export function BlogIndex() {
               e diritti
             </h1>
             <p className="mt-4 max-w-xl text-sm leading-relaxed text-white/45">
-              Approfondimenti istituzionali su normativa, recruiting e contratti. Ogni articolo si chiude con FAQ.
-              Contenuti utili, senza sostituire pareri legali.
+              Approfondimenti istituzionali su normativa, recruiting e contratti, più guide per{" "}
+              <strong className="font-semibold text-white/70">verticali di settore</strong> (allineate alle landing{" "}
+              <Link to="/" className="text-amber-200/90 underline decoration-amber-500/50 underline-offset-2">
+                dalla home
+              </Link>
+              ). Ogni articolo si chiude con FAQ. Per risposte rapide:{" "}
+              <Link to="/faq" className="text-amber-200/90 underline decoration-amber-500/50 underline-offset-2">
+                pagina FAQ
+              </Link>
+              . Contenuti utili, senza sostituire pareri legali.
             </p>
             <p className="mt-2 text-xs text-white/35">
               Ultimo aggiornamento contenuti: {new Date().toLocaleDateString("it-IT", { month: "long", year: "numeric" })}

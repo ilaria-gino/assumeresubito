@@ -1,12 +1,17 @@
+import { useMemo } from "react";
 import { FAQ_EMPRESA, FAQ_LAVORATORE } from "../data/faqContent";
+import { buildFaqPageStructuredData } from "../data/faqPageJsonLd";
 import { Link } from "react-router-dom";
 
 const FAQ_HERO_IMG =
   "https://images.unsplash.com/photo-1521737711867-e3b97375f902?w=1600&q=85&auto=format&fit=crop";
 
 export function Faq() {
+  const faqJsonLd = useMemo(() => JSON.stringify(buildFaqPageStructuredData()), []);
+
   return (
     <div className="luxury-page font-luxury-sans pb-24">
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: faqJsonLd }} />
       <header className="relative overflow-hidden">
         <div className="absolute inset-0">
           <img
